@@ -17,6 +17,14 @@
           }
         }
       })();
+
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect != location.href) {
+          history.replaceState(null, null, redirect.replace('/portfolio/', '/portfolio/#'));
+        }
+      })();
     </script>
     <script type="module" crossorigin src="/portfolio/assets/index-C6nM5d0d.js"></script>
     <link rel="stylesheet" crossorigin href="/portfolio/assets/index-CYSU7I9a.css">
