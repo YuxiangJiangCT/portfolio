@@ -5,28 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ryan's Portfolio</title>
-    <script>
-      // 检查是否有重定向
-      (function() {
-        const redirect = localStorage.getItem('redirect');
-        if (redirect) {
-          localStorage.removeItem('redirect');
-          const repo = '/portfolio'; // 您的仓库名
-          if (redirect !== '/' && redirect !== repo) {
-            window.history.replaceState(null, null, redirect);
-          }
-        }
-      })();
-
-      (function() {
-        var redirect = sessionStorage.redirect;
-        delete sessionStorage.redirect;
-        if (redirect && redirect != location.href) {
-          history.replaceState(null, null, redirect.replace('/portfolio/', '/portfolio/#'));
-        }
-      })();
-    </script>
-    <script type="module" crossorigin src="/portfolio/assets/index-C6nM5d0d.js"></script>
+    <script type="module" crossorigin src="/portfolio/assets/index-BzDicQYZ.js"></script>
     <link rel="stylesheet" crossorigin href="/portfolio/assets/index-CYSU7I9a.css">
   </head>
   <body>
