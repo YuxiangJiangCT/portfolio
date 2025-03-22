@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ryan's Portfolio</title>
+    <script>
+      // 检查是否有重定向
+      (function() {
+        const redirect = localStorage.getItem('redirect');
+        if (redirect) {
+          localStorage.removeItem('redirect');
+          const repo = '/portfolio'; // 您的仓库名
+          if (redirect !== '/' && redirect !== repo) {
+            window.history.replaceState(null, null, redirect);
+          }
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/portfolio/assets/index-C6nM5d0d.js"></script>
+    <link rel="stylesheet" crossorigin href="/portfolio/assets/index-CYSU7I9a.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
