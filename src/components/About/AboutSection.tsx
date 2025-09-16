@@ -6,7 +6,7 @@ function AboutSection() {
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
 
   return (
-    <section className="py-32 px-6">
+    <section id="about" className="py-32 px-6">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl font-mono text-center mb-16">More About Me</h2>
 

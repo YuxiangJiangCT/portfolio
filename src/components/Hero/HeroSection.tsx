@@ -1,24 +1,16 @@
-import { Linkedin, Github, FileText } from 'lucide-react';
+import { Linkedin, Github, FileText, MapPin, Mail, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { profileData } from '../../data/profile';
-import { skillsData } from '../../data/skills';
 import EducationSection from '../Education/EducationSection';
-import GradientText from '../common/GradientText';
-import Badge from '../common/Badge';
-import { CSSFloatingParticles } from '../animations/FloatingParticles';
-import FadeInWhenVisible from '../animations/FadeInWhenVisible';
 import TypewriterEffect from '../animations/TypewriterEffect';
-import { useMouseParallax } from '../../hooks/useAnimations';
 
 function HeroSection() {
-  const mousePosition = useMouseParallax(10);
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
         delayChildren: 0.1
       }
     }
@@ -30,202 +22,203 @@ function HeroSection() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
+        duration: 0.6,
         ease: [0.6, -0.05, 0.01, 0.99]
       }
     }
   };
 
   return (
-    <section className="pt-40 pb-32 px-6 relative overflow-hidden">
-      {/* Animated Background */}
-      <CSSFloatingParticles
-        count={15}
-        className="absolute inset-0"
-        color="rgba(79, 70, 229, 0.05)"
-        minSize={3}
-        maxSize={8}
-      />
+    <section className="min-h-screen flex items-center justify-center px-6 py-20 relative overflow-hidden">
+      {/* Subtle animated background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-light-primary/5 via-transparent to-light-accent/5 dark:from-dark-primary/10 dark:to-dark-accent/10" />
 
-      {/* Background Pattern with Parallax */}
+      {/* Animated mesh gradient */}
       <motion.div
-        className="absolute inset-0 bg-grid-pattern bg-grid opacity-[0.02] dark:opacity-[0.03]"
-        style={{
-          x: mousePosition.x * 0.5,
-          y: mousePosition.y * 0.5
+        className="absolute top-0 left-0 w-96 h-96 bg-light-primary/10 dark:bg-dark-primary/20 rounded-full blur-3xl"
+        animate={{
+          x: [0, 100, 0],
+          y: [0, 50, 0],
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      <motion.div
+        className="absolute bottom-0 right-0 w-96 h-96 bg-light-accent/10 dark:bg-dark-accent/20 rounded-full blur-3xl"
+        animate={{
+          x: [0, -100, 0],
+          y: [0, -50, 0],
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 10
         }}
       />
 
       <motion.div
-        className="max-w-7xl mx-auto relative z-10"
+        className="max-w-7xl mx-auto relative z-10 w-full"
         initial="hidden"
         animate="visible"
         variants={containerVariants}
       >
-        <motion.h1
-          className="text-4xl font-bold mb-16 font-mono text-center"
-          variants={itemVariants}
-        >
-          <TypewriterEffect
-            text="Ryan's Portfolio"
-            speed={100}
-            className="inline-block"
-            cursor={false}
-          />
-        </motion.h1>
-
-        <div className="grid md:grid-cols-2 gap-16 items-start">
-          {/* Left Side - Profile Image and Personal Info */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Left Side - Personal Info */}
           <motion.div variants={itemVariants}>
-            {/* Avatar with Skills */}
-            <motion.div
-              className="relative mx-auto w-64 h-64 mt-10"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              {/* Background circle with animation */}
+            <div className="text-center lg:text-left">
+              {/* Name with gradient */}
+              <motion.h1
+                className="text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-light-primary to-light-accent dark:from-dark-primary dark:to-dark-accent bg-clip-text text-transparent"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                {profileData.name.split('(')[0]}
+              </motion.h1>
+
+              {/* Title with typewriter effect */}
               <motion.div
-                className="absolute inset-0 rounded-full bg-gradient-to-br from-light-primary/20 to-light-primary/10 dark:from-dark-primary/20 dark:to-dark-primary/10 scale-110 z-0"
+                className="text-2xl lg:text-3xl text-light-text-secondary dark:text-dark-text-secondary mb-6"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+              >
+                <TypewriterEffect
+                  text={profileData.title}
+                  speed={50}
+                  delay={500}
+                  cursor={true}
+                />
+              </motion.div>
+
+              {/* Location and details */}
+              <motion.div
+                className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-8 text-light-text-secondary dark:text-dark-text-secondary"
+                variants={itemVariants}
+              >
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4" />
+                  <span>{profileData.location}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Calendar className="w-4 h-4" />
+                  <span>Available for opportunities</span>
+                </div>
+              </motion.div>
+
+              {/* Brief introduction */}
+              <motion.p
+                className="text-lg text-light-text-secondary dark:text-dark-text-secondary mb-8 max-w-xl mx-auto lg:mx-0"
+                variants={itemVariants}
+              >
+                Passionate about building scalable systems and solving complex technical challenges.
+                Currently pursuing M.S. in Computer Science at Cornell Tech.
+              </motion.p>
+
+              {/* Social Links */}
+              <motion.div
+                className="flex items-center justify-center lg:justify-start gap-4"
+                variants={itemVariants}
+              >
+                <motion.a
+                  href={profileData.social.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-2 px-4 py-2 bg-light-card dark:bg-dark-card rounded-lg border border-light-border dark:border-dark-border hover:border-light-primary dark:hover:border-dark-primary transition-all"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Linkedin className="w-5 h-5 group-hover:text-light-primary dark:group-hover:text-dark-primary transition-colors" />
+                  <span className="text-sm font-medium">LinkedIn</span>
+                </motion.a>
+
+                <motion.a
+                  href={profileData.social.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-2 px-4 py-2 bg-light-card dark:bg-dark-card rounded-lg border border-light-border dark:border-dark-border hover:border-light-primary dark:hover:border-dark-primary transition-all"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Github className="w-5 h-5 group-hover:text-light-primary dark:group-hover:text-dark-primary transition-colors" />
+                  <span className="text-sm font-medium">GitHub</span>
+                </motion.a>
+
+                <motion.a
+                  href={profileData.social.resume}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-light-primary to-light-accent dark:from-dark-primary dark:to-dark-accent text-white rounded-lg shadow-lg hover:shadow-xl transition-all"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <FileText className="w-5 h-5" />
+                  <span className="text-sm font-medium">Resume</span>
+                </motion.a>
+              </motion.div>
+
+              {/* Quick stats */}
+              <motion.div
+                className="grid grid-cols-3 gap-4 mt-12 pt-12 border-t border-light-border dark:border-dark-border"
+                variants={itemVariants}
+              >
+                <div className="text-center lg:text-left">
+                  <div className="text-2xl font-bold text-light-primary dark:text-dark-primary">1+</div>
+                  <div className="text-sm text-light-text-secondary dark:text-dark-text-secondary">Years Experience</div>
+                </div>
+                <div className="text-center lg:text-left">
+                  <div className="text-2xl font-bold text-light-primary dark:text-dark-primary">3+</div>
+                  <div className="text-sm text-light-text-secondary dark:text-dark-text-secondary">Projects</div>
+                </div>
+                <div className="text-center lg:text-left">
+                  <div className="text-2xl font-bold text-light-primary dark:text-dark-primary">10+</div>
+                  <div className="text-sm text-light-text-secondary dark:text-dark-text-secondary">Technologies</div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Right Side - Profile Picture and Education */}
+          <motion.div variants={itemVariants} className="space-y-8">
+            {/* Profile Picture with clean design */}
+            <motion.div
+              className="relative mx-auto w-48 h-48 lg:w-64 lg:h-64"
+              initial={{ scale: 0, rotate: -180 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.3,
+                type: "spring",
+                stiffness: 200
+              }}
+            >
+              {/* Animated ring */}
+              <motion.div
+                className="absolute inset-0 rounded-full bg-gradient-to-br from-light-primary to-light-accent dark:from-dark-primary dark:to-dark-accent p-1"
                 animate={{
-                  scale: [1.1, 1.15, 1.1],
-                  rotate: [0, 180, 360]
+                  rotate: 360
                 }}
                 transition={{
                   duration: 20,
                   repeat: Infinity,
                   ease: "linear"
                 }}
-              />
-
-              {/* Skill badges with Framer Motion */}
-              {skillsData.map((skill, index) => {
-                const positions = [
-                  '-top-6 left-1/2 -translate-x-1/2',
-                  'top-8 -right-12',
-                  'bottom-8 -right-14',
-                  'bottom-8 -left-12',
-                  'top-8 -left-14'
-                ];
-                const variants = ['gradient', 'performance', 'info', 'success', 'gradient'] as const;
-                return (
-                  <motion.div
-                    key={skill.id}
-                    className={`absolute ${positions[index]} z-20`}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{
-                      opacity: 1,
-                      scale: 1,
-                      y: [0, -10, 0]
-                    }}
-                    transition={{
-                      opacity: { delay: 0.5 + index * 0.1 },
-                      scale: { delay: 0.5 + index * 0.1 },
-                      y: {
-                        duration: 3 + index * 0.5,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }
-                    }}
-                  >
-                    <Badge
-                      variant={variants[index]}
-                      size="sm"
-                      rounded
-                      interactive
-                      pulse={index === 0}
-                    >
-                      {skill.name}
-                    </Badge>
-                  </motion.div>
-                );
-              })}
-
-              {/* Avatar with white border */}
-              <motion.div
-                className="relative z-10 w-full h-full rounded-full border-4 border-white overflow-hidden shadow-xl"
-                initial={{ scale: 0, rotate: -180 }}
-                animate={{ scale: 1, rotate: 0 }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.2,
-                  type: "spring",
-                  stiffness: 200
-                }}
               >
-                <img
-                  src={profileData.avatar}
-                  alt="Profile"
-                  className="w-full h-full object-cover rounded-full"
-                />
+                <div className="w-full h-full rounded-full bg-light-bg dark:bg-dark-bg p-1">
+                  <img
+                    src={profileData.avatar}
+                    alt="Profile"
+                    className="w-full h-full object-cover rounded-full"
+                  />
+                </div>
               </motion.div>
             </motion.div>
 
-            {/* Personal Info with animations */}
-            <FadeInWhenVisible direction="up" delay={0.8}>
-              <div className="text-center mt-12">
-                <h2 className="text-2xl font-mono mb-3">
-                  <GradientText gradient="tech" size="2xl" weight="bold">
-                    {profileData.name}
-                  </GradientText>
-                </h2>
-                <motion.p
-                  className="text-light-text-secondary dark:text-dark-text-secondary text-lg mb-6"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 1 }}
-                >
-                  <TypewriterEffect
-                    text={profileData.title}
-                    speed={50}
-                    delay={1000}
-                    cursor={true}
-                  />
-                </motion.p>
-
-                <motion.div
-                  className="flex justify-center gap-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.2 }}
-                >
-                  <motion.a
-                    href={profileData.social.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 hover:text-light-primary dark:hover:text-dark-primary transition-colors bg-light-card dark:bg-dark-card rounded-full"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Linkedin size={24} />
-                  </motion.a>
-                  <motion.a
-                    href={profileData.social.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 hover:text-light-primary dark:hover:text-dark-primary transition-colors bg-light-card dark:bg-dark-card rounded-full"
-                    whileHover={{ scale: 1.1, rotate: -5 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Github size={24} />
-                  </motion.a>
-                  <motion.a
-                    href={profileData.social.resume}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-light-card dark:bg-dark-card rounded-full hover:bg-light-primary hover:text-white dark:hover:bg-dark-primary transition-colors"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <FileText size={20} />
-                    <span className="font-medium">Resume</span>
-                  </motion.a>
-                </motion.div>
-              </div>
-            </FadeInWhenVisible>
-          </motion.div>
-
-          {/* Right Side - Education Section */}
-          <motion.div variants={itemVariants}>
+            {/* Education Section */}
             <EducationSection embedded={true} />
           </motion.div>
         </div>
