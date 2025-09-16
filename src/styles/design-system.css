@@ -1,0 +1,277 @@
+/* Design System - Performance Engineer Brand */
+
+:root {
+  /* Core Brand Colors */
+  --color-primary: #4F46E5; /* Indigo - Technical expertise */
+  --color-primary-light: #818CF8;
+  --color-primary-dark: #3730A3;
+
+  --color-accent: #10B981; /* Emerald - Performance & optimization */
+  --color-accent-light: #34D399;
+  --color-accent-dark: #059669;
+
+  --color-secondary: #8B5CF6; /* Purple - Innovation */
+  --color-secondary-light: #A78BFA;
+  --color-secondary-dark: #7C3AED;
+
+  /* Performance Indicators */
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-info: #3B82F6;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-performance: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  --gradient-tech: linear-gradient(135deg, #4F46E5 0%, #8B5CF6 100%);
+  --gradient-dark: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  --gradient-glow: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  --gradient-heatmap: linear-gradient(90deg, #10B981 0%, #F59E0B 50%, #EF4444 100%);
+
+  /* Spacing System (4px base) */
+  --space-xs: 0.25rem; /* 4px */
+  --space-sm: 0.5rem;  /* 8px */
+  --space-md: 1rem;    /* 16px */
+  --space-lg: 1.5rem;  /* 24px */
+  --space-xl: 2rem;    /* 32px */
+  --space-2xl: 3rem;   /* 48px */
+  --space-3xl: 4rem;   /* 64px */
+
+  /* Typography */
+  --font-mono: 'Fira Code', 'Consolas', 'Monaco', monospace;
+  --font-sans: system-ui, -apple-system, sans-serif;
+
+  /* Shadows - Performance Dashboard Style */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  --shadow-glow: 0 0 20px rgba(79, 70, 229, 0.4);
+  --shadow-glow-accent: 0 0 20px rgba(16, 185, 129, 0.4);
+  --shadow-inner-glow: inset 0 0 20px rgba(79, 70, 229, 0.2);
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Animation Durations */
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 1000ms;
+
+  /* Transitions */
+  --transition-all: all var(--duration-normal) cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-colors: background-color, border-color, color, fill, stroke var(--duration-normal) cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-transform: transform var(--duration-normal) cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-shadow: box-shadow var(--duration-normal) cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Z-index Scale */
+  --z-base: 0;
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-overlay: 30;
+  --z-modal: 40;
+  --z-popover: 50;
+  --z-tooltip: 60;
+}
+
+/* Dark Mode Variables */
+.dark {
+  --color-bg-primary: #0F172A;
+  --color-bg-secondary: #1E293B;
+  --color-bg-tertiary: #334155;
+  --color-text-primary: #F1F5F9;
+  --color-text-secondary: #94A3B8;
+  --color-border: #334155;
+
+  /* Adjusted colors for dark mode */
+  --shadow-glow: 0 0 30px rgba(129, 140, 248, 0.5);
+  --shadow-glow-accent: 0 0 30px rgba(52, 211, 153, 0.5);
+  --shadow-inner-glow: inset 0 0 30px rgba(129, 140, 248, 0.3);
+}
+
+/* Light Mode Variables */
+.light {
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F3F4F6;
+  --color-bg-tertiary: #E5E7EB;
+  --color-text-primary: #1F2937;
+  --color-text-secondary: #6B7280;
+  --color-border: #E5E7EB;
+}
+
+/* Performance Monitoring Grid Background */
+.grid-background {
+  background-image:
+    linear-gradient(rgba(79, 70, 229, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79, 70, 229, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.grid-background-dark {
+  background-image:
+    linear-gradient(rgba(129, 140, 248, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(129, 140, 248, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Dot Pattern Background */
+.dots-background {
+  background-image: radial-gradient(circle, rgba(79, 70, 229, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Circuit Pattern */
+.circuit-background {
+  background-image:
+    linear-gradient(90deg, transparent 49%, rgba(79, 70, 229, 0.05) 49%, rgba(79, 70, 229, 0.05) 51%, transparent 51%),
+    linear-gradient(transparent 49%, rgba(79, 70, 229, 0.05) 49%, rgba(79, 70, 229, 0.05) 51%, transparent 51%);
+  background-size: 30px 30px;
+}
+
+/* Terminal Scanline Effect */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+.scanline::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(129, 140, 248, 0.1),
+    transparent
+  );
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Glow Effects */
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.8;
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Performance Bar Animation */
+@keyframes performance-bar {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+}
+
+/* Utility Classes */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.gradient-border {
+  position: relative;
+  background: var(--color-bg-secondary);
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: var(--gradient-primary);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.glow-effect {
+  transition: var(--transition-shadow);
+}
+
+.glow-effect:hover {
+  box-shadow: var(--shadow-glow);
+}
+
+.glow-effect-accent:hover {
+  box-shadow: var(--shadow-glow-accent);
+}
+
+/* Performance Metrics Colors */
+.metric-excellent {
+  color: var(--color-accent);
+}
+
+.metric-good {
+  color: var(--color-info);
+}
+
+.metric-warning {
+  color: var(--color-warning);
+}
+
+.metric-critical {
+  color: var(--color-error);
+}
+
+/* Terminal Text Effect */
+.terminal-text {
+  font-family: var(--font-mono);
+  text-shadow: 0 0 5px currentColor;
+  letter-spacing: 0.05em;
+}
+
+@keyframes terminal-blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+.terminal-cursor::after {
+  content: '_';
+  animation: terminal-blink 1s infinite;
+}

@@ -1,0 +1,74 @@
+@import './styles/design-system.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  body {
+    @apply font-sans transition-colors duration-300;
+  }
+
+  /* Dark mode styles (default) */
+  .dark body {
+    @apply bg-dark-bg text-dark-text;
+  }
+
+  /* Light mode styles */
+  .light body {
+    @apply bg-light-bg text-light-text;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-mono tracking-wide;
+  }
+
+  /* Smooth transitions for all elements */
+  * {
+    @apply transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-6xl mx-auto px-6;
+  }
+
+  .section-title {
+    @apply text-3xl font-mono mb-12 text-center;
+  }
+
+  /* Card styles with theme support */
+  .card {
+    @apply p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+
+  .dark .card {
+    @apply bg-dark-card hover:bg-dark-card-hover;
+  }
+
+  .light .card {
+    @apply bg-light-card hover:bg-gray-200;
+  }
+
+  /* Animation for fade in */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-out;
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "bbs": {
+    "placeholder": "/images/placeholders/bbs-blur.jpg",
+    "sizes": {
+      "thumbnail": "/images/optimized/bbs/bbs-150w",
+      "mobile": "/images/optimized/bbs/bbs-768w",
+      "desktop": "/images/optimized/bbs/bbs-1920w"
+    }
+  },
+  "bbs1": {
+    "placeholder": "/images/placeholders/bbs1-blur.jpg",
+    "sizes": {
+      "thumbnail": "/images/optimized/bbs1/bbs1-150w",
+      "mobile": "/images/optimized/bbs1/bbs1-768w",
+      "desktop": "/images/optimized/bbs1/bbs1-1920w"
+    }
+  },
+  "huawei": {
+    "placeholder": "/images/placeholders/huawei-blur.jpg",
+    "sizes": {
+      "thumbnail": "/images/optimized/huawei/huawei-150w",
+      "mobile": "/images/optimized/huawei/huawei-768w",
+      "desktop": "/images/optimized/huawei/huawei-1920w"
+    }
+  },
+  "moji": {
+    "placeholder": "/images/placeholders/moji-blur.jpg",
+    "sizes": {
+      "thumbnail": "/images/optimized/moji/moji-150w",
+      "mobile": "/images/optimized/moji/moji-768w",
+      "desktop": "/images/optimized/moji/moji-1920w"
+    }
+  },
+  "recommend": {
+    "placeholder": "/images/placeholders/recommend-blur.jpg",
+    "sizes": {
+      "thumbnail": "/images/optimized/recommend/recommend-150w",
+      "mobile": "/images/optimized/recommend/recommend-768w",
+      "desktop": "/images/optimized/recommend/recommend-1920w"
+    }
+  },
+  "recommend2": {
+    "placeholder": "/images/placeholders/recommend2-blur.jpg",
+    "sizes": {
+      "thumbnail": "/images/optimized/recommend2/recommend2-150w",
+      "mobile": "/images/optimized/recommend2/recommend2-768w",
+      "desktop": "/images/optimized/recommend2/recommend2-1920w"
+    }
+  },
+  "recommend3": {
+    "placeholder": "/images/placeholders/recommend3-blur.jpg",
+    "sizes": {
+      "thumbnail": "/images/optimized/recommend3/recommend3-150w",
+      "mobile": "/images/optimized/recommend3/recommend3-768w",
+      "desktop": "/images/optimized/recommend3/recommend3-1920w"
+    }
+  },
+  "recommend4": {
+    "placeholder": "/images/placeholders/recommend4-blur.jpg",
+    "sizes": {
+      "thumbnail": "/images/optimized/recommend4/recommend4-150w",
+      "mobile": "/images/optimized/recommend4/recommend4-768w",
+      "desktop": "/images/optimized/recommend4/recommend4-1920w"
+    }
+  }
+}
