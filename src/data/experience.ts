@@ -16,7 +16,7 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
-    company: "Dataman Analytics",
+    company: "Dataman Analytics (quantdefi.ai)",
     position: "Software Engineering Intern",
     location: "New York, NY",
     period: "Jun 2025 – Present",
