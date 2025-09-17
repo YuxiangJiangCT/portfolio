@@ -53,7 +53,7 @@ export function useKonamiCode(callback?: () => void) {
         }
       } else {
         // Reset if invalid sequence
-        setSequence([event.code] === KONAMI_CODE[0] ? [event.code] : []);
+        setSequence(event.code === KONAMI_CODE[0] ? [event.code] : []);
       }
     };
 

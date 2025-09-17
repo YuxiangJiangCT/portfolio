@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
-import { ChevronDown, ChevronUp, Briefcase, MapPin, Calendar } from 'lucide-react';
+import { ChevronDown, ChevronUp, Briefcase, MapPin, Calendar, BarChart3 } from 'lucide-react';
 import { Experience, Achievement } from '../../data/experience';
 import MetricCard from './MetricCard';
 import TechBadge from './TechBadge';
+import PerformanceMetricsModal from './PerformanceMetricsModal';
 
 interface TimelineProps {
   experiences: Experience[];
@@ -12,6 +13,7 @@ interface TimelineProps {
 const Timeline: React.FC<TimelineProps> = ({ experiences, onTechFilter }) => {
   const [expandedItems, setExpandedItems] = useState<{ [key: string]: boolean }>({});
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+  const [showPerformanceModal, setShowPerformanceModal] = useState(false);
   const timelineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -98,6 +100,22 @@ const Timeline: React.FC<TimelineProps> = ({ experiences, onTechFilter }) => {
                       {exp.period}
                     </span>
                   </div>
+                  {/* Add Performance Metrics button for Dataman Analytics */}
+                  {exp.company === 'Dataman Analytics' && (
+                    <button
+                      onClick={() => setShowPerformanceModal(true)}
+                      className={`
+                        mt-4 inline-flex items-center gap-2 px-4 py-2
+                        bg-gradient-to-r from-light-primary to-light-accent dark:from-dark-primary dark:to-dark-accent
+                        text-white text-sm font-medium rounded-lg
+                        hover:shadow-lg transform hover:scale-105 transition-all duration-300
+                        ${expIndex % 2 === 0 ? 'md:ml-auto' : ''}
+                      `}
+                    >
+                      <BarChart3 className="w-4 h-4" />
+                      View Performance Metrics
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
@@ -178,6 +196,12 @@ const Timeline: React.FC<TimelineProps> = ({ experiences, onTechFilter }) => {
           </div>
         </div>
       ))}
+
+      {/* Performance Metrics Modal */}
+      <PerformanceMetricsModal
+        isOpen={showPerformanceModal}
+        onClose={() => setShowPerformanceModal(false)}
+      />
     </div>
   );
 };

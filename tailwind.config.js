@@ -8,25 +8,32 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Light mode colors
+        // Light mode colors - Improved with better contrast and consistency
         light: {
-          bg: '#FFFFFF',
-          card: '#F3F4F6',
-          text: '#1F2937',
-          'text-secondary': '#6B7280',
-          primary: '#4F46E5',
-          'primary-hover': '#4338CA',
-          border: '#E5E7EB',
+          bg: '#FAFBFC',  // Softer white with slight blue tint
+          'bg-secondary': '#F6F8FA',  // Secondary background
+          card: '#FFFFFF',  // Pure white for cards
+          'card-hover': '#FAFBFC',  // Subtle hover
+          text: '#0D1117',  // Darker text for better contrast
+          'text-secondary': '#57606A',  // Better secondary text
+          primary: '#6366F1',  // Softer primary
+          'primary-hover': '#4F46E5',  // Darker on hover
+          accent: '#06B6D4',  // Cyan accent for light mode
+          'accent-hover': '#0891B2',
+          border: '#D0D7DE',  // Better border contrast
         },
-        // Dark mode colors
+        // Dark mode colors - Enhanced
         dark: {
           bg: '#0F172A',
+          'bg-secondary': '#1A1F36',
           card: '#1E293B',
           'card-hover': '#334155',
           text: '#F1F5F9',
           'text-secondary': '#94A3B8',
           primary: '#818CF8',
           'primary-hover': '#6366F1',
+          accent: '#06B6D4',
+          'accent-hover': '#22D3EE',
           border: '#334155',
         },
         // Brand colors

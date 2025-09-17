@@ -1,0 +1,193 @@
+/* Theme-specific overrides for better light/dark balance */
+
+/* Light mode specific enhancements */
+.light {
+  /* Gradient backgrounds for sections */
+  background: linear-gradient(180deg, #FAFBFC 0%, #F6F8FA 100%);
+}
+
+/* Hero section gradient in light mode */
+.light .hero-gradient {
+  background: linear-gradient(135deg,
+    rgba(99, 102, 241, 0.03) 0%,
+    rgba(6, 182, 212, 0.03) 100%);
+}
+
+/* Card improvements for light mode */
+.light .skill-card {
+  background: linear-gradient(145deg, #FFFFFF 0%, #FAFBFC 100%);
+  border: 1px solid rgba(208, 215, 222, 0.5);
+}
+
+.light .skill-card:hover {
+  background: linear-gradient(145deg, #FFFFFF 0%, #F6F8FA 100%);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.1);
+}
+
+/* Experience cards in light mode */
+.light .experience-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(208, 215, 222, 0.6);
+  box-shadow: 0 2px 8px rgba(31, 35, 40, 0.04);
+}
+
+.light .experience-card:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.08);
+}
+
+/* Project cards in light mode */
+.light .project-card {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FAFBFC 100%);
+  border: 1px solid rgba(208, 215, 222, 0.5);
+}
+
+.light .project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(31, 35, 40, 0.08);
+  border-color: rgba(6, 182, 212, 0.3);
+}
+
+/* Button styles in light mode */
+.light .btn-primary {
+  background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+}
+
+.light .btn-primary:hover {
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.35);
+  transform: translateY(-1px);
+}
+
+.light .btn-secondary {
+  background: linear-gradient(135deg, #F6F8FA 0%, #FFFFFF 100%);
+  border: 1px solid rgba(208, 215, 222, 0.8);
+  color: #0D1117;
+}
+
+.light .btn-secondary:hover {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F6F8FA 100%);
+  border-color: rgba(99, 102, 241, 0.4);
+  color: #6366F1;
+}
+
+/* Tag/chip styles in light mode */
+.light .tech-tag {
+  background: linear-gradient(135deg, #F6F8FA 0%, #FAFBFC 100%);
+  border: 1px solid rgba(208, 215, 222, 0.6);
+  color: #57606A;
+}
+
+.light .tech-tag:hover {
+  background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+  border-color: transparent;
+  color: white;
+}
+
+/* Section backgrounds */
+.light section:nth-child(even) {
+  background: linear-gradient(180deg, #F6F8FA 0%, #FAFBFC 100%);
+}
+
+.light section:nth-child(odd) {
+  background: linear-gradient(180deg, #FAFBFC 0%, #F6F8FA 100%);
+}
+
+/* Header in light mode */
+.light header {
+  background: rgba(250, 251, 252, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(208, 215, 222, 0.3);
+}
+
+/* Improved text hierarchy in light mode */
+.light h1, .light h2, .light h3 {
+  color: #0D1117;
+  font-weight: 600;
+}
+
+.light h4, .light h5, .light h6 {
+  color: #24292F;
+  font-weight: 500;
+}
+
+.light p {
+  color: #57606A;
+  line-height: 1.6;
+}
+
+/* Link styles in light mode */
+.light a {
+  color: #6366F1;
+  transition: color 0.2s;
+}
+
+.light a:hover {
+  color: #4F46E5;
+}
+
+/* Input/form styles in light mode */
+.light input,
+.light textarea,
+.light select {
+  background: #FFFFFF;
+  border: 1px solid rgba(208, 215, 222, 0.8);
+  color: #0D1117;
+}
+
+.light input:focus,
+.light textarea:focus,
+.light select:focus {
+  border-color: #6366F1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Code blocks in light mode */
+.light code {
+  background: #F6F8FA;
+  color: #0D1117;
+  border: 1px solid rgba(208, 215, 222, 0.3);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.875em;
+}
+
+.light pre code {
+  background: #F6F8FA;
+  display: block;
+  padding: 16px;
+  overflow-x: auto;
+}
+
+/* Scrollbar styling for light mode */
+.light ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.light ::-webkit-scrollbar-track {
+  background: #F6F8FA;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: #D0D7DE;
+  border-radius: 5px;
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background: #8B949E;
+}
+
+/* Dark mode remains unchanged but ensure consistency */
+.dark {
+  background: linear-gradient(180deg, #0F172A 0%, #1A1F36 100%);
+}
+
+/* Ensure smooth transitions between themes */
+* {
+  transition: background-color 0.3s ease,
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}

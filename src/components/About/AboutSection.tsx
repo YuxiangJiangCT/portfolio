@@ -8,7 +8,7 @@ function AboutSection() {
   return (
     <section id="about" className="py-32 px-6">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-mono text-center mb-16">More About Me</h2>
+        <h2 className="text-4xl font-mono text-center mb-16">About Me</h2>
 
         <div className="space-y-3 max-w-full mx-auto">
           {aboutData.map((section) => (

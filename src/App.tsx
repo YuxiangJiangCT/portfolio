@@ -10,7 +10,6 @@ import { useInitialLoad } from './hooks/useInitialLoad';
 
 // Lazy load heavy components
 const ExperienceSection = lazy(() => import('./components/Experience/ExperienceSection'));
-const PerformanceDashboard = lazy(() => import('./components/Dashboard/PerformanceDashboard'));
 const SkillsSection = lazy(() => import('./components/Skills/SkillsSection'));
 const ProjectsSection = lazy(() => import('./components/Projects/ProjectsSection'));
 const CompetitionsSection = lazy(() => import('./components/Competitions/CompetitionsSection'));
@@ -55,9 +54,6 @@ function App() {
         <HeroSection />
         <Suspense fallback={<SectionLoader />}>
           <ExperienceSection />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <PerformanceDashboard />
         </Suspense>
         <Suspense fallback={<SectionLoader />}>
           <SkillsSection />

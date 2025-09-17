@@ -1,4 +1,5 @@
 @import './styles/design-system.css';
+@import './styles/theme-overrides.css';
 
 @tailwind base;
 @tailwind components;
@@ -19,8 +20,8 @@
     @apply bg-dark-bg text-dark-text;
   }
 
-  /* Light mode styles */
-  .light body {
+  /* Light mode styles - Enhanced */
+  body {
     @apply bg-light-bg text-light-text;
   }
 
@@ -43,17 +44,22 @@
     @apply text-3xl font-mono mb-12 text-center;
   }
 
-  /* Card styles with theme support */
+  /* Card styles with theme support - Enhanced */
   .card {
-    @apply p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300;
+    @apply p-8 rounded-xl transition-all duration-300;
   }
 
   .dark .card {
-    @apply bg-dark-card hover:bg-dark-card-hover;
+    @apply bg-dark-card hover:bg-dark-card-hover shadow-lg hover:shadow-xl;
   }
 
   .light .card {
-    @apply bg-light-card hover:bg-gray-200;
+    @apply bg-light-card hover:bg-light-card-hover;
+    box-shadow: 0 1px 3px rgba(31, 35, 40, 0.12), 0 8px 24px rgba(31, 35, 40, 0.04);
+  }
+
+  .light .card:hover {
+    box-shadow: 0 3px 12px rgba(31, 35, 40, 0.15), 0 12px 48px rgba(31, 35, 40, 0.06);
   }
 
   /* Animation for fade in */

@@ -95,14 +95,25 @@
   --shadow-inner-glow: inset 0 0 30px rgba(129, 140, 248, 0.3);
 }
 
-/* Light Mode Variables */
+/* Light Mode Variables - Enhanced */
 .light {
-  --color-bg-primary: #FFFFFF;
-  --color-bg-secondary: #F3F4F6;
-  --color-bg-tertiary: #E5E7EB;
-  --color-text-primary: #1F2937;
-  --color-text-secondary: #6B7280;
-  --color-border: #E5E7EB;
+  --color-bg-primary: #FAFBFC;
+  --color-bg-secondary: #F6F8FA;
+  --color-bg-tertiary: #FFFFFF;
+  --color-text-primary: #0D1117;
+  --color-text-secondary: #57606A;
+  --color-text-tertiary: #8B949E;
+  --color-border: #D0D7DE;
+
+  /* Light mode specific shadows */
+  --shadow-sm: 0 1px 3px rgba(31, 35, 40, 0.12), 0 0 1px rgba(31, 35, 40, 0.04);
+  --shadow-md: 0 3px 12px rgba(31, 35, 40, 0.12), 0 0 1px rgba(31, 35, 40, 0.04);
+  --shadow-lg: 0 8px 24px rgba(31, 35, 40, 0.12);
+  --shadow-xl: 0 12px 48px rgba(31, 35, 40, 0.12);
+
+  /* Light mode gradients */
+  --gradient-primary: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+  --gradient-accent: linear-gradient(135deg, #06B6D4 0%, #0891B2 100%);
 }
 
 /* Performance Monitoring Grid Background */
