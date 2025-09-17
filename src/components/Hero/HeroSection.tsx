@@ -1,11 +1,18 @@
 import { Linkedin, Github, FileText, MapPin, Mail, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Suspense, lazy } from 'react';
 import { profileData } from '../../data/profile';
 import EducationSection from '../Education/EducationSection';
 import TypewriterEffect from '../animations/TypewriterEffect';
 import ProfileCard3D from './ProfileCard3D';
+import { usePerformanceDetect } from '../../hooks/usePerformanceDetect';
+
+// Lazy load the ParticleNetwork component
+const ParticleNetwork = lazy(() => import('./ParticleNetwork'));
 
 function HeroSection() {
+  const { enableParticles, particleCount, connectionDistance } = usePerformanceDetect();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -24,13 +31,23 @@ function HeroSection() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        ease: "easeOut" as const
       }
     }
   };
 
   return (
     <section className="min-h-screen flex items-center justify-center px-6 py-20 relative overflow-hidden">
+      {/* Particle Network Background - Behind everything */}
+      {enableParticles && (
+        <Suspense fallback={null}>
+          <ParticleNetwork
+            count={particleCount}
+            connectionDistance={connectionDistance}
+          />
+        </Suspense>
+      )}
+
       {/* Subtle animated background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-light-primary/5 via-transparent to-light-accent/5 dark:from-dark-primary/10 dark:to-dark-accent/10" />
 

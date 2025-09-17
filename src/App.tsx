@@ -9,6 +9,7 @@ import CompetitionsSection from './components/Competitions/CompetitionsSection';
 import AboutSection from './components/About/AboutSection';
 import ScrollToTop from './components/common/ScrollToTop';
 import ThemeToggle from './components/common/ThemeToggle';
+import ParticleToggle from './components/common/ParticleToggle';
 import LoadingScreen from './components/common/LoadingScreen';
 import { useInitialLoad } from './hooks/useInitialLoad';
 
@@ -28,6 +29,7 @@ function App() {
       <div className="min-h-screen bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text transition-colors duration-300">
         <Header />
         <ThemeToggle />
+        <ParticleToggle />
         <HeroSection />
         <ExperienceSection />
         <PerformanceDashboard />
