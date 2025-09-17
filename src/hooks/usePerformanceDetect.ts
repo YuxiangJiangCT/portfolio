@@ -13,8 +13,13 @@ export function usePerformanceDetect(): PerformanceConfig & { toggle: () => void
     const saved = localStorage.getItem('particlesEnabled');
     const userPreference = saved !== null ? saved === 'true' : null;
 
+    // Quick initial detection for desktop
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    ) || window.innerWidth < 768;
+
     return {
-      enableParticles: false, // Will be set after detection
+      enableParticles: userPreference !== null ? userPreference : !isMobile, // Default to true on desktop
       particleCount: 25,
       connectionDistance: 150,
       autoDetect: userPreference === null
@@ -46,7 +51,7 @@ export function usePerformanceDetect(): PerformanceConfig & { toggle: () => void
       // 2. Check GPU
       const canvas = document.createElement('canvas');
       const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-      if (gl) {
+      if (gl && gl instanceof WebGLRenderingContext) {
         const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
         if (debugInfo) {
           const renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
