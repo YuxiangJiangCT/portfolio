@@ -9,20 +9,12 @@ interface PerformanceConfig {
 
 export function usePerformanceDetect(): PerformanceConfig & { toggle: () => void } {
   const [config, setConfig] = useState<PerformanceConfig>(() => {
-    // Check localStorage for user preference
-    const saved = localStorage.getItem('particlesEnabled');
-    const userPreference = saved !== null ? saved === 'true' : null;
-
-    // Quick initial detection for desktop
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent
-    ) || window.innerWidth < 768;
-
+    // TEMPORARILY FORCE ENABLE FOR TESTING
     return {
-      enableParticles: userPreference !== null ? userPreference : !isMobile, // Default to true on desktop
-      particleCount: 50, // Increased from 25
-      connectionDistance: 200, // Increased from 150
-      autoDetect: userPreference === null
+      enableParticles: true, // Always true for now
+      particleCount: 50,
+      connectionDistance: 200,
+      autoDetect: false
     };
   });
 

@@ -45,7 +45,10 @@ function HeroSection() {
       {/* Particle Network Background - Behind everything */}
       {enableParticles && (
         <Suspense fallback={null}>
-          <SimpleParticles />
+          <ParticleNetwork
+            count={particleCount}
+            connectionDistance={connectionDistance}
+          />
         </Suspense>
       )}
 

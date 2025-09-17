@@ -17,6 +17,19 @@
   cursor: pointer;
 }
 
+/* Theme-adaptive CSS variables */
+:root {
+  --glass-bg-light: rgba(255, 255, 255, 0.75);
+  --glass-border-light: rgba(0, 0, 0, 0.1);
+  --glass-shadow-light: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --glow-color-light: rgba(255, 102, 51, 0.3);
+
+  --glass-bg-dark: rgba(17, 17, 17, 0.85);
+  --glass-border-dark: rgba(255, 255, 255, 0.12);
+  --glass-shadow-dark: 0 8px 32px rgba(0, 0, 0, 0.37);
+  --glow-color-dark: rgba(0, 255, 255, 0.3);
+}
+
 /* Card faces */
 .card-face {
   position: absolute;
@@ -26,20 +39,20 @@
   border-radius: 20px;
   overflow: hidden;
 
-  /* Glassmorphism effect */
-  background: rgba(17, 17, 17, 0.8);
+  /* Light mode glassmorphism */
+  background: var(--glass-bg-light);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.37),
-    inset 0 0 1px rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--glass-border-light);
+  box-shadow: var(--glass-shadow-light);
+  transition: all 0.3s ease;
 }
 
 /* Dark mode adjustments */
 .dark .card-face {
-  background: rgba(17, 17, 17, 0.85);
-  border: 1px solid rgba(168, 85, 247, 0.2);
+  background: var(--glass-bg-dark);
+  border: 1px solid var(--glass-border-dark);
+  box-shadow: var(--glass-shadow-dark);
 }
 
 /* Back face rotation */
@@ -54,9 +67,9 @@
   background: linear-gradient(
     45deg,
     transparent,
-    rgba(0, 255, 255, 0.05),
+    var(--glow-color-light),
     transparent,
-    rgba(168, 85, 247, 0.05),
+    rgba(255, 102, 51, 0.05),
     transparent
   );
   border-radius: 20px;
@@ -66,9 +79,35 @@
   z-index: -1;
 }
 
+.dark .card-glow {
+  background: linear-gradient(
+    45deg,
+    transparent,
+    var(--glow-color-dark),
+    transparent,
+    rgba(168, 85, 247, 0.05),
+    transparent
+  );
+}
+
 .profile-card:hover .card-glow {
   opacity: 1;
   animation: glow-rotate 3s linear infinite;
+}
+
+/* Focus styles for keyboard navigation */
+.profile-card:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.5);
+}
+
+.dark .profile-card:focus {
+  box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.5);
+}
+
+.profile-card:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
 }
 
 @keyframes glow-rotate {

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Force Enable Particles</title>
+</head>
+<body>
+    <h1>Force Enable Particles</h1>
+    <script>
+        // Force enable particles
+        localStorage.setItem('particlesEnabled', 'true');
+        console.log('Particles forced enabled!');
+        document.write('<h2>✅ Particles have been force enabled!</h2>');
+        document.write('<p>Current localStorage value: ' + localStorage.getItem('particlesEnabled') + '</p>');
+        document.write('<p><a href="http://localhost:5173/portfolio/">Go to Portfolio</a></p>');
+
+        // Auto redirect after 2 seconds
+        setTimeout(() => {
+            window.location.href = 'http://localhost:5173/portfolio/';
+        }, 2000);
+    </script>
+</body>
+</html>
