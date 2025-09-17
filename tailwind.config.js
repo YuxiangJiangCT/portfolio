@@ -8,19 +8,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Light mode colors - Improved with better contrast and consistency
+        // Light mode colors - Soft and elegant
         light: {
-          bg: '#FAFBFC',  // Softer white with slight blue tint
-          'bg-secondary': '#F6F8FA',  // Secondary background
-          card: '#FFFFFF',  // Pure white for cards
-          'card-hover': '#FAFBFC',  // Subtle hover
-          text: '#0D1117',  // Darker text for better contrast
-          'text-secondary': '#57606A',  // Better secondary text
-          primary: '#6366F1',  // Softer primary
-          'primary-hover': '#4F46E5',  // Darker on hover
-          accent: '#06B6D4',  // Cyan accent for light mode
+          bg: '#F8FAFC',  // Very soft blue-gray background
+          'bg-secondary': '#F1F5F9',  // Slightly darker soft gray
+          card: '#FFFFFF',  // Pure white for cards to stand out
+          'card-hover': '#FAFBFC',  // Very subtle hover
+          text: '#0F172A',  // Deep slate for excellent contrast
+          'text-secondary': '#475569',  // Slate gray for secondary text
+          primary: '#6366F1',  // Indigo primary
+          'primary-hover': '#4F46E5',  // Darker indigo on hover
+          accent: '#06B6D4',  // Cyan accent
           'accent-hover': '#0891B2',
-          border: '#D0D7DE',  // Better border contrast
+          border: '#E2E8F0',  // Soft border color
         },
         // Dark mode colors - Enhanced
         dark: {

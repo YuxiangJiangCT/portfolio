@@ -95,15 +95,15 @@
   --shadow-inner-glow: inset 0 0 30px rgba(129, 140, 248, 0.3);
 }
 
-/* Light Mode Variables - Enhanced */
+/* Light Mode Variables - Soft & Elegant */
 .light {
-  --color-bg-primary: #FAFBFC;
-  --color-bg-secondary: #F6F8FA;
-  --color-bg-tertiary: #FFFFFF;
-  --color-text-primary: #0D1117;
-  --color-text-secondary: #57606A;
-  --color-text-tertiary: #8B949E;
-  --color-border: #D0D7DE;
+  --color-bg-primary: #F8FAFC;
+  --color-bg-secondary: #F1F5F9;
+  --color-bg-tertiary: #E2E8F0;
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+  --color-text-tertiary: #64748B;
+  --color-border: #E2E8F0;
 
   /* Light mode specific shadows */
   --shadow-sm: 0 1px 3px rgba(31, 35, 40, 0.12), 0 0 1px rgba(31, 35, 40, 0.04);

@@ -101,7 +101,7 @@ const Timeline: React.FC<TimelineProps> = ({ experiences, onTechFilter }) => {
                     </span>
                   </div>
                   {/* Add Performance Metrics button for Dataman Analytics */}
-                  {exp.company === 'Dataman Analytics' && (
+                  {exp.company.includes('Dataman Analytics') && (
                     <button
                       onClick={() => setShowPerformanceModal(true)}
                       className={`

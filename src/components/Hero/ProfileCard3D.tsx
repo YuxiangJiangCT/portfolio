@@ -137,7 +137,7 @@ function ProfileCard3D({ avatar, name, title }: ProfileCard3DProps) {
           <div className="card-glow" />
           <div className="card-content">
             {/* Avatar with subtle border */}
-            <div className="avatar-container">
+            <div className="avatar-container matrix-trigger">
               <div className="avatar-glow" />
               <img
                 src={avatar}

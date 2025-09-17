@@ -1,35 +1,39 @@
 /* Theme-specific overrides for better light/dark balance */
 
 /* Light mode specific enhancements */
-.light {
-  /* Gradient backgrounds for sections */
-  background: linear-gradient(180deg, #FAFBFC 0%, #F6F8FA 100%);
+html.light body {
+  /* Soft gradient background for elegant look */
+  background: linear-gradient(135deg, #F0F4F8 0%, #E6F2FF 50%, #F5F3FF 100%) !important;
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
 /* Hero section gradient in light mode */
 .light .hero-gradient {
   background: linear-gradient(135deg,
-    rgba(99, 102, 241, 0.03) 0%,
-    rgba(6, 182, 212, 0.03) 100%);
+    rgba(99, 102, 241, 0.02) 0%,
+    rgba(6, 182, 212, 0.02) 100%);
 }
 
 /* Card improvements for light mode */
 .light .skill-card {
-  background: linear-gradient(145deg, #FFFFFF 0%, #FAFBFC 100%);
-  border: 1px solid rgba(208, 215, 222, 0.5);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
 }
 
 .light .skill-card:hover {
-  background: linear-gradient(145deg, #FFFFFF 0%, #F6F8FA 100%);
-  border-color: rgba(99, 102, 241, 0.3);
-  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.1);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 10px 40px rgba(99, 102, 241, 0.1);
 }
 
 /* Experience cards in light mode */
 .light .experience-card {
-  background: #FFFFFF;
-  border: 1px solid rgba(208, 215, 222, 0.6);
-  box-shadow: 0 2px 8px rgba(31, 35, 40, 0.04);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(226, 232, 240, 0.6);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
 }
 
 .light .experience-card:hover {
@@ -86,36 +90,36 @@
   color: white;
 }
 
-/* Section backgrounds */
+/* Section backgrounds - subtle variations */
 .light section:nth-child(even) {
-  background: linear-gradient(180deg, #F6F8FA 0%, #FAFBFC 100%);
+  background: transparent;
 }
 
 .light section:nth-child(odd) {
-  background: linear-gradient(180deg, #FAFBFC 0%, #F6F8FA 100%);
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.5) 0%, rgba(241, 245, 249, 0.3) 100%);
 }
 
 /* Header in light mode */
 .light header {
-  background: rgba(250, 251, 252, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(208, 215, 222, 0.3);
+  background: rgba(248, 250, 252, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.5);
 }
 
 /* Improved text hierarchy in light mode */
 .light h1, .light h2, .light h3 {
-  color: #0D1117;
-  font-weight: 600;
+  color: #0F172A;
+  font-weight: 700;
 }
 
 .light h4, .light h5, .light h6 {
-  color: #24292F;
-  font-weight: 500;
+  color: #1E293B;
+  font-weight: 600;
 }
 
 .light p {
-  color: #57606A;
-  line-height: 1.6;
+  color: #475569;
+  line-height: 1.7;
 }
 
 /* Link styles in light mode */

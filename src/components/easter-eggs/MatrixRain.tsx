@@ -7,9 +7,11 @@ function MatrixRain() {
   const [clickCount, setClickCount] = useState(0);
   const timerRef = useRef<NodeJS.Timeout>();
 
-  // Handle logo clicks for activation
+  // Handle avatar clicks for activation
   useEffect(() => {
-    const handleLogoClick = () => {
+    const handleAvatarClick = (e: Event) => {
+      e.stopPropagation(); // Prevent card flip
+
       setClickCount(prev => {
         const newCount = prev + 1;
 
@@ -18,18 +20,21 @@ function MatrixRain() {
           clearTimeout(timerRef.current);
         }
 
-        // Reset counter after 2 seconds of no clicks
+        // Reset counter after 3 seconds of no clicks
         timerRef.current = setTimeout(() => {
           setClickCount(0);
-        }, 2000);
+        }, 3000);
 
         // Activate Matrix rain after 5 clicks
         if (newCount >= 5) {
           setIsActive(true);
+          console.log('%c🐇 Follow the white rabbit...', 'color: #00FF00; font-family: monospace; font-size: 16px;');
+
+          // Longer duration, more dramatic effect
           setTimeout(() => {
             setIsActive(false);
             setClickCount(0);
-          }, 10000); // Auto-disable after 10 seconds
+          }, 15000); // 15 seconds
           return 0;
         }
 
@@ -37,11 +42,11 @@ function MatrixRain() {
       });
     };
 
-    // Attach click handler to logo/header
-    const logo = document.querySelector('.logo-trigger');
-    if (logo) {
-      logo.addEventListener('click', handleLogoClick);
-      return () => logo.removeEventListener('click', handleLogoClick);
+    // Attach click handler to avatar container
+    const avatarTrigger = document.querySelector('.matrix-trigger');
+    if (avatarTrigger) {
+      avatarTrigger.addEventListener('click', handleAvatarClick);
+      return () => avatarTrigger.removeEventListener('click', handleAvatarClick);
     }
   }, []);
 
@@ -56,57 +61,69 @@ function MatrixRain() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    // Matrix characters
-    const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
+    // Matrix characters - more diverse set
+    const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾﾈｽﾀﾇﾍ";
     const matrixArray = matrix.split("");
 
-    const fontSize = 16;
+    const fontSize = 14; // Smaller for denser effect
     const columns = canvas.width / fontSize;
 
-    // Array to store drop positions
-    const drops: number[] = [];
+    // Array to store drop positions and speeds
+    const drops: { y: number; speed: number }[] = [];
     for (let x = 0; x < columns; x++) {
-      drops[x] = Math.random() * -100;
+      drops[x] = {
+        y: Math.random() * -100,
+        speed: Math.random() * 0.5 + 0.5 // Variable speeds
+      };
     }
 
     // Drawing function
     function draw() {
       if (!ctx) return;
 
-      // Add trail effect
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+      // Add trail effect (more visible)
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Set text style
-      ctx.fillStyle = '#0F0';
       ctx.font = fontSize + 'px monospace';
 
       // Draw characters
       for (let i = 0; i < drops.length; i++) {
         const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
         const x = i * fontSize;
-        const y = drops[i] * fontSize;
+        const y = drops[i].y * fontSize;
 
-        // Gradient effect
-        const gradient = ctx.createLinearGradient(0, y - fontSize * 10, 0, y);
+        // Multi-layer gradient effect for depth
+        const gradient = ctx.createLinearGradient(0, y - fontSize * 15, 0, y);
         gradient.addColorStop(0, 'rgba(0, 255, 0, 0)');
-        gradient.addColorStop(0.9, 'rgba(0, 255, 0, 0.5)');
-        gradient.addColorStop(1, 'rgba(0, 255, 0, 1)');
+        gradient.addColorStop(0.5, 'rgba(0, 255, 0, 0.1)');
+        gradient.addColorStop(0.8, 'rgba(0, 255, 0, 0.5)');
+        gradient.addColorStop(0.95, 'rgba(100, 255, 100, 0.8)');
+        gradient.addColorStop(1, 'rgba(200, 255, 200, 1)');
         ctx.fillStyle = gradient;
 
-        ctx.fillText(text, x, y);
-
-        // Reset drop when it reaches bottom
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
+        // Add glow effect for the leading character
+        if (Math.random() > 0.98) {
+          ctx.shadowBlur = 20;
+          ctx.shadowColor = '#0F0';
         }
 
-        // Move drop
-        drops[i]++;
+        ctx.fillText(text, x, y);
+        ctx.shadowBlur = 0;
+
+        // Reset drop when it reaches bottom
+        if (drops[i].y * fontSize > canvas.height && Math.random() > 0.98) {
+          drops[i].y = 0;
+          drops[i].speed = Math.random() * 0.5 + 0.5;
+        }
+
+        // Move drop at variable speed
+        drops[i].y += drops[i].speed;
       }
     }
 
-    const interval = setInterval(draw, 35);
+    const interval = setInterval(draw, 30); // Faster refresh rate
 
     // Resize handler
     const handleResize = () => {

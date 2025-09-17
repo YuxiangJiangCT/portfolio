@@ -174,26 +174,26 @@ function PerformanceMetricsModal({ isOpen, onClose }: PerformanceMetricsModalPro
                   <div className="space-y-3">
                     <PerformanceMetricRow
                       label="Response Time"
-                      before={metrics.responseTime.before}
-                      after={metrics.responseTime.after}
+                      beforeValue={metrics.responseTime.before}
+                      afterValue={metrics.responseTime.after}
                       unit={metrics.responseTime.unit}
-                      improvement={70}
+                      inverse={true}
                       sparklineData={sparklineData.latency}
                     />
                     <PerformanceMetricRow
                       label="CPU Usage"
-                      before={metrics.cpuUsage.before}
-                      after={metrics.cpuUsage.after}
+                      beforeValue={metrics.cpuUsage.before}
+                      afterValue={metrics.cpuUsage.after}
                       unit={metrics.cpuUsage.unit}
-                      improvement={47}
+                      inverse={true}
                       sparklineData={sparklineData.throughput}
                     />
                     <PerformanceMetricRow
                       label="Memory Usage"
-                      before={metrics.memoryUsage.before}
-                      after={metrics.memoryUsage.after}
+                      beforeValue={metrics.memoryUsage.before}
+                      afterValue={metrics.memoryUsage.after}
                       unit={metrics.memoryUsage.unit}
-                      improvement={33}
+                      inverse={true}
                       sparklineData={sparklineData.errorRate}
                     />
                   </div>
