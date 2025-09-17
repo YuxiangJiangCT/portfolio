@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { profileData } from '../../data/profile';
 import EducationSection from '../Education/EducationSection';
 import TypewriterEffect from '../animations/TypewriterEffect';
+import ProfileCard3D from './ProfileCard3D';
 
 function HeroSection() {
   const containerVariants = {
@@ -182,41 +183,14 @@ function HeroSection() {
             </div>
           </motion.div>
 
-          {/* Right Side - Profile Picture and Education */}
+          {/* Right Side - 3D Profile Card and Education */}
           <motion.div variants={itemVariants} className="space-y-8">
-            {/* Profile Picture with clean design */}
-            <motion.div
-              className="relative mx-auto w-48 h-48 lg:w-64 lg:h-64"
-              initial={{ scale: 0, rotate: -180 }}
-              animate={{ scale: 1, rotate: 0 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.3,
-                type: "spring",
-                stiffness: 200
-              }}
-            >
-              {/* Animated ring */}
-              <motion.div
-                className="absolute inset-0 rounded-full bg-gradient-to-br from-light-primary to-light-accent dark:from-dark-primary dark:to-dark-accent p-1"
-                animate={{
-                  rotate: 360
-                }}
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-              >
-                <div className="w-full h-full rounded-full bg-light-bg dark:bg-dark-bg p-1">
-                  <img
-                    src={profileData.avatar}
-                    alt="Profile"
-                    className="w-full h-full object-cover rounded-full"
-                  />
-                </div>
-              </motion.div>
-            </motion.div>
+            {/* 3D Profile Card */}
+            <ProfileCard3D
+              avatar={profileData.avatar}
+              name={profileData.name}
+              title={profileData.title}
+            />
 
             {/* Education Section */}
             <EducationSection embedded={true} />
