@@ -1,0 +1,44 @@
+{
+  "name": "Ryan Jiang - Software Engineer Portfolio",
+  "short_name": "Ryan's Portfolio",
+  "description": "Full-stack software engineer portfolio showcasing projects, skills, and experience",
+  "theme_color": "#6366f1",
+  "background_color": "#111111",
+  "display": "standalone",
+  "scope": "/portfolio/",
+  "start_url": "/portfolio/",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/portfolio/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/portfolio/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Experience",
+      "url": "/portfolio/#experience",
+      "description": "View work experience"
+    },
+    {
+      "name": "Projects",
+      "url": "/portfolio/#projects",
+      "description": "View portfolio projects"
+    },
+    {
+      "name": "About",
+      "url": "/portfolio/#about",
+      "description": "Learn more about me"
+    }
+  ],
+  "categories": ["portfolio", "developer", "software", "engineering"],
+  "prefer_related_applications": false
+}

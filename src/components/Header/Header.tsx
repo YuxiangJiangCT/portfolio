@@ -12,7 +12,7 @@ function Header() {
     <header className="fixed top-0 w-full bg-light-bg/90 dark:bg-dark-bg/90 backdrop-blur-md z-50 transition-all duration-300 border-b border-light-border/20 dark:border-dark-border/20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center h-16">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 logo-trigger cursor-pointer">
             <img
               src={profileData.avatar}
               alt="Profile"
