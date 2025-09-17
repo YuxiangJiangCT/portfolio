@@ -31,12 +31,12 @@ export const projects: Project[] = [
     id: 1,
     title: "Scalable URL Shortener",
     subtitle: "High-Performance Link Management System",
-    description: "Built a production-ready URL shortener handling 500+ RPS with sub-50ms latency",
-    longDescription: "Designed and implemented a scalable URL shortening service with real-time analytics. The system leverages Redis for caching and queue management, achieving 90% reduction in database I/O through intelligent batching and caching strategies.",
+    description: "Built a production-ready URL shortener handling 500+ RPS (wrk tested) with sub-50ms p95 latency on AWS EC2 t3.medium",
+    longDescription: "Designed and implemented a scalable URL shortening service with real-time analytics. The system leverages Redis for caching and queue management with nanoid identifiers, achieving 90% reduction in PostgreSQL write I/O (from 5000/s to 500/s) through intelligent batching and caching strategies.",
     highlights: [
-      "Handles 500+ requests per second",
-      "P95 latency under 50ms",
-      "90% PostgreSQL write I/O reduction",
+      "Handles 500+ RPS (10-min wrk soak test)",
+      "P95 latency under 50ms on AWS EC2 t3.medium",
+      "PostgreSQL write I/O: 5000/s → 500/s (90% reduction)",
       "Real-time analytics dashboard",
       "Containerized with Docker Compose"
     ],
@@ -55,7 +55,7 @@ export const projects: Project[] = [
     },
     category: "system-design",
     featured: true,
-    githubUrl: "https://github.com/yourusername/url-shortener",
+    githubUrl: "https://github.com/YuxiangJiangCT/url-shortener",
     images: ["/images/url-shortener-arch.png", "/images/url-shortener-dashboard.png"],
     startDate: "2024-09",
     endDate: "2024-11"
@@ -88,8 +88,8 @@ export const projects: Project[] = [
     },
     category: "fullstack",
     featured: true,
-    githubUrl: "https://github.com/yourusername/polypoll",
-    demoUrl: "https://chrome.google.com/webstore/polypoll",
+    githubUrl: "https://github.com/YuxiangJiangCT/polypoll",
+    demoUrl: "https://github.com/YuxiangJiangCT/polypoll",
     images: ["/images/polypoll-demo.gif", "/images/polypoll-architecture.png"],
     startDate: "2025-01",
     endDate: "2025-01"
@@ -101,20 +101,20 @@ export const projects: Project[] = [
     description: "Streamlined recommendation process for 500+ faculty and students",
     longDescription: "Built an end-to-end system automating the postgraduate recommendation workflow, eliminating 90% of manual processes and achieving significant performance improvements.",
     highlights: [
-      "70% page load time reduction",
+      "Page load time: 400ms → 120ms (70% reduction)",
       "99% form submission success rate",
       "Zero-downtime deployments",
       "500+ active users",
       "Automated email notifications"
     ],
     metrics: {
-      "Load Time": "120ms",
+      "Load Time": "400ms → 120ms",
       "Success Rate": "99%",
       "Users Served": "500+",
       "Uptime": "99.95%",
       "Time Saved": "90%"
     },
-    techStack: ["Spring Boot", "React", "MyBatis", "MySQL", "Redis", "AWS EC2", "Docker", "Jenkins"],
+    techStack: ["Spring Boot", "React", "MyBatis", "MySQL", "Redis", "AWS EC2", "Docker", "AWS CodePipeline"],
     architecture: {
       pattern: "Layered Architecture with Caching",
       components: ["Web Layer", "Service Layer", "DAO Layer", "Cache Layer"],
@@ -122,7 +122,7 @@ export const projects: Project[] = [
     },
     category: "fullstack",
     featured: false,
-    githubUrl: "https://github.com/yourusername/recommendation-system",
+    githubUrl: "https://github.com/YuxiangJiangCT/recommendation-system",
     images: ["/images/recommendation-workflow.png", "/images/recommendation-dashboard.png"],
     startDate: "2024-03",
     endDate: "2024-06"

@@ -1,0 +1,36 @@
+RESUME UPDATE INSTRUCTIONS
+==========================
+
+The corrected resume content has been saved in:
+- `/public/resume_updated.md` - Markdown version with all corrections
+
+CORRECTIONS MADE:
+1. Fixed terminology:
+   - DeFiLlama → DefiLlama
+   - NanoID → nanoid
+   - AWS CodePipeline CI/CD → AWS CodePipeline
+
+2. Added specific metrics with baselines:
+   - p99 latency: 420ms → 125ms
+   - Peak RPS: 1.2k → 2.5k
+   - PostgreSQL I/O: 5000/s → 500/s
+   - Page load: 400ms → 120ms
+
+3. Grammar fixes:
+   - "powering bots/newsletter" → "powering bots and a newsletter"
+
+4. Added social links line:
+   - GitHub and LinkedIn URLs added after contact info
+
+TO GENERATE PDF:
+1. Copy the content from resume_updated.md
+2. Use any of these methods:
+   - Google Docs: Paste and export as PDF
+   - MS Word: Paste and save as PDF
+   - Online converter: pandoc, markdown-pdf, or any markdown to PDF converter
+   - VS Code: Use Markdown PDF extension
+
+3. Save as `Ryan_Resume.pdf` in the `/public` folder
+4. Replace the existing file
+
+IMPORTANT: The website now references all the corrected information, so make sure the PDF matches exactly!

@@ -25,14 +25,14 @@ export const experiences: Experience[] = [
         title: "Microservices Architecture Optimization",
         description: "Re-architected FastAPI microservices platform for improved performance",
         metrics: [
-          "70% p99 latency reduction",
-          "2x peak RPS improvement",
-          "50ms response time achieved"
+          "p99 latency: 420ms → 125ms (70% reduction)",
+          "Peak RPS: 1.2k → 2.5k (2x improvement)",
+          "Sub-50ms response time achieved"
         ],
         technologies: ["FastAPI", "Redis", "Async I/O", "Connection Pooling"]
       },
       {
-        title: "DeFiLlama Pool Scanner Standardization",
+        title: "DefiLlama Pool Scanner Standardization",
         description: "Led standardization and deployment of pool scanner as a service",
         metrics: [
           "19,000+ pools monitored",
