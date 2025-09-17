@@ -25,10 +25,10 @@ function Particles({ count = 25, connectionDistance = 150 }: ParticleNetworkProp
       positions[i * 3 + 1] = (Math.random() - 0.5) * viewport.height;
       positions[i * 3 + 2] = (Math.random() - 0.5) * 2;
 
-      // Random velocities
-      velocities[i * 3] = (Math.random() - 0.5) * 0.005;
-      velocities[i * 3 + 1] = (Math.random() - 0.5) * 0.005;
-      velocities[i * 3 + 2] = (Math.random() - 0.5) * 0.005;
+      // Random velocities (increased for more visible movement)
+      velocities[i * 3] = (Math.random() - 0.5) * 0.02;
+      velocities[i * 3 + 1] = (Math.random() - 0.5) * 0.02;
+      velocities[i * 3 + 2] = (Math.random() - 0.5) * 0.01;
     }
 
     return { positions, velocities };
@@ -148,12 +148,13 @@ function Particles({ count = 25, connectionDistance = 150 }: ParticleNetworkProp
           />
         </bufferGeometry>
         <PointMaterial
-          size={4}
+          size={8}
           color="#00ffff"
           transparent
-          opacity={0.3}
+          opacity={0.8}
           sizeAttenuation
           depthWrite={false}
+          blending={THREE.AdditiveBlending}
         />
       </Points>
 
@@ -162,8 +163,9 @@ function Particles({ count = 25, connectionDistance = 150 }: ParticleNetworkProp
         <lineBasicMaterial
           color="#00ffff"
           transparent
-          opacity={0.1}
+          opacity={0.3}
           depthWrite={false}
+          linewidth={2}
         />
       </lineSegments>
     </>
@@ -174,7 +176,7 @@ export function ParticleNetwork({ count, connectionDistance }: ParticleNetworkPr
   console.log('ParticleNetwork rendering with:', { count, connectionDistance });
 
   return (
-    <div className="absolute inset-0 z-0">
+    <div className="absolute inset-0 z-0" style={{ background: 'rgba(0, 255, 255, 0.05)' }}>
       <Canvas
         camera={{ position: [0, 0, 5], fov: 50 }}
         style={{

@@ -9,6 +9,7 @@ import { usePerformanceDetect } from '../../hooks/usePerformanceDetect';
 
 // Lazy load the ParticleNetwork component
 const ParticleNetwork = lazy(() => import('./ParticleNetwork'));
+const SimpleParticles = lazy(() => import('./SimpleParticles'));
 
 function HeroSection() {
   const { enableParticles, particleCount, connectionDistance } = usePerformanceDetect();
@@ -44,10 +45,7 @@ function HeroSection() {
       {/* Particle Network Background - Behind everything */}
       {enableParticles && (
         <Suspense fallback={null}>
-          <ParticleNetwork
-            count={particleCount}
-            connectionDistance={connectionDistance}
-          />
+          <SimpleParticles />
         </Suspense>
       )}
 

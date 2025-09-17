@@ -20,8 +20,8 @@ export function usePerformanceDetect(): PerformanceConfig & { toggle: () => void
 
     return {
       enableParticles: userPreference !== null ? userPreference : !isMobile, // Default to true on desktop
-      particleCount: 25,
-      connectionDistance: 150,
+      particleCount: 50, // Increased from 25
+      connectionDistance: 200, // Increased from 150
       autoDetect: userPreference === null
     };
   });
