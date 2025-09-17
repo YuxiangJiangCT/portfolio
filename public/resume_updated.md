@@ -31,6 +31,15 @@ GitHub: github.com/YuxiangJiangCT | LinkedIn: linkedin.com/in/yuxiang03
 
 • Harden auth and reliability with JWT, ECDSA signatures, rate limiting, and idempotency keys.
 
+### Cornell Tech, Course Staff (Grader) - Applied Machine Learning
+**New York, NY | Sep 2025 – Present**
+
+• Grade assignments and projects for ~150 students using calibrated rubrics with 48-hour typical turnaround.
+
+• Provide clear, actionable feedback while maintaining consistency across submissions and documenting edge cases.
+
+• Coordinate with course staff on rubric clarifications and regrade handling, maintaining <5% regrade rate.
+
 ## PROJECTS
 
 ### Scalable URL Shortener & Real-time Analytics | Node.js, React, Redis, Docker

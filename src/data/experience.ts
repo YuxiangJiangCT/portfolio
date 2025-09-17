@@ -72,5 +72,35 @@ export const experiences: Experience[] = [
         technologies: ["JWT", "ECDSA", "Rate Limiting", "Idempotency Keys"]
       }
     ]
+  },
+  {
+    company: "Cornell Tech",
+    position: "Course Staff (Grader) - Applied Machine Learning",
+    location: "New York, NY",
+    period: "Sep 2025 – Present",
+    achievements: [
+      {
+        title: "Assignment & Project Evaluation",
+        description: "Grade assignments and projects for ~150 students using calibrated rubrics",
+        metrics: [
+          "~150 students served",
+          "48-hour typical turnaround",
+          "<5% regrade rate",
+          "100% rubric compliance"
+        ],
+        technologies: ["Gradescope", "Python", "Jupyter", "Git", "Code Review"]
+      },
+      {
+        title: "Feedback & Standards",
+        description: "Provide actionable feedback while ensuring grading consistency",
+        metrics: [
+          "Detailed feedback on each submission",
+          "Edge case documentation",
+          "Weekly calibration meetings",
+          "Consistent evaluation standards"
+        ],
+        technologies: ["Technical Writing", "Rubric Design", "Collaboration"]
+      }
+    ]
   }
 ];
