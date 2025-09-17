@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enable Particles</title>
+</head>
+<body>
+    <h1>Particle Settings Manager</h1>
+    <button onclick="enableParticles()">Enable Particles</button>
+    <button onclick="clearSettings()">Clear All Settings</button>
+    <button onclick="checkStatus()">Check Status</button>
+    <pre id="status"></pre>
+
+    <script>
+        function enableParticles() {
+            localStorage.setItem('particlesEnabled', 'true');
+            document.getElementById('status').textContent = 'Particles enabled! Refresh your portfolio page.';
+        }
+
+        function clearSettings() {
+            localStorage.removeItem('particlesEnabled');
+            document.getElementById('status').textContent = 'Settings cleared. Will use auto-detection.';
+        }
+
+        function checkStatus() {
+            const status = localStorage.getItem('particlesEnabled');
+            document.getElementById('status').textContent = 'Current status: ' + (status || 'not set (auto-detect)');
+        }
+
+        // Check on load
+        checkStatus();
+    </script>
+</body>
+</html>

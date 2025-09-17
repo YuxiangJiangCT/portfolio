@@ -171,6 +171,8 @@ function Particles({ count = 25, connectionDistance = 150 }: ParticleNetworkProp
 }
 
 export function ParticleNetwork({ count, connectionDistance }: ParticleNetworkProps) {
+  console.log('ParticleNetwork rendering with:', { count, connectionDistance });
+
   return (
     <div className="absolute inset-0 z-0">
       <Canvas

@@ -13,6 +13,9 @@ const ParticleNetwork = lazy(() => import('./ParticleNetwork'));
 function HeroSection() {
   const { enableParticles, particleCount, connectionDistance } = usePerformanceDetect();
 
+  // Debug logging
+  console.log('Particle settings:', { enableParticles, particleCount, connectionDistance });
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {

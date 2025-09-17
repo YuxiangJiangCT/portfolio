@@ -79,9 +79,14 @@ const RealtimeChart: React.FC<RealtimeChartProps> = ({
         return { labels: newLabels, before: newBeforeData, after: newAfterData };
       };
 
-      // Initial data
-      const initialData = generateData();
-      setDataPoints(initialData);
+      // Initial data - only set once
+      setDataPoints(prev => {
+        // Only generate if not already set
+        if (prev.labels.length === 0) {
+          return generateData();
+        }
+        return prev;
+      });
 
       // Simulate real-time updates
       if (animate) {
