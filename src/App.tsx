@@ -7,6 +7,7 @@ import ThemeToggle from './components/common/ThemeToggle';
 import ParticleToggle from './components/common/ParticleToggle';
 import LoadingScreen from './components/common/LoadingScreen';
 import { useInitialLoad } from './hooks/useInitialLoad';
+import { initGA, logPageView } from './utils/analytics';
 
 // Lazy load heavy components
 const ExperienceSection = lazy(() => import('./components/Experience/ExperienceSection'));
@@ -75,6 +76,12 @@ function App() {
     // Fun message
     console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #4B5563;');
     console.log('%c✨ Happy exploring! May the code be with you 🖖', 'color: #A78BFA; font-style: italic;');
+  }, []);
+
+  // Initialize Google Analytics
+  useEffect(() => {
+    initGA();
+    logPageView();
   }, []);
 
   if (isInitialLoading) {

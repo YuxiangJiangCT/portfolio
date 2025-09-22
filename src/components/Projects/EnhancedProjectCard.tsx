@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { Project } from '../../data/projects';
 import ProjectMetrics from './ProjectMetrics';
+import { logEvent, logProjectClick, logExternalLink } from '../../utils/analytics';
 
 interface EnhancedProjectCardProps {
   project: Project;
@@ -115,6 +116,7 @@ const EnhancedProjectCard: React.FC<EnhancedProjectCardProps> = ({ project, onTe
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => logExternalLink('GitHub', project.githubUrl)}
                 className="flex items-center gap-1 text-sm text-light-text-secondary dark:text-dark-text-secondary hover:text-light-primary dark:hover:text-dark-primary transition-colors"
               >
                 <Github className="w-4 h-4" />
@@ -126,6 +128,7 @@ const EnhancedProjectCard: React.FC<EnhancedProjectCardProps> = ({ project, onTe
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => logExternalLink('Live Demo', project.liveUrl)}
                 className="flex items-center gap-1 text-sm text-light-text-secondary dark:text-dark-text-secondary hover:text-light-primary dark:hover:text-dark-primary transition-colors"
               >
                 <ExternalLink className="w-4 h-4" />
@@ -137,6 +140,7 @@ const EnhancedProjectCard: React.FC<EnhancedProjectCardProps> = ({ project, onTe
                 href={project.demoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => logExternalLink('Demo Video', project.demoUrl)}
                 className="flex items-center gap-1 text-sm text-light-text-secondary dark:text-dark-text-secondary hover:text-light-primary dark:hover:text-dark-primary transition-colors"
               >
                 <Play className="w-4 h-4" />
@@ -154,7 +158,10 @@ const EnhancedProjectCard: React.FC<EnhancedProjectCardProps> = ({ project, onTe
             {project.techStack.slice(0, 5).map((tech, idx) => (
               <button
                 key={idx}
-                onClick={() => onTechFilter?.(tech)}
+                onClick={() => {
+                  onTechFilter?.(tech);
+                  logEvent('Technology', 'Filter', tech);
+                }}
                 className="px-2 py-1 text-xs font-medium rounded-full
                   bg-light-bg dark:bg-dark-bg
                   border border-light-border dark:border-dark-border
@@ -180,7 +187,11 @@ const EnhancedProjectCard: React.FC<EnhancedProjectCardProps> = ({ project, onTe
 
           {/* Expand/Collapse Button */}
           <button
-            onClick={() => setIsExpanded(!isExpanded)}
+            onClick={() => {
+              setIsExpanded(!isExpanded);
+              logProjectClick(project.title);
+              logEvent('Project', isExpanded ? 'Collapse' : 'Expand', project.title);
+            }}
             className="w-full flex items-center justify-center gap-2 py-2
               text-light-primary dark:text-dark-primary
               hover:bg-light-bg dark:hover:bg-dark-bg
@@ -306,7 +317,10 @@ const EnhancedProjectCard: React.FC<EnhancedProjectCardProps> = ({ project, onTe
                     src={project.images[currentImageIndex]}
                     alt={`${project.title} - Image ${currentImageIndex + 1}`}
                     className="w-full h-48 object-cover cursor-pointer"
-                    onClick={() => setShowLightbox(true)}
+                    onClick={() => {
+                      setShowLightbox(true);
+                      logEvent('Project', 'View Image', `${project.title} - Image ${currentImageIndex + 1}`);
+                    }}
                   />
                   {project.images.length > 1 && (
                     <>
