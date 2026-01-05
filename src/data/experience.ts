@@ -19,7 +19,7 @@ export const experiences: Experience[] = [
     company: "Dataman Analytics (quantdefi.ai)",
     position: "Software Engineering Intern",
     location: "New York, NY",
-    period: "Jun 2025 – Present",
+    period: "Jun 2025 – Aug 2025",
     achievements: [
       {
         title: "Microservices Architecture Optimization",
@@ -70,6 +70,69 @@ export const experiences: Experience[] = [
           "Idempotent operations"
         ],
         technologies: ["JWT", "ECDSA", "Rate Limiting", "Idempotency Keys"]
+      }
+    ]
+  },
+  {
+    company: "PolyPoll (AI-driven Event Intelligence Platform)",
+    position: "Founding Engineer",
+    location: "New York, NY",
+    period: "Jul 2025 – Present",
+    achievements: [
+      {
+        title: "Multi-Provider Inference Routing Layer",
+        description: "Architected automatic failover system across 6 model endpoints",
+        metrics: [
+          "6 model endpoints (Groq/OpenRouter)",
+          "Automatic failover",
+          "~500 VUs sustained",
+          "28K+ requests handled"
+        ],
+        technologies: ["Python", "FastAPI", "Groq", "OpenRouter"]
+      },
+      {
+        title: "Rate Limiting & Quota Management",
+        description: "Enforced rate limits and daily quota budgets with reliability testing",
+        metrics: [
+          "k6 soak tests validated",
+          "~500 VUs",
+          "28K+ requests",
+          "<0.5% errors"
+        ],
+        technologies: ["k6", "Load Testing", "Rate Limiting", "Quota Management"]
+      },
+      {
+        title: "Market Generation Engine",
+        description: "Built 10-stage pipeline with dual-layer semantic de-duplication",
+        metrics: [
+          "10-stage pipeline",
+          "0.75 similarity threshold",
+          "48h deduplication window",
+          "Improved market quality"
+        ],
+        technologies: ["Python", "Semantic Analysis", "Pipeline Design", "De-duplication"]
+      },
+      {
+        title: "External API Integration",
+        description: "Integrated 5+ APIs with entity resolution and unified monitoring",
+        metrics: [
+          "5+ external APIs",
+          "1,700+ public figures database",
+          "Graceful degradation",
+          "Unified cost monitoring"
+        ],
+        technologies: ["Exa", "Perplexity", "Replicate", "Cloudinary", "Slack"]
+      },
+      {
+        title: "PostgreSQL Schema Design",
+        description: "Designed schema with auto-categorization and JSONB embeddings",
+        metrics: [
+          "Auto-categorization triggers",
+          "RLS policies",
+          "JSONB embeddings",
+          "Efficient similarity matching"
+        ],
+        technologies: ["PostgreSQL", "JSONB", "Database Design", "RLS"]
       }
     ]
   },

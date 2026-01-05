@@ -50,7 +50,7 @@ function App() {
     console.log('%c🚀 Welcome to Yuxiang\'s Portfolio!', 'font-size: 18px; font-weight: bold; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;');
 
     // Contact info
-    console.log('%c📧 Contact: xyxiang@smu.edu', 'color: #10B981; font-size: 14px;');
+    console.log('%c📧 Contact: yj548@cornell.edu', 'color: #10B981; font-size: 14px;');
     console.log('%c🔗 GitHub: github.com/yuxiang03', 'color: #8B5CF6; font-size: 14px;');
     console.log('%c💼 LinkedIn: linkedin.com/in/yuxiang03', 'color: #0EA5E9; font-size: 14px;');
 

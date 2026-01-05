@@ -62,36 +62,36 @@ export const projects: Project[] = [
   },
   {
     id: 2,
-    title: "PolyPoll",
-    subtitle: "Real-time Browser Extension - ETHGlobal NYC 2025",
-    description: "Chrome extension enabling instant polls on any webpage with real-time results",
-    longDescription: "Developed for ETHGlobal NYC 2025, PolyPoll transforms any webpage into an interactive polling platform. Achieved sub-200ms latency through optimistic UI updates and efficient caching.",
+    title: "bounties.fun",
+    subtitle: "ETHGlobal – Worldcoin Prize Winner",
+    description: "Full-stack bounty platform with World ID zero-knowledge proof verification for Sybil-resistant bounty claims",
+    longDescription: "Built a full-stack bounty platform that leverages World ID's zero-knowledge proof verification to prevent Sybil attacks. Implemented hybrid verification combining World ID and Twitter authentication with optimistic locking for concurrent claim handling.",
     highlights: [
-      "< 200ms end-to-end latency",
-      "One-click poll creation",
-      "28,000+ requests in load test",
-      "< 0.5% error rate",
-      "ECDSA signature verification"
+      "World ID zero-knowledge proof verification",
+      "Hybrid Twitter verification system",
+      "99.9% submission success rate",
+      "Optimistic locking for concurrent claims",
+      "ECDSA wallet authentication",
+      "Telegram bot integration"
     ],
     metrics: {
-      "Latency": "< 200ms",
-      "Reliability": "99.5%",
-      "Load Test": "28k requests",
-      "Error Rate": "< 0.5%",
-      "Active Users": "500+"
+      "Success Rate": "99.9%",
+      "Verification": "World ID + Twitter",
+      "Security": "ZK Proof",
+      "Authentication": "ECDSA",
+      "Integration": "Telegram Bot"
     },
-    techStack: ["Chrome Extension API", "TypeScript", "FastAPI", "PostgreSQL", "Supabase", "Redis", "JWT", "WebSocket"],
+    techStack: ["FastAPI", "PostgreSQL", "Supabase", "Web3.py", "World ID MiniKit", "ECDSA", "Telegram API"],
     architecture: {
-      pattern: "Event-driven with Real-time Updates",
-      components: ["Browser Extension", "REST API", "WebSocket Server", "Cache Layer"],
-      keyFeatures: ["Optimistic UI", "Real-time Sync", "CORS Handling", "Idempotency"]
+      pattern: "Hybrid Verification with Optimistic Locking",
+      components: ["FastAPI Backend", "World ID Verifier", "Twitter OAuth", "Wallet Auth", "Telegram Bot"],
+      keyFeatures: ["Zero-Knowledge Proofs", "Sybil Resistance", "Concurrent Claims", "Multi-factor Verification"]
     },
     category: "fullstack",
     featured: true,
-    githubUrl: "https://github.com/YuxiangJiangCT/polypoll",
-    demoUrl: "https://github.com/YuxiangJiangCT/polypoll",
-    images: ["/images/polypoll-demo.gif", "/images/polypoll-architecture.png"],
-    startDate: "2025-01",
+    githubUrl: "https://github.com/YuxiangJiangCT/bounties.fun",
+    images: ["/images/bounties-fun-demo.png", "/images/bounties-fun-architecture.png"],
+    startDate: "2024-12",
     endDate: "2025-01"
   },
   {
