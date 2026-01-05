@@ -9,12 +9,18 @@ interface PerformanceConfig {
 
 export function usePerformanceDetect(): PerformanceConfig & { toggle: () => void } {
   const [config, setConfig] = useState<PerformanceConfig>(() => {
-    // TEMPORARILY FORCE ENABLE FOR TESTING
+    // Auto-detect device performance
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    ) || window.innerWidth < 768;
+
+    const isLowEnd = navigator.hardwareConcurrency ? navigator.hardwareConcurrency <= 4 : false;
+
     return {
-      enableParticles: true, // Always true for now
-      particleCount: 50,
-      connectionDistance: 200,
-      autoDetect: false
+      enableParticles: !isMobile && !isLowEnd,
+      particleCount: isMobile ? 0 : isLowEnd ? 25 : 50,
+      connectionDistance: isMobile ? 0 : isLowEnd ? 100 : 200,
+      autoDetect: true
     };
   });
 

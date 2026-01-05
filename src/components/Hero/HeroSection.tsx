@@ -7,9 +7,8 @@ import TypewriterEffect from '../animations/TypewriterEffect';
 import ProfileCard3D from './ProfileCard3D';
 import { usePerformanceDetect } from '../../hooks/usePerformanceDetect';
 
-// Lazy load the ParticleNetwork component
-const ParticleNetwork = lazy(() => import('./ParticleNetwork'));
-const SimpleParticles = lazy(() => import('./SimpleParticles'));
+// Lazy load the ParticleNetwork component (now Canvas-based)
+const ParticleNetworkCanvas = lazy(() => import('./ParticleNetworkCanvas'));
 
 function HeroSection() {
   const { enableParticles, particleCount, connectionDistance } = usePerformanceDetect();
@@ -45,7 +44,7 @@ function HeroSection() {
       {/* Particle Network Background - Behind everything */}
       {enableParticles && (
         <Suspense fallback={null}>
-          <ParticleNetwork
+          <ParticleNetworkCanvas
             count={particleCount}
             connectionDistance={connectionDistance}
           />

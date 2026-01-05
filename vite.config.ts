@@ -81,9 +81,6 @@ export default defineConfig({
       'react',
       'react-dom',
       'framer-motion',
-      'three',
-      '@react-three/fiber',
-      '@react-three/drei',
       'chart.js',
       'react-chartjs-2'
     ]
@@ -105,7 +102,6 @@ export default defineConfig({
       output: {
         manualChunks: {
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'three-vendor': ['three', '@react-three/fiber', '@react-three/drei'],
           'chart-vendor': ['chart.js', 'react-chartjs-2'],
           'motion-vendor': ['framer-motion'],
           'utils': ['lucide-react', 'react-icons', 'canvas-confetti']

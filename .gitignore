@@ -13,6 +13,14 @@ dist-ssr
 *.local
 .env
 
+# Original images (use optimized versions in public/images/optimized/)
+public/img/
+
+# Test files
+test-three.html
+force-enable-particles.html
+enable-particles.html
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

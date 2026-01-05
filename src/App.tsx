@@ -6,6 +6,7 @@ import ScrollToTop from './components/common/ScrollToTop';
 import ThemeToggle from './components/common/ThemeToggle';
 import ParticleToggle from './components/common/ParticleToggle';
 import LoadingScreen from './components/common/LoadingScreen';
+import ErrorBoundary from './components/production/ErrorBoundary';
 import { useInitialLoad } from './hooks/useInitialLoad';
 import { initGA, logPageView } from './utils/analytics';
 
@@ -94,37 +95,39 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text transition-colors duration-300">
-        {/* Easter eggs */}
-        <KonamiCode />
-        <MatrixRain />
-        <BossKey />
-        <MouseTrailEffect />
+      <ErrorBoundary>
+        <div className="min-h-screen bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text transition-colors duration-300">
+          {/* Easter eggs */}
+          <KonamiCode />
+          <MatrixRain />
+          <BossKey />
+          <MouseTrailEffect />
 
-        {/* PWA Install Prompt */}
-        <PWAInstallPrompt />
+          {/* PWA Install Prompt */}
+          <PWAInstallPrompt />
 
-        <Header />
-        <ThemeToggle />
-        <ParticleToggle />
-        <HeroSection />
-        <Suspense fallback={<SectionLoader />}>
-          <ExperienceSection />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <SkillsSection />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <ProjectsSection />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <CompetitionsSection />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <AboutSection />
-        </Suspense>
-        <ScrollToTop />
-      </div>
+          <Header />
+          <ThemeToggle />
+          <ParticleToggle />
+          <HeroSection />
+          <Suspense fallback={<SectionLoader />}>
+            <ExperienceSection />
+          </Suspense>
+          <Suspense fallback={<SectionLoader />}>
+            <SkillsSection />
+          </Suspense>
+          <Suspense fallback={<SectionLoader />}>
+            <ProjectsSection />
+          </Suspense>
+          <Suspense fallback={<SectionLoader />}>
+            <CompetitionsSection />
+          </Suspense>
+          <Suspense fallback={<SectionLoader />}>
+            <AboutSection />
+          </Suspense>
+          <ScrollToTop />
+        </div>
+      </ErrorBoundary>
     </ThemeProvider>
   );
 }
