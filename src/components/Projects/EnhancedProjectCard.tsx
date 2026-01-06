@@ -12,7 +12,8 @@ import {
   ArrowRight,
   X,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Award
 } from 'lucide-react';
 import { Project } from '../../data/projects';
 import ProjectMetrics from './ProjectMetrics';
@@ -145,6 +146,18 @@ const EnhancedProjectCard: React.FC<EnhancedProjectCardProps> = ({ project, onTe
               >
                 <Play className="w-4 h-4" />
                 <span>Demo</span>
+              </a>
+            )}
+            {project.showcaseUrl && (
+              <a
+                href={project.showcaseUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => logExternalLink('Showcase', project.showcaseUrl)}
+                className="flex items-center gap-1 text-sm text-light-text-secondary dark:text-dark-text-secondary hover:text-light-primary dark:hover:text-dark-primary transition-colors"
+              >
+                <Award className="w-4 h-4" />
+                <span>Showcase</span>
               </a>
             )}
             <div className="flex items-center gap-1 text-sm text-light-text-secondary dark:text-dark-text-secondary ml-auto">

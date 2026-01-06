@@ -119,8 +119,20 @@ export const skillCategories: SkillCategory[] = [
         category: "language"
       },
       {
+        name: "SQL",
+        level: 85,
+        yearsOfExperience: 3,
+        category: "language"
+      },
+      {
         name: "TypeScript",
         level: 90,
+        yearsOfExperience: 3,
+        category: "language"
+      },
+      {
+        name: "HTML/CSS",
+        level: 85,
         yearsOfExperience: 3,
         category: "language"
       },
@@ -134,6 +146,12 @@ export const skillCategories: SkillCategory[] = [
         name: "Go",
         level: 75,
         yearsOfExperience: 1,
+        category: "language"
+      },
+      {
+        name: "C++",
+        level: 80,
+        yearsOfExperience: 2,
         category: "language"
       },
       {
@@ -198,6 +216,12 @@ export const skillCategories: SkillCategory[] = [
         category: "database"
       },
       {
+        name: "Supabase",
+        level: 80,
+        yearsOfExperience: 2,
+        category: "database"
+      },
+      {
         name: "Elasticsearch",
         level: 70,
         yearsOfExperience: 1,
@@ -224,6 +248,12 @@ export const skillCategories: SkillCategory[] = [
       {
         name: "CI/CD",
         level: 80,
+        yearsOfExperience: 2,
+        category: "infrastructure"
+      },
+      {
+        name: "Nginx",
+        level: 75,
         yearsOfExperience: 2,
         category: "infrastructure"
       }

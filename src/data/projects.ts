@@ -21,6 +21,7 @@ export interface Project {
   githubUrl?: string;
   liveUrl?: string;
   demoUrl?: string;
+  showcaseUrl?: string;  // For ETHGlobal or similar project showcase platforms
   images: string[];
   startDate: string;
   endDate: string;
@@ -90,6 +91,7 @@ export const projects: Project[] = [
     category: "fullstack",
     featured: true,
     githubUrl: "https://github.com/YuxiangJiangCT/bounties.fun",
+    showcaseUrl: "https://ethglobal.com/showcase/bounty-hunters-276vw",
     images: ["/images/bounties-fun-demo.png", "/images/bounties-fun-architecture.png"],
     startDate: "2024-12",
     endDate: "2025-01"
