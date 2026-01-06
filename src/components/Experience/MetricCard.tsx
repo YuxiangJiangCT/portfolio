@@ -7,7 +7,15 @@ interface MetricCardProps {
 }
 
 const MetricCard: React.FC<MetricCardProps> = ({ metric, isVisible = false }) => {
-  const [displayValue, setDisplayValue] = useState<string>('0');
+  const [displayValue, setDisplayValue] = useState<string>(() => {
+    // Initialize with actual number if present, or the full metric string
+    const numberMatch = metric.match(/[\d,\.]+/);
+    if (numberMatch) {
+      const number = parseFloat(numberMatch[0].replace(',', ''));
+      return number.toString();
+    }
+    return metric;
+  });
   const [isAnimating, setIsAnimating] = useState(false);
   const hasAnimatedRef = useRef(false);
 

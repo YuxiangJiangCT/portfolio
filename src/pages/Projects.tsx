@@ -55,7 +55,7 @@ const Projects = () => {
       title: "TransX Knowledge Graph Network",
       description: "Optimized the TransE model for knowledge graph networking, achieving top accuracy score (Hit@10) of 0.8674 on Wordnet.",
       tags: ["Python", "TensorFlow", "scikit-learn", "NLTK", "NumPy", "Pandas"],
-      images: [`${import.meta.env.BASE_URL}img/huawei.png`],
+      images: [`${import.meta.env.BASE_URL}images/optimized/huawei/huawei-768w.webp`],
       githubLink: "https://openi.pcl.ac.cn/AAIC/Fast-TransX",
       details: "This project implements and optimizes the TransE model for knowledge graph embedding. The model maps entities and relations into the same vector space, where the relation is interpreted as a translation from head entity to tail entity. The implementation achieves state-of-the-art performance on standard benchmarks like Wordnet and Freebase."
     },
@@ -65,10 +65,10 @@ const Projects = () => {
       description: "Built a web-based system to streamline postgraduate recommendation submissions and evaluations, providing students and faculty with a seamless application management platform. As this project was developed for internal university use, the source code is not publicly available.",
       tags: ["React", "Spring Boot", "MyBatis", "MySQL", "Nginx", "AWS", "JavaScript"],
       images: [
-        `${import.meta.env.BASE_URL}img/recommend.png`,
-        `${import.meta.env.BASE_URL}img/recommend2.png`,
-        `${import.meta.env.BASE_URL}img/recommend3.png`,
-        `${import.meta.env.BASE_URL}img/recommend4.png`
+        `${import.meta.env.BASE_URL}images/optimized/recommend/recommend-768w.webp`,
+        `${import.meta.env.BASE_URL}images/optimized/recommend2/recommend2-768w.webp`,
+        `${import.meta.env.BASE_URL}images/optimized/recommend3/recommend3-768w.webp`,
+        `${import.meta.env.BASE_URL}images/optimized/recommend4/recommend4-768w.webp`
       ],
       githubLink: "",
       details: "Developed from December 2023 to March 2024, this system streamlines the postgraduate recommendation process. I designed a robust backend using Spring Boot and MyBatis, supporting academic score management and bonus point applications with optimized database queries. The responsive frontend was built with React, enhancing user experience for both students and administrators. The system implements secure role-based access control with Spring Security, safeguarding sensitive data and ensuring proper administrative permissions. Deployed on AWS using Nginx for routing and load balancing, the application successfully supported over 500 active users in the first month post-launch."
@@ -79,8 +79,8 @@ const Projects = () => {
       description: "Developed a web application for uploading, storing, and visualizing fermentation run data with interactive time series charts for bioprocess analysis.",
       tags: ["React", "FastAPI", "Python", "Docker", "SQLite", "TailwindCSS", "Plotly.js"],
       images: [
-        `${import.meta.env.BASE_URL}img/bbs1.png`,
-        `${import.meta.env.BASE_URL}img/bbs.png`
+        `${import.meta.env.BASE_URL}images/optimized/bbs1/bbs1-768w.webp`,
+        `${import.meta.env.BASE_URL}images/optimized/bbs/bbs-768w.webp`
       ],
       githubLink: "https://github.com/YuxiangJiangCT/yxj_bbp",
       demoLink: "http://3.14.66.6:3000/",
@@ -91,7 +91,7 @@ const Projects = () => {
       title: "CTSDG Image Restoration Network",
       description: "Developed a dual-stream architecture with integrated attention modules, significantly improving image restoration quality as validated by PSNR and SSIM metrics.",
       tags: ["Python", "TensorFlow", "NumPy", "Pandas"],
-      images: [`${import.meta.env.BASE_URL}img/huawei.png`],
+      images: [`${import.meta.env.BASE_URL}images/optimized/huawei/huawei-768w.webp`],
       githubLink: "https://openi.pcl.ac.cn/AAIC/CTSDG",
       details: "CTSDG is a novel deep learning model designed for image inpainting tasks. It features a dual-stream architecture augmented with attention mechanisms, enabling the network to effectively capture both structural and textural information. The model delivers high-quality and coherent restorations, achieving outstanding performance in quantitative (PSNR/SSIM) and qualitative benchmarks."
     }

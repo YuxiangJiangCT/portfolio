@@ -8,7 +8,7 @@ export const competitionsData: Competition[] = [
     award: 'National Finals (Top 30 in China)',
     date: 'Jul 2022 - Dec 2022',
     description: 'Orchestrated the development of TransX Knowledge Graph Network and CTSDG Image Restoration Network on MindSpore, aarch64 CPU, and Huawei NPU, securing two of the 30 national gold awards for highest accuracy.',
-    image: `${import.meta.env.BASE_URL}img/huawei.png`,
+    image: `${import.meta.env.BASE_URL}images/optimized/huawei/huawei-768w.webp`,
     projects: [
       {
         id: 'transx',
