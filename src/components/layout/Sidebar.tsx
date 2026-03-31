@@ -41,8 +41,13 @@ export default function Sidebar() {
 
   const sidebarContent = (
     <div className="flex flex-col h-full">
-      {/* Identity — centered like a business card */}
+      {/* Avatar + Identity — centered like a business card */}
       <div className="text-center mb-8">
+        <img
+          src="/images/avatar.jpg"
+          alt={profile.name}
+          className="w-28 h-28 rounded-full mx-auto mb-4 border-2 border-gray-200 shadow-lg object-cover"
+        />
         <h1 className="font-heading text-xl font-bold text-primary tracking-tight">
           {profile.name.split('(')[0].trim()}
         </h1>
