@@ -7,7 +7,7 @@ interface ExperienceBlockProps {
 
 export default function ExperienceBlock({ experience }: ExperienceBlockProps) {
   return (
-    <div>
+    <div className="bg-white rounded-lg border border-border shadow-sm p-6">
       <div className="flex flex-col sm:flex-row sm:items-baseline gap-0.5 sm:gap-3 mb-1">
         <h3 className="font-heading text-xl font-bold text-primary">{experience.company}</h3>
         <span className="text-sm text-muted tabular-nums">{experience.period}</span>
@@ -26,7 +26,7 @@ export default function ExperienceBlock({ experience }: ExperienceBlockProps) {
         ))}
       </ul>
 
-      <div className="flex flex-wrap gap-1">
+      <div className="flex flex-wrap gap-2">
         {experience.techStack.map((t) => (
           <TechTag key={t} name={t} />
         ))}

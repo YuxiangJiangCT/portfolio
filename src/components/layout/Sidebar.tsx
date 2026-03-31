@@ -55,7 +55,7 @@ export default function Sidebar() {
       </div>
 
       {/* Social */}
-      <div className="flex items-center gap-0.5 mb-10">
+      <div className="flex items-center gap-3 mb-10">
         {[
           { href: profile.links.github, icon: Github, label: 'GitHub' },
           { href: profile.links.linkedin, icon: Linkedin, label: 'LinkedIn' },
@@ -66,7 +66,7 @@ export default function Sidebar() {
             href={href}
             target={label !== 'Email' ? '_blank' : undefined}
             rel={label !== 'Email' ? 'noopener noreferrer' : undefined}
-            className="p-2 rounded-md text-muted hover:text-primary hover:bg-tag-bg transition-all cursor-pointer"
+            className="w-8 h-8 flex items-center justify-center rounded-lg text-muted bg-gray-50 shadow-sm hover:text-primary hover:scale-110 transition-all cursor-pointer"
             aria-label={label}
           >
             <Icon className="w-4 h-4" strokeWidth={1.5} />
@@ -76,7 +76,7 @@ export default function Sidebar() {
 
       {/* Navigation */}
       <nav className="mb-auto">
-        <ul className="space-y-0.5">
+        <ul className="space-y-1">
           {navItems.map((item) => {
             const isActive = activeSection === item.href.slice(1);
             return (
@@ -84,10 +84,10 @@ export default function Sidebar() {
                 <a
                   href={item.href}
                   onClick={() => handleNavClick(item.href)}
-                  className={`block py-2 text-sm font-medium transition-colors border-l-2 pl-3 cursor-pointer ${
+                  className={`block px-3 py-2 text-sm font-medium rounded-lg transition-colors cursor-pointer ${
                     isActive
-                      ? 'border-accent text-primary'
-                      : 'border-transparent text-muted hover:text-primary hover:border-border'
+                      ? 'bg-accent text-white shadow-sm'
+                      : 'text-muted hover:bg-gray-50 hover:text-primary'
                   }`}
                 >
                   {item.label}
@@ -113,7 +113,7 @@ export default function Sidebar() {
 
   return (
     <>
-      <aside className="hidden lg:flex flex-col fixed top-0 left-0 w-64 h-screen border-r border-border bg-white px-6 py-10 overflow-y-auto">
+      <aside className="hidden lg:flex flex-col fixed top-0 left-0 w-64 h-screen bg-white shadow-lg px-6 py-10 overflow-y-auto">
         {sidebarContent}
       </aside>
 

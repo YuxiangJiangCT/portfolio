@@ -13,7 +13,7 @@ export default function Skills() {
             <span className="text-sm font-medium text-muted w-28 shrink-0 pt-1 uppercase tracking-wider">
               {group.category}
             </span>
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex flex-wrap gap-2">
               {group.items.map((item) => (
                 <TechTag key={item} name={item} />
               ))}
