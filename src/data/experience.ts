@@ -1,169 +1,40 @@
-export interface Achievement {
-  title: string;
-  description: string;
-  metrics: string[];
-  technologies: string[];
-}
-
 export interface Experience {
+  id: string;
   company: string;
-  position: string;
-  location: string;
+  role: string;
   period: string;
-  logo?: string;
-  achievements: Achievement[];
+  location: string;
+  bullets: string[];
+  techStack: string[];
 }
 
 export const experiences: Experience[] = [
   {
+    id: "dataman",
     company: "Dataman Analytics (quantdefi.ai)",
-    position: "Software Engineering Intern",
-    location: "New York, NY",
+    role: "Software Engineering Intern",
     period: "Jun 2025 – Aug 2025",
-    achievements: [
-      {
-        title: "Microservices Architecture Optimization",
-        description: "Re-architected FastAPI microservices platform for improved performance",
-        metrics: [
-          "p99 latency: 420ms → 125ms (70% reduction)",
-          "Peak RPS: 1.2k → 2.5k (2x improvement)",
-          "Sub-50ms response time achieved"
-        ],
-        technologies: ["FastAPI", "Redis", "Async I/O", "Connection Pooling"]
-      },
-      {
-        title: "DefiLlama Pool Scanner Standardization",
-        description: "Led standardization and deployment of pool scanner as a service",
-        metrics: [
-          "19,000+ pools monitored",
-          "Real-time alerts",
-          "Non-technical accessibility"
-        ],
-        technologies: ["FastAPI", "Streamlit", "WebSocket", "Redis"]
-      },
-      {
-        title: "APY Forecasting Pipeline",
-        description: "Designed and implemented ARIMA-based APY forecasting system",
-        metrics: [
-          "19,000+ pools coverage",
-          "Market-regime adaptive",
-          "Daily predictions"
-        ],
-        technologies: ["Python", "ARIMA", "Time Series", "NumPy", "Pandas"]
-      },
-      {
-        title: "End-to-End Observability",
-        description: "Established comprehensive monitoring and alerting system",
-        metrics: [
-          "p95/p99 tracking",
-          "SLO-based alerts",
-          "5-minute incident response"
-        ],
-        technologies: ["Structured Logging", "Grafana", "Prometheus", "Slack API"]
-      },
-      {
-        title: "Security & Reliability Hardening",
-        description: "Implemented authentication and reliability features",
-        metrics: [
-          "Zero security incidents",
-          "99.9% uptime",
-          "Idempotent operations"
-        ],
-        technologies: ["JWT", "ECDSA", "Rate Limiting", "Idempotency Keys"]
-      }
-    ]
+    location: "New York, NY",
+    bullets: [
+      "Re-architected FastAPI microservices platform, cutting p99 latency by ~70% and doubling peak RPS",
+      "Standardized DeFiLlama pool scanner and shipped as FastAPI service with Streamlit dashboard and Slack alerts",
+      "Built ARIMA-based APY forecasting pipeline over 19,000+ pools with automated distribution to social channels",
+      "Built end-to-end observability with p95/p99 dashboards and SLO-based Slack alerts",
+    ],
+    techStack: ["Python", "FastAPI", "Redis", "PostgreSQL", "ARIMA", "Docker"],
   },
   {
-    company: "PolyPoll (AI-driven Event Intelligence Platform)",
-    position: "Founding Engineer",
+    id: "polypoll",
+    company: "PolyPoll (Quantify Venture)",
+    role: "Co-founder & CTO",
+    period: "Aug 2024 – Present",
     location: "New York, NY",
-    period: "Jul 2025 – Present",
-    achievements: [
-      {
-        title: "Multi-Provider Inference Routing Layer",
-        description: "Architected automatic failover system across 6 model endpoints",
-        metrics: [
-          "6 model endpoints (Groq/OpenRouter)",
-          "Automatic failover",
-          "~500 VUs sustained",
-          "28K+ requests handled"
-        ],
-        technologies: ["Python", "FastAPI", "Groq", "OpenRouter"]
-      },
-      {
-        title: "Rate Limiting & Quota Management",
-        description: "Enforced rate limits and daily quota budgets with reliability testing",
-        metrics: [
-          "k6 soak tests validated",
-          "~500 VUs",
-          "28K+ requests",
-          "<0.5% errors"
-        ],
-        technologies: ["k6", "Load Testing", "Rate Limiting", "Quota Management"]
-      },
-      {
-        title: "Market Generation Engine",
-        description: "Built 10-stage pipeline with dual-layer semantic de-duplication",
-        metrics: [
-          "10-stage pipeline",
-          "0.75 similarity threshold",
-          "48h deduplication window",
-          "Improved market quality"
-        ],
-        technologies: ["Python", "Semantic Analysis", "Pipeline Design", "De-duplication"]
-      },
-      {
-        title: "External API Integration",
-        description: "Integrated 5+ APIs with entity resolution and unified monitoring",
-        metrics: [
-          "5+ external APIs",
-          "1,700+ public figures database",
-          "Graceful degradation",
-          "Unified cost monitoring"
-        ],
-        technologies: ["Exa", "Perplexity", "Replicate", "Cloudinary", "Slack"]
-      },
-      {
-        title: "PostgreSQL Schema Design",
-        description: "Designed schema with auto-categorization and JSONB embeddings",
-        metrics: [
-          "Auto-categorization triggers",
-          "RLS policies",
-          "JSONB embeddings",
-          "Efficient similarity matching"
-        ],
-        technologies: ["PostgreSQL", "JSONB", "Database Design", "RLS"]
-      }
-    ]
+    bullets: [
+      "Built entire technical stack from scratch: backend (FastAPI), frontend (React/TS Chrome Extension), smart contracts (Solidity on Base)",
+      "Designed AI pipeline for automated content analysis and market generation using Groq LLM",
+      "Implemented ECDSA + JWT authentication, rate limiting, and idempotency patterns",
+      "Load-tested system with k6 (~500 virtual users, 28K+ requests, <0.5% error rate)",
+    ],
+    techStack: ["React", "TypeScript", "Solidity", "FastAPI", "Chrome Extension API"],
   },
-  {
-    company: "Cornell Tech",
-    position: "Course Staff (Grader) - Applied Machine Learning",
-    location: "New York, NY",
-    period: "Sep 2025 – Present",
-    achievements: [
-      {
-        title: "Assignment & Project Evaluation",
-        description: "Grade assignments and projects for ~150 students using calibrated rubrics",
-        metrics: [
-          "~150 students served",
-          "48-hour typical turnaround",
-          "<5% regrade rate",
-          "100% rubric compliance"
-        ],
-        technologies: ["Gradescope", "Python", "Jupyter", "Git", "Code Review"]
-      },
-      {
-        title: "Feedback & Standards",
-        description: "Provide actionable feedback while ensuring grading consistency",
-        metrics: [
-          "Detailed feedback on each submission",
-          "Edge case documentation",
-          "Weekly calibration meetings",
-          "Consistent evaluation standards"
-        ],
-        technologies: ["Technical Writing", "Rubric Design", "Collaboration"]
-      }
-    ]
-  }
 ];

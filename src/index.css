@@ -1,80 +1,23 @@
-@import './styles/design-system.css';
-@import './styles/theme-overrides.css';
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  body {
-    @apply font-sans transition-colors duration-300;
-  }
-
-  /* Dark mode styles */
-  html.dark body {
-    @apply bg-dark-bg text-dark-text;
-  }
-
-  /* Light mode styles - Enhanced */
-  html.light body {
-    @apply bg-light-bg text-light-text;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-mono tracking-wide;
-  }
-
-  /* Smooth transitions for all elements */
-  * {
-    @apply transition-colors duration-300;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
-@layer components {
-  .section-container {
-    @apply max-w-6xl mx-auto px-6;
-  }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
 
-  .section-title {
-    @apply text-3xl font-mono mb-12 text-center;
-  }
+/* Fade-in animation for sections */
+.fade-section {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
 
-  /* Card styles with theme support - Enhanced */
-  .card {
-    @apply p-8 rounded-xl transition-all duration-300;
-  }
-
-  .dark .card {
-    @apply bg-dark-card hover:bg-dark-card-hover shadow-lg hover:shadow-xl;
-  }
-
-  .light .card {
-    @apply bg-light-card hover:bg-light-card-hover;
-    box-shadow: 0 1px 3px rgba(31, 35, 40, 0.12), 0 8px 24px rgba(31, 35, 40, 0.04);
-  }
-
-  .light .card:hover {
-    box-shadow: 0 3px 12px rgba(31, 35, 40, 0.15), 0 12px 48px rgba(31, 35, 40, 0.06);
-  }
-
-  /* Animation for fade in */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fadeIn {
-    animation: fadeIn 0.5s ease-out;
-  }
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

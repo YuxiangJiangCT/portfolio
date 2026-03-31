@@ -31,3 +31,8 @@ enable-particles.html
 *.njsproj
 *.sln
 *.sw?
+
+# Build artifacts
+*.tsbuildinfo
+vite.config.d.ts
+vite.config.js
