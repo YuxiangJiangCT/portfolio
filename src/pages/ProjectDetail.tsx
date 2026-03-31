@@ -21,7 +21,7 @@ export default function ProjectDetail() {
   }
 
   return (
-    <div className="max-w-3xl">
+    <div className="max-w-4xl">
       {/* Back link */}
       <Link
         to="/"

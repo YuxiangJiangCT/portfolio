@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section className="pb-20">
       {/* Title */}
-      <h2 className="text-[28px] sm:text-[36px] font-bold text-gray-900 leading-[1.2] tracking-tight mb-5">
+      <h2 className="text-[32px] sm:text-[40px] lg:text-[44px] font-bold text-gray-900 leading-[1.15] tracking-tight mb-5 max-w-3xl">
         Software Engineer focused on
         <span className="text-blue-600"> backend systems</span>,
         <span className="text-blue-600"> APIs</span>, and
@@ -14,7 +14,7 @@ export default function Hero() {
       </h2>
 
       {/* Bio */}
-      <p className="text-[15px] text-gray-500 leading-relaxed mb-10 max-w-2xl">
+      <p className="text-[15px] text-gray-500 leading-relaxed mb-10 max-w-xl">
         {profile.bio}
       </p>
 
