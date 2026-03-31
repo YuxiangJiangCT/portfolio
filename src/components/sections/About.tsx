@@ -1,8 +1,11 @@
 export default function About() {
   return (
-    <section id="about" className="py-16 border-b border-border">
-      <h2 className="text-2xl font-bold text-text-primary mb-6">About</h2>
-      <div className="space-y-4 text-sm text-text-secondary leading-relaxed max-w-2xl">
+    <section id="about" className="py-16">
+      <div className="flex items-center gap-3 mb-6">
+        <h2 className="text-xl font-bold text-gray-900">About</h2>
+        <div className="flex-1 h-px bg-gray-200" />
+      </div>
+      <div className="space-y-4 text-[14px] text-gray-600 leading-[1.7] max-w-2xl">
         <p>
           I'm a Software Engineer and Cornell Tech CS graduate (May 2026) who cares about building
           systems that are reliable, fast, and production-ready. Most of my work has been in backend

@@ -2,22 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-body {
-  font-family: 'Inter', system-ui, sans-serif;
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #FAFBFC;
+    color: #1a1a2e;
+  }
+
+  ::selection {
+    background-color: #2563EB20;
+    color: #1a1a2e;
+  }
 }
 
 /* Fade-in animation for sections */
 .fade-section {
   opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  transform: translateY(16px);
+  transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .fade-section.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Subtle hover lift for cards */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.08),
+              0 4px 10px -5px rgba(0, 0, 0, 0.04);
 }

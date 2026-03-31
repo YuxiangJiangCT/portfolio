@@ -12,8 +12,8 @@ export default function ProjectDetail() {
   if (!project) {
     return (
       <div className="py-20 text-center">
-        <p className="text-text-secondary mb-4">Project not found.</p>
-        <Link to="/" className="text-accent hover:underline text-sm">
+        <p className="text-gray-500 mb-4">Project not found.</p>
+        <Link to="/" className="text-blue-600 hover:underline text-sm">
           Back to home
         </Link>
       </div>
@@ -25,20 +25,22 @@ export default function ProjectDetail() {
       {/* Back link */}
       <Link
         to="/"
-        className="inline-flex items-center gap-1.5 text-sm text-text-secondary hover:text-accent transition-colors mb-8"
+        className="inline-flex items-center gap-1.5 text-[13px] text-gray-400 hover:text-gray-700 transition-colors mb-10"
       >
         <ArrowLeft className="w-4 h-4" />
-        Back
+        Back to all projects
       </Link>
 
       {/* Header */}
-      <div className="mb-10">
-        <div className="flex flex-wrap gap-2 mb-3">
+      <div className="mb-12">
+        <div className="flex flex-wrap gap-1.5 mb-3">
           {project.status.map((s) => (
             <StatusBadge key={s} label={s} />
           ))}
         </div>
-        <h1 className="text-2xl sm:text-3xl font-bold text-text-primary mb-3">{project.title}</h1>
+        <h1 className="text-2xl sm:text-[28px] font-bold text-gray-900 tracking-tight mb-4">
+          {project.title}
+        </h1>
         <div className="flex flex-wrap gap-1.5">
           {project.techStack.map((t) => (
             <TechTag key={t} name={t} />
@@ -58,10 +60,10 @@ export default function ProjectDetail() {
 
       {/* What I Built */}
       <DetailSection title="What I Built">
-        <ul className="space-y-2">
+        <ul className="space-y-2.5">
           {project.whatIBuilt.map((item, i) => (
-            <li key={i} className="flex items-start gap-2">
-              <span className="text-accent mt-0.5 shrink-0">•</span>
+            <li key={i} className="flex items-start gap-2.5">
+              <span className="text-blue-500 mt-0.5 shrink-0 text-[10px]">▸</span>
               <span>{item}</span>
             </li>
           ))}
@@ -75,10 +77,10 @@ export default function ProjectDetail() {
 
       {/* Key Decisions */}
       <DetailSection title="Key Decisions">
-        <ul className="space-y-2">
+        <ul className="space-y-3">
           {project.keyDecisions.map((item, i) => (
-            <li key={i} className="flex items-start gap-2">
-              <span className="text-accent-amber mt-0.5 shrink-0">→</span>
+            <li key={i} className="flex items-start gap-2.5">
+              <span className="text-amber-500 mt-px shrink-0 font-mono text-xs font-bold">→</span>
               <span>{item}</span>
             </li>
           ))}
@@ -87,10 +89,10 @@ export default function ProjectDetail() {
 
       {/* Challenges */}
       <DetailSection title="Challenges">
-        <ul className="space-y-2">
+        <ul className="space-y-3">
           {project.challenges.map((item, i) => (
-            <li key={i} className="flex items-start gap-2">
-              <span className="text-accent-rose mt-0.5 shrink-0">!</span>
+            <li key={i} className="flex items-start gap-2.5">
+              <span className="text-rose-400 mt-px shrink-0 font-mono text-xs font-bold">!</span>
               <span>{item}</span>
             </li>
           ))}
@@ -99,14 +101,16 @@ export default function ProjectDetail() {
 
       {/* Results */}
       <DetailSection title="Results">
-        <ul className="space-y-2">
-          {project.results.map((item, i) => (
-            <li key={i} className="flex items-start gap-2">
-              <span className="text-accent-green mt-0.5 shrink-0">✓</span>
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
+        <div className="bg-emerald-50 border border-emerald-200/60 rounded-xl p-5">
+          <ul className="space-y-2">
+            {project.results.map((item, i) => (
+              <li key={i} className="flex items-start gap-2.5 text-emerald-800">
+                <span className="text-emerald-500 mt-px shrink-0 text-xs">✓</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </DetailSection>
 
       {/* Links */}
@@ -118,7 +122,7 @@ export default function ProjectDetail() {
                 href={project.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-text-primary border border-border rounded-lg hover:border-accent hover:text-accent transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2.5 text-[13px] font-medium text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 hover:border-gray-300 transition-colors shadow-sm"
               >
                 <Github className="w-4 h-4" />
                 Source Code
@@ -129,7 +133,7 @@ export default function ProjectDetail() {
                 href={project.links.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-accent rounded-lg hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2.5 text-[13px] font-medium text-white bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors shadow-sm"
               >
                 <ExternalLink className="w-4 h-4" />
                 Live Demo
@@ -140,7 +144,7 @@ export default function ProjectDetail() {
                 href={project.links.showcase}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-text-primary border border-border rounded-lg hover:border-accent hover:text-accent transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2.5 text-[13px] font-medium text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 hover:border-gray-300 transition-colors shadow-sm"
               >
                 <ExternalLink className="w-4 h-4" />
                 Showcase
@@ -155,9 +159,9 @@ export default function ProjectDetail() {
 
 function DetailSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="mb-10">
-      <h2 className="text-lg font-semibold text-text-primary mb-3">{title}</h2>
-      <div className="text-sm text-text-secondary leading-relaxed">{children}</div>
+    <div className="mb-12">
+      <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">{title}</h2>
+      <div className="text-[14px] text-gray-600 leading-[1.7]">{children}</div>
     </div>
   );
 }

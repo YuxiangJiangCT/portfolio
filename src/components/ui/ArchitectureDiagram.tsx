@@ -15,10 +15,24 @@ export default function ArchitectureDiagram({ projectId }: ArchitectureDiagramPr
   }
 }
 
-function Box({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+function Box({
+  children,
+  variant = 'default',
+}: {
+  children: React.ReactNode;
+  variant?: 'default' | 'blue' | 'red' | 'amber' | 'violet' | 'green';
+}) {
+  const styles = {
+    default: 'bg-white border-gray-200 text-gray-700',
+    blue: 'bg-blue-50 border-blue-200/80 text-blue-800',
+    red: 'bg-rose-50 border-rose-200/80 text-rose-800',
+    amber: 'bg-amber-50 border-amber-200/80 text-amber-800',
+    violet: 'bg-violet-50 border-violet-200/80 text-violet-800',
+    green: 'bg-emerald-50 border-emerald-200/80 text-emerald-800',
+  };
   return (
     <div
-      className={`px-3 py-2 text-xs font-medium text-text-primary bg-white border border-border rounded-lg text-center ${className}`}
+      className={`px-3.5 py-2 text-[11px] font-semibold border rounded-lg text-center shadow-sm ${styles[variant]}`}
     >
       {children}
     </div>
@@ -28,64 +42,57 @@ function Box({ children, className = '' }: { children: React.ReactNode; classNam
 function Arrow({ direction = 'right' }: { direction?: 'right' | 'down' }) {
   if (direction === 'down') {
     return (
-      <div className="flex justify-center py-1">
-        <span className="text-text-secondary text-xs">↓</span>
+      <div className="flex justify-center py-1.5">
+        <svg width="12" height="16" viewBox="0 0 12 16" className="text-gray-300">
+          <path d="M6 0v12M1 9l5 5 5-5" fill="none" stroke="currentColor" strokeWidth="1.5" />
+        </svg>
       </div>
     );
   }
-  return <span className="text-text-secondary text-xs mx-1">→</span>;
+  return (
+    <svg width="20" height="12" viewBox="0 0 20 12" className="text-gray-300 mx-0.5 shrink-0">
+      <path d="M0 6h16M13 1l5 5-5 5" fill="none" stroke="currentColor" strokeWidth="1.5" />
+    </svg>
+  );
 }
 
 function Label({ children }: { children: React.ReactNode }) {
-  return <div className="text-[10px] text-text-secondary mt-1 text-center">{children}</div>;
+  return <div className="text-[10px] text-gray-400 mt-1.5 text-center font-medium">{children}</div>;
 }
 
 function DatamanDiagram() {
   return (
-    <div className="bg-secondary rounded-xl p-6 border border-border overflow-x-auto">
+    <div className="bg-gray-50 rounded-xl p-6 border border-gray-200/60 overflow-x-auto">
       <div className="min-w-[500px]">
-        {/* Row 1: Data ingestion */}
-        <div className="flex items-center justify-center gap-2 mb-4">
-          <Box className="bg-amber-50 border-amber-200">DeFiLlama API</Box>
+        <div className="flex items-center justify-center gap-2 mb-3">
+          <Box variant="amber">DeFiLlama API</Box>
           <Arrow />
           <Box>Pool Scanner</Box>
           <Arrow />
-          <Box className="bg-blue-50 border-blue-200">PostgreSQL</Box>
+          <Box variant="blue">PostgreSQL</Box>
         </div>
-
         <Arrow direction="down" />
-
-        {/* Row 2: Core platform */}
-        <div className="flex items-center justify-center gap-3 mb-2">
+        <div className="flex items-center justify-center gap-3 mb-1">
           <div>
-            <Box className="bg-red-50 border-red-200">Redis Cache</Box>
+            <Box variant="red">Redis Cache</Box>
             <Label>-70% p99</Label>
           </div>
           <Arrow />
           <div>
-            <Box className="bg-blue-50 border-blue-200">FastAPI Gateway</Box>
+            <Box variant="blue">FastAPI Gateway</Box>
             <Label>26 endpoints</Label>
           </div>
           <Arrow />
           <div>
-            <Box className="bg-violet-50 border-violet-200">ARIMA Pipeline</Box>
+            <Box variant="violet">ARIMA Pipeline</Box>
             <Label>19K+ forecasts</Label>
           </div>
         </div>
-
         <Arrow direction="down" />
-
-        {/* Row 3: Outputs */}
-        <div className="flex items-center justify-center gap-4">
-          <div>
-            <Box className="bg-green-50 border-green-200">Streamlit UI</Box>
-          </div>
-          <div>
-            <Box className="bg-green-50 border-green-200">Slack Alerts</Box>
-          </div>
-          <div>
-            <Box className="bg-green-50 border-green-200">Bot Distribution</Box>
-          </div>
+        <div className="flex items-center justify-center gap-3">
+          <Box variant="green">Streamlit UI</Box>
+          <Box variant="green">Slack Alerts</Box>
+          <Box variant="green">Bot Distribution</Box>
         </div>
       </div>
     </div>
@@ -94,32 +101,28 @@ function DatamanDiagram() {
 
 function PolypollDiagram() {
   return (
-    <div className="bg-secondary rounded-xl p-6 border border-border overflow-x-auto">
+    <div className="bg-gray-50 rounded-xl p-6 border border-gray-200/60 overflow-x-auto">
       <div className="min-w-[500px]">
-        {/* Row 1: Frontend */}
-        <div className="flex items-center justify-center gap-3 mb-2">
+        <div className="flex items-center justify-center gap-2 mb-1">
           <div>
-            <Box className="bg-amber-50 border-amber-200">Chrome Extension</Box>
+            <Box variant="amber">Chrome Extension</Box>
             <Label>120+ sites</Label>
           </div>
           <Arrow />
           <div>
-            <Box className="bg-blue-50 border-blue-200">FastAPI Backend</Box>
+            <Box variant="blue">FastAPI Backend</Box>
             <Label>30+ endpoints</Label>
           </div>
           <Arrow />
           <div>
-            <Box className="bg-violet-50 border-violet-200">Base L2 Contract</Box>
+            <Box variant="violet">Base L2 Contract</Box>
             <Label>USDC settlement</Label>
           </div>
         </div>
-
         <Arrow direction="down" />
-
-        {/* Row 2: AI + Data layer */}
-        <div className="flex items-center justify-center gap-4 mb-2">
+        <div className="flex items-center justify-center gap-3 mb-1">
           <div>
-            <Box className="bg-red-50 border-red-200">Groq / OpenRouter</Box>
+            <Box variant="red">Groq / OpenRouter</Box>
             <Label>6 model endpoints</Label>
           </div>
           <div>
@@ -127,15 +130,12 @@ function PolypollDiagram() {
             <Label>10-stage pipeline</Label>
           </div>
           <div>
-            <Box className="bg-green-50 border-green-200">WebSocket</Box>
+            <Box variant="green">WebSocket</Box>
             <Label>Realtime updates</Label>
           </div>
         </div>
-
         <Arrow direction="down" />
-
-        {/* Row 3: External integrations */}
-        <div className="flex items-center justify-center gap-3">
+        <div className="flex items-center justify-center gap-2">
           <Box>Exa</Box>
           <Box>Perplexity</Box>
           <Box>Replicate</Box>
@@ -150,48 +150,41 @@ function PolypollDiagram() {
 
 function UrlShortenerDiagram() {
   return (
-    <div className="bg-secondary rounded-xl p-6 border border-border overflow-x-auto">
+    <div className="bg-gray-50 rounded-xl p-6 border border-gray-200/60 overflow-x-auto">
       <div className="min-w-[450px]">
-        {/* Row 1: Request flow */}
-        <div className="flex items-center justify-center gap-2 mb-2">
+        <div className="flex items-center justify-center gap-2 mb-1">
           <Box>Client</Box>
           <Arrow />
           <div>
-            <Box className="bg-blue-50 border-blue-200">Node.js API</Box>
+            <Box variant="blue">Node.js API</Box>
             <Label>Rate limiter</Label>
           </div>
           <Arrow />
           <div>
-            <Box className="bg-red-50 border-red-200">Redis Cache</Box>
+            <Box variant="red">Redis Cache</Box>
             <Label>Cache-aside</Label>
           </div>
         </div>
-
         <Arrow direction="down" />
-
-        {/* Row 2: Write path */}
-        <div className="flex items-center justify-center gap-3 mb-2">
+        <div className="flex items-center justify-center gap-2 mb-1">
           <div>
-            <Box className="bg-amber-50 border-amber-200">Redis Queue</Box>
-            <Label>Non-blocking writes</Label>
+            <Box variant="amber">Redis Queue</Box>
+            <Label>Non-blocking</Label>
           </div>
           <Arrow />
           <div>
-            <Box className="bg-violet-50 border-violet-200">Batch Worker</Box>
+            <Box variant="violet">Batch Worker</Box>
             <Label>Aggregation</Label>
           </div>
           <Arrow />
           <div>
-            <Box className="bg-blue-50 border-blue-200">PostgreSQL</Box>
+            <Box variant="blue">PostgreSQL</Box>
             <Label>90% I/O reduction</Label>
           </div>
         </div>
-
         <Arrow direction="down" />
-
-        {/* Row 3: Output */}
         <div className="flex items-center justify-center">
-          <Box className="bg-green-50 border-green-200">Analytics Dashboard (React)</Box>
+          <Box variant="green">Analytics Dashboard (React)</Box>
         </div>
       </div>
     </div>

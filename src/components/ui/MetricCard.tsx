@@ -1,8 +1,28 @@
 const colorMap = {
-  green: 'text-accent-green bg-emerald-50 border-emerald-200',
-  blue: 'text-accent bg-blue-50 border-blue-200',
-  amber: 'text-accent-amber bg-amber-50 border-amber-200',
-  rose: 'text-accent-rose bg-rose-50 border-rose-200',
+  green: {
+    bg: 'bg-emerald-50',
+    border: 'border-emerald-200/60',
+    text: 'text-emerald-700',
+    bar: 'bg-emerald-500',
+  },
+  blue: {
+    bg: 'bg-blue-50',
+    border: 'border-blue-200/60',
+    text: 'text-blue-700',
+    bar: 'bg-blue-500',
+  },
+  amber: {
+    bg: 'bg-amber-50',
+    border: 'border-amber-200/60',
+    text: 'text-amber-700',
+    bar: 'bg-amber-500',
+  },
+  rose: {
+    bg: 'bg-rose-50',
+    border: 'border-rose-200/60',
+    text: 'text-rose-700',
+    bar: 'bg-rose-500',
+  },
 } as const;
 
 interface MetricCardProps {
@@ -12,10 +32,12 @@ interface MetricCardProps {
 }
 
 export default function MetricCard({ label, value, color }: MetricCardProps) {
+  const c = colorMap[color];
   return (
-    <div className={`rounded-lg border px-4 py-3 ${colorMap[color]}`}>
-      <div className="text-2xl font-semibold">{value}</div>
-      <div className="text-sm text-text-secondary mt-0.5">{label}</div>
+    <div className={`relative overflow-hidden rounded-xl border ${c.border} ${c.bg} px-4 py-4`}>
+      <div className={`absolute top-0 left-0 w-1 h-full ${c.bar}`} />
+      <div className={`text-2xl font-bold tracking-tight ${c.text}`}>{value}</div>
+      <div className="text-xs text-gray-500 mt-1 font-medium">{label}</div>
     </div>
   );
 }
