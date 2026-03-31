@@ -41,18 +41,20 @@ export default function Sidebar() {
     <div className="flex flex-col h-full">
       {/* Identity */}
       <div className="mb-10">
-        <h1 className="text-[15px] font-semibold text-gray-900 tracking-tight">{profile.name.split('(')[0].trim()}</h1>
-        <p className="text-[13px] text-gray-400 mt-0.5">{profile.title}</p>
+        <h1 className="font-heading text-[15px] font-bold text-primary tracking-tight">
+          {profile.name.split('(')[0].trim()}
+        </h1>
+        <p className="text-[13px] text-muted mt-1">{profile.title}</p>
       </div>
 
-      {/* Education — compact */}
-      <div className="mb-8 text-[12px] text-gray-400 leading-[1.6]">
-        <p className="text-gray-600 font-medium">Cornell Tech</p>
+      {/* Education */}
+      <div className="mb-8 text-[12px] text-muted leading-[1.6]">
+        <p className="text-primary font-medium">Cornell Tech</p>
         <p>M.S. Computer Science</p>
         <p>Expected May 2026</p>
       </div>
 
-      {/* Social icons */}
+      {/* Social */}
       <div className="flex items-center gap-0.5 mb-10">
         {[
           { href: profile.links.github, icon: Github, label: 'GitHub' },
@@ -64,7 +66,7 @@ export default function Sidebar() {
             href={href}
             target={label !== 'Email' ? '_blank' : undefined}
             rel={label !== 'Email' ? 'noopener noreferrer' : undefined}
-            className="p-2 rounded-md text-gray-400 hover:text-gray-800 hover:bg-gray-100 transition-all"
+            className="p-2 rounded-md text-muted hover:text-primary hover:bg-tag-bg transition-all cursor-pointer"
             aria-label={label}
           >
             <Icon className="w-4 h-4" strokeWidth={1.5} />
@@ -82,10 +84,10 @@ export default function Sidebar() {
                 <a
                   href={item.href}
                   onClick={() => handleNavClick(item.href)}
-                  className={`block py-1.5 text-[13px] transition-colors border-l-2 pl-3 ${
+                  className={`block py-1.5 text-[13px] font-medium transition-colors border-l-2 pl-3 cursor-pointer ${
                     isActive
-                      ? 'border-indigo-500 text-gray-900 font-medium'
-                      : 'border-transparent text-gray-400 hover:text-gray-700 hover:border-gray-300'
+                      ? 'border-accent text-primary'
+                      : 'border-transparent text-muted hover:text-primary hover:border-border'
                   }`}
                 >
                   {item.label}
@@ -101,7 +103,7 @@ export default function Sidebar() {
         href="/Ryan_Resume.pdf"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-2 text-[12px] font-medium text-gray-500 hover:text-gray-900 transition-colors mt-8"
+        className="flex items-center gap-2 text-[12px] font-medium text-muted hover:text-primary transition-colors mt-8 cursor-pointer"
       >
         <Download className="w-3.5 h-3.5" />
         Download Resume
@@ -111,17 +113,15 @@ export default function Sidebar() {
 
   return (
     <>
-      {/* Desktop sidebar */}
-      <aside className="hidden lg:flex flex-col fixed top-0 left-0 w-[200px] h-screen border-r border-gray-100 bg-white px-6 py-10 overflow-y-auto">
+      <aside className="hidden lg:flex flex-col fixed top-0 left-0 w-[200px] h-screen border-r border-border bg-white px-6 py-10 overflow-y-auto">
         {sidebarContent}
       </aside>
 
-      {/* Mobile header */}
-      <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 px-5 py-3 flex items-center justify-between">
-        <span className="text-[13px] font-semibold text-gray-900">Yuxiang Jiang</span>
+      <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border px-5 py-3 flex items-center justify-between">
+        <span className="font-heading text-[13px] font-bold text-primary">Yuxiang Jiang</span>
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="p-1.5 rounded-md text-gray-500 hover:text-gray-900 hover:bg-gray-100"
+          className="p-1.5 rounded-md text-muted hover:text-primary hover:bg-tag-bg cursor-pointer"
           aria-label="Toggle menu"
         >
           {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

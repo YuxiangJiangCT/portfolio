@@ -1,11 +1,18 @@
 import { ArrowDown } from 'lucide-react';
 import { profile } from '../../data/profile';
 
+const metricColors: Record<string, string> = {
+  green: 'text-emerald-600',
+  blue: 'text-accent',
+  amber: 'text-amber-600',
+  rose: 'text-rose-600',
+};
+
 export default function Hero() {
   return (
-    <section className="pb-20">
+    <section className="pb-24">
       {/* Availability tag */}
-      <div className="mb-8">
+      <div className="mb-10">
         <span className="inline-flex items-center gap-2 text-[12px] font-medium text-emerald-700 bg-emerald-50 border border-emerald-200/60 rounded-full px-3 py-1">
           <span className="relative flex h-1.5 w-1.5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
@@ -15,56 +22,46 @@ export default function Hero() {
         </span>
       </div>
 
-      {/* Title — restrained, not screaming */}
-      <h1 className="text-[24px] sm:text-[28px] font-semibold text-gray-900 leading-[1.35] tracking-tight mb-4">
+      {/* Title — Archivo, bold, 36px */}
+      <h1 className="font-heading text-[32px] sm:text-[36px] font-bold text-primary leading-[1.2] tracking-tight mb-5 max-w-[640px]">
         I build backend systems, APIs, and scalable infrastructure.
       </h1>
 
-      {/* Bio */}
-      <p className="text-[15px] text-gray-500 leading-[1.7] mb-10 max-w-[540px]">
+      {/* Bio — Space Grotesk */}
+      <p className="text-[16px] text-muted leading-[1.7] mb-12 max-w-[520px]">
         {profile.bio}
       </p>
 
-      {/* Metrics — compact inline strip */}
-      <div className="flex flex-wrap gap-x-8 gap-y-3 mb-10 text-[13px]">
+      {/* Metrics — block strip */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-12 pb-12 border-b border-border">
         {profile.metrics.map((m) => (
-          <div key={m.label} className="flex items-baseline gap-1.5">
-            <span className={`text-[18px] font-bold tabular-nums ${metricColor(m.color)}`}>
+          <div key={m.label}>
+            <div className={`text-[28px] font-heading font-bold tracking-tight ${metricColors[m.color] ?? 'text-primary'}`}>
               {m.value}
-            </span>
-            <span className="text-gray-400">{m.label}</span>
+            </div>
+            <div className="text-[13px] text-muted mt-0.5">{m.label}</div>
           </div>
         ))}
       </div>
 
       {/* CTA */}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-5">
         <a
           href="#work"
-          className="inline-flex items-center gap-2 px-4 py-2 text-[13px] font-medium text-white bg-gray-900 rounded-md hover:bg-gray-800 transition-colors"
+          className="inline-flex items-center gap-2 px-5 py-2.5 text-[14px] font-medium text-white bg-primary rounded-md hover:bg-secondary transition-colors cursor-pointer"
         >
           View Work
-          <ArrowDown className="w-3.5 h-3.5" />
+          <ArrowDown className="w-4 h-4" />
         </a>
         <a
           href="/Ryan_Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[13px] font-medium text-gray-500 hover:text-gray-900 transition-colors underline underline-offset-4 decoration-gray-300 hover:decoration-gray-500"
+          className="text-[14px] font-medium text-muted hover:text-primary transition-colors underline underline-offset-4 decoration-border hover:decoration-primary cursor-pointer"
         >
           Resume
         </a>
       </div>
     </section>
   );
-}
-
-function metricColor(color: string) {
-  switch (color) {
-    case 'green': return 'text-emerald-600';
-    case 'blue': return 'text-blue-600';
-    case 'amber': return 'text-amber-600';
-    case 'rose': return 'text-rose-600';
-    default: return 'text-gray-900';
-  }
 }

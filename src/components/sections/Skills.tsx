@@ -3,14 +3,14 @@ import { skillGroups } from '../../data/skills';
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-14">
-      <h2 className="text-[13px] font-semibold text-gray-400 uppercase tracking-widest mb-6">
+    <section id="skills" className="py-20">
+      <h2 className="font-heading text-[22px] font-bold text-primary mb-8">
         Skills
       </h2>
-      <div className="space-y-4">
+      <div className="space-y-5">
         {skillGroups.map((group) => (
-          <div key={group.category} className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4">
-            <span className="text-[12px] font-medium text-gray-400 w-24 shrink-0 pt-0.5">
+          <div key={group.category} className="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-4">
+            <span className="text-[12px] font-medium text-muted w-28 shrink-0 pt-1 uppercase tracking-wider">
               {group.category}
             </span>
             <div className="flex flex-wrap gap-1.5">
