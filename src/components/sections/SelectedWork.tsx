@@ -3,7 +3,7 @@ import { projects } from '../../data/projects';
 
 export default function SelectedWork() {
   return (
-    <section id="work" className="py-20">
+    <section id="work" className="py-14">
       <h2 className="font-heading text-[22px] font-bold text-primary mb-8">
         Selected Work
       </h2>

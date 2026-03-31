@@ -3,7 +3,7 @@ import { skillGroups } from '../../data/skills';
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="py-14">
       <h2 className="font-heading text-[22px] font-bold text-primary mb-8">
         Skills
       </h2>

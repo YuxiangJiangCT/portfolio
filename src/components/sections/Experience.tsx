@@ -3,7 +3,7 @@ import { experiences } from '../../data/experience';
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20">
+    <section id="experience" className="py-14">
       <h2 className="font-heading text-[22px] font-bold text-primary mb-8">
         Experience
       </h2>
