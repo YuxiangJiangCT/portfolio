@@ -7,12 +7,12 @@ export default function Skills() {
       <h2 className="font-heading text-3xl font-bold text-primary mb-8">
         Skills
       </h2>
-      <div className="space-y-5">
+      <div className="space-y-8">
         {skillGroups.map((group) => (
-          <div key={group.category} className="flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-4">
-            <span className="text-sm font-medium text-muted w-28 shrink-0 pt-1 uppercase tracking-wider">
+          <div key={group.category}>
+            <h3 className="text-xl font-medium text-gray-800 mb-3">
               {group.category}
-            </span>
+            </h3>
             <div className="flex flex-wrap gap-2">
               {group.items.map((item) => (
                 <TechTag key={item} name={item} />

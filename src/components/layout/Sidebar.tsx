@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Github, Linkedin, Mail, Menu, X, Download } from 'lucide-react';
+import { Github, Linkedin, Mail, Menu, X, Download, MapPin } from 'lucide-react';
 import { profile } from '../../data/profile';
 
 const navItems = [
@@ -39,8 +39,8 @@ export default function Sidebar() {
 
   const sidebarContent = (
     <div className="flex flex-col h-full">
-      {/* Identity */}
-      <div className="mb-10">
+      {/* Identity — centered like a business card */}
+      <div className="text-center mb-8">
         <h1 className="font-heading text-xl font-bold text-primary tracking-tight">
           {profile.name.split('(')[0].trim()}
         </h1>
@@ -48,30 +48,41 @@ export default function Sidebar() {
       </div>
 
       {/* Education */}
-      <div className="mb-8 text-sm text-muted leading-relaxed">
+      <div className="text-center mb-6 text-sm text-muted leading-relaxed">
         <p className="text-primary font-medium">Cornell Tech</p>
         <p>M.S. Computer Science</p>
         <p>Expected May 2026</p>
       </div>
 
-      {/* Social */}
-      <div className="flex items-center gap-3 mb-10">
+      {/* Social icons — clean, centered */}
+      <div className="flex justify-center gap-3 mb-6">
         {[
           { href: profile.links.github, icon: Github, label: 'GitHub' },
           { href: profile.links.linkedin, icon: Linkedin, label: 'LinkedIn' },
-          { href: `mailto:${profile.links.email}`, icon: Mail, label: 'Email' },
         ].map(({ href, icon: Icon, label }) => (
           <a
             key={label}
             href={href}
-            target={label !== 'Email' ? '_blank' : undefined}
-            rel={label !== 'Email' ? 'noopener noreferrer' : undefined}
-            className="w-8 h-8 flex items-center justify-center rounded-lg text-muted bg-gray-50 shadow-sm hover:text-primary hover:scale-110 transition-all cursor-pointer"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-500 hover:text-primary hover:scale-110 transition-all cursor-pointer"
             aria-label={label}
           >
-            <Icon className="w-4 h-4" strokeWidth={1.5} />
+            <Icon className="w-6 h-6" strokeWidth={1.5} />
           </a>
         ))}
+      </div>
+
+      {/* Contact info */}
+      <div className="text-center text-sm text-muted space-y-1.5 mb-10">
+        <p className="flex items-center justify-center gap-2">
+          <MapPin className="w-4 h-4 shrink-0" />
+          {profile.location}
+        </p>
+        <p className="flex items-center justify-center gap-2">
+          <Mail className="w-4 h-4 shrink-0" />
+          {profile.links.email}
+        </p>
       </div>
 
       {/* Navigation */}
@@ -103,7 +114,7 @@ export default function Sidebar() {
         href="/Ryan_Resume.pdf"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-2 text-sm font-medium text-muted hover:text-primary transition-colors mt-8 cursor-pointer"
+        className="flex items-center justify-center gap-2 text-sm font-medium text-muted hover:text-primary transition-colors mt-8 cursor-pointer"
       >
         <Download className="w-3.5 h-3.5" />
         Download Resume
