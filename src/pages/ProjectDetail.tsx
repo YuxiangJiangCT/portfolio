@@ -25,7 +25,7 @@ export default function ProjectDetail() {
       {/* Back link */}
       <Link
         to="/"
-        className="inline-flex items-center gap-1.5 text-[13px] text-gray-400 hover:text-gray-700 transition-colors mb-10"
+        className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-gray-700 transition-colors mb-10"
       >
         <ArrowLeft className="w-4 h-4" />
         Back to all projects
@@ -38,7 +38,7 @@ export default function ProjectDetail() {
             <StatusBadge key={s} label={s} />
           ))}
         </div>
-        <h1 className="text-2xl sm:text-[28px] font-bold text-gray-900 tracking-tight mb-4">
+        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mb-4">
           {project.title}
         </h1>
         <div className="flex flex-wrap gap-1.5">
@@ -63,7 +63,7 @@ export default function ProjectDetail() {
         <ul className="space-y-2.5">
           {project.whatIBuilt.map((item, i) => (
             <li key={i} className="flex items-start gap-2.5">
-              <span className="text-blue-500 mt-0.5 shrink-0 text-[10px]">▸</span>
+              <span className="text-blue-500 mt-0.5 shrink-0 text-xs">▸</span>
               <span>{item}</span>
             </li>
           ))}
@@ -122,7 +122,7 @@ export default function ProjectDetail() {
                 href={project.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 text-[13px] font-medium text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 hover:border-gray-300 transition-colors shadow-sm"
+                className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 hover:border-gray-300 transition-colors shadow-sm"
               >
                 <Github className="w-4 h-4" />
                 Source Code
@@ -133,7 +133,7 @@ export default function ProjectDetail() {
                 href={project.links.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 text-[13px] font-medium text-white bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors shadow-sm"
+                className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-white bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors shadow-sm"
               >
                 <ExternalLink className="w-4 h-4" />
                 Live Demo
@@ -144,7 +144,7 @@ export default function ProjectDetail() {
                 href={project.links.showcase}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 text-[13px] font-medium text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 hover:border-gray-300 transition-colors shadow-sm"
+                className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 hover:border-gray-300 transition-colors shadow-sm"
               >
                 <ExternalLink className="w-4 h-4" />
                 Showcase
@@ -160,8 +160,8 @@ export default function ProjectDetail() {
 function DetailSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="mb-12">
-      <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">{title}</h2>
-      <div className="text-[14px] text-gray-600 leading-[1.7]">{children}</div>
+      <h2 className="text-base font-semibold text-gray-400 uppercase tracking-wider mb-4">{title}</h2>
+      <div className="text-base text-gray-600 leading-relaxed">{children}</div>
     </div>
   );
 }

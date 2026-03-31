@@ -1,10 +1,10 @@
 export default function About() {
   return (
     <section id="about" className="py-14">
-      <h2 className="font-heading text-[26px] font-bold text-primary mb-6">
+      <h2 className="font-heading text-3xl font-bold text-primary mb-6">
         About
       </h2>
-      <div className="space-y-4 text-[16px] text-secondary leading-[1.75]">
+      <div className="space-y-4 text-base text-secondary leading-relaxed">
         <p>
           I'm a Software Engineer and Cornell Tech CS graduate (May 2026) who cares about building
           systems that are reliable, fast, and production-ready. Most of my work has been in backend
