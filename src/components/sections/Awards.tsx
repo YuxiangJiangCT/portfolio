@@ -7,6 +7,7 @@ const awards = [
     location: 'New York, NY',
     prize: 'Worldcoin Prize Winner',
     project: 'PolyPoll',
+    logo: '/images/ethglobal-logo.png',
     bullets: [
       'Built a full-stack prediction market platform with AI-integrated backend',
       'Multi-provider AI routing, Chrome extension, and smart contract integration',
@@ -37,13 +38,19 @@ export default function Awards() {
       <div className="space-y-6">
         {awards.map((award) => (
           <div key={award.event} className="bg-white rounded-lg border border-border shadow-sm p-6">
-            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
-              <h3 className="font-heading text-xl font-bold text-primary">{award.event}</h3>
-              <span className="text-sm text-muted tabular-nums">{award.date} · {award.location}</span>
+            <div className="flex items-start gap-4 mb-4">
+              {award.logo && (
+                <img src={award.logo} alt={award.event} className="w-14 h-14 object-contain shrink-0 rounded-lg" />
+              )}
+              <div className="flex-1">
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
+                  <h3 className="font-heading text-xl font-bold text-primary">{award.event}</h3>
+                  <span className="text-sm text-muted tabular-nums">{award.date} · {award.location}</span>
+                </div>
+                <p className="text-lg font-semibold text-accent">{award.prize}</p>
+                <p className="text-base text-muted">{award.project}</p>
+              </div>
             </div>
-
-            <p className="text-lg font-semibold text-accent mb-1">{award.prize}</p>
-            <p className="text-base text-muted mb-3">{award.project}</p>
 
             <ul className="space-y-1.5 mb-4">
               {award.bullets.map((b, i) => (
