@@ -10,7 +10,7 @@ export const profile = {
   },
   links: {
     github: "https://github.com/YuxiangJiangCT",
-    linkedin: "https://www.linkedin.com/in/yuxiang03/",
+    linkedin: "https://www.linkedin.com/in/yuxiang-ryan-jiang/",
     email: "yj548@cornell.edu",
   },
   location: "New York, NY",
