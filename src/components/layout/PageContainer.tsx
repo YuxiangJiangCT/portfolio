@@ -6,8 +6,8 @@ interface PageContainerProps {
 
 export default function PageContainer({ children }: PageContainerProps) {
   return (
-    <main className="lg:ml-[240px] min-h-screen pt-14 lg:pt-0">
-      <div className="max-w-5xl mx-auto px-5 sm:px-8 lg:px-12 py-12 lg:py-20">
+    <main className="lg:ml-[200px] min-h-screen pt-14 lg:pt-0">
+      <div className="max-w-[860px] mx-auto px-6 sm:px-10 py-16 lg:py-24">
         {children}
       </div>
     </main>

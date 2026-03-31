@@ -3,12 +3,11 @@ import { experiences } from '../../data/experience';
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-16">
-      <div className="flex items-center gap-3 mb-8">
-        <h2 className="text-xl font-bold text-gray-900">Experience</h2>
-        <div className="flex-1 h-px bg-gray-200" />
-      </div>
-      <div className="space-y-8">
+    <section id="experience" className="py-14">
+      <h2 className="text-[13px] font-semibold text-gray-400 uppercase tracking-widest mb-6">
+        Experience
+      </h2>
+      <div className="space-y-10">
         {experiences.map((exp) => (
           <ExperienceBlock key={exp.id} experience={exp} />
         ))}

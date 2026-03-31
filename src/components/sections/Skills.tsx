@@ -3,17 +3,16 @@ import { skillGroups } from '../../data/skills';
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-16">
-      <div className="flex items-center gap-3 mb-8">
-        <h2 className="text-xl font-bold text-gray-900">Skills</h2>
-        <div className="flex-1 h-px bg-gray-200" />
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <section id="skills" className="py-14">
+      <h2 className="text-[13px] font-semibold text-gray-400 uppercase tracking-widest mb-6">
+        Skills
+      </h2>
+      <div className="space-y-4">
         {skillGroups.map((group) => (
-          <div key={group.category}>
-            <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2.5">
+          <div key={group.category} className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4">
+            <span className="text-[12px] font-medium text-gray-400 w-24 shrink-0 pt-0.5">
               {group.category}
-            </h3>
+            </span>
             <div className="flex flex-wrap gap-1.5">
               {group.items.map((item) => (
                 <TechTag key={item} name={item} />

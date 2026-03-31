@@ -1,35 +1,47 @@
-import { ArrowDown, FileText } from 'lucide-react';
-import MetricCard from '../ui/MetricCard';
+import { ArrowDown } from 'lucide-react';
 import { profile } from '../../data/profile';
 
 export default function Hero() {
   return (
     <section className="pb-20">
-      {/* Title */}
-      <h2 className="text-[32px] sm:text-[40px] lg:text-[44px] font-bold text-gray-900 leading-[1.15] tracking-tight mb-5 max-w-3xl">
-        Software Engineer focused on
-        <span className="text-blue-600"> backend systems</span>,
-        <span className="text-blue-600"> APIs</span>, and
-        <span className="text-blue-600"> scalable infrastructure</span>.
-      </h2>
+      {/* Availability tag */}
+      <div className="mb-8">
+        <span className="inline-flex items-center gap-2 text-[12px] font-medium text-emerald-700 bg-emerald-50 border border-emerald-200/60 rounded-full px-3 py-1">
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
+          </span>
+          Available for 2026 New Grad roles
+        </span>
+      </div>
+
+      {/* Title — restrained, not screaming */}
+      <h1 className="text-[24px] sm:text-[28px] font-semibold text-gray-900 leading-[1.35] tracking-tight mb-4">
+        I build backend systems, APIs, and scalable infrastructure.
+      </h1>
 
       {/* Bio */}
-      <p className="text-[15px] text-gray-500 leading-relaxed mb-10 max-w-xl">
+      <p className="text-[15px] text-gray-500 leading-[1.7] mb-10 max-w-[540px]">
         {profile.bio}
       </p>
 
-      {/* Metric cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-10">
+      {/* Metrics — compact inline strip */}
+      <div className="flex flex-wrap gap-x-8 gap-y-3 mb-10 text-[13px]">
         {profile.metrics.map((m) => (
-          <MetricCard key={m.label} label={m.label} value={m.value} color={m.color} />
+          <div key={m.label} className="flex items-baseline gap-1.5">
+            <span className={`text-[18px] font-bold tabular-nums ${metricColor(m.color)}`}>
+              {m.value}
+            </span>
+            <span className="text-gray-400">{m.label}</span>
+          </div>
         ))}
       </div>
 
-      {/* CTA buttons */}
-      <div className="flex flex-wrap gap-3">
+      {/* CTA */}
+      <div className="flex items-center gap-4">
         <a
           href="#work"
-          className="inline-flex items-center gap-2 px-5 py-2.5 text-[13px] font-medium text-white bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors shadow-sm"
+          className="inline-flex items-center gap-2 px-4 py-2 text-[13px] font-medium text-white bg-gray-900 rounded-md hover:bg-gray-800 transition-colors"
         >
           View Work
           <ArrowDown className="w-3.5 h-3.5" />
@@ -38,12 +50,21 @@ export default function Hero() {
           href="/Ryan_Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-5 py-2.5 text-[13px] font-medium text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 hover:border-gray-300 transition-colors shadow-sm"
+          className="text-[13px] font-medium text-gray-500 hover:text-gray-900 transition-colors underline underline-offset-4 decoration-gray-300 hover:decoration-gray-500"
         >
-          <FileText className="w-3.5 h-3.5" />
           Resume
         </a>
       </div>
     </section>
   );
+}
+
+function metricColor(color: string) {
+  switch (color) {
+    case 'green': return 'text-emerald-600';
+    case 'blue': return 'text-blue-600';
+    case 'amber': return 'text-amber-600';
+    case 'rose': return 'text-rose-600';
+    default: return 'text-gray-900';
+  }
 }

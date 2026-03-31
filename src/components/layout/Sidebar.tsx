@@ -19,18 +19,14 @@ export default function Sidebar() {
 
   useEffect(() => {
     if (!isHome) return;
-
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
         }
       },
       { rootMargin: '-20% 0px -60% 0px' }
     );
-
     const sections = document.querySelectorAll('section[id]');
     sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
@@ -38,39 +34,26 @@ export default function Sidebar() {
 
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
-    if (!isHome) {
-      window.location.href = '/' + href;
-    }
+    if (!isHome) window.location.href = '/' + href;
   };
 
   const sidebarContent = (
     <div className="flex flex-col h-full">
       {/* Identity */}
-      <div className="mb-8">
-        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-sm mb-4 shadow-sm">
-          YJ
-        </div>
-        <h1 className="text-base font-semibold text-gray-900 tracking-tight">Yuxiang Jiang</h1>
-        <p className="text-[13px] text-gray-500 mt-0.5">{profile.title}</p>
-
-        <div className="mt-4 p-3 bg-gray-50 rounded-lg border border-gray-100">
-          <p className="text-xs font-medium text-gray-700">{profile.education.school}</p>
-          <p className="text-xs text-gray-500 mt-0.5">{profile.education.degree}</p>
-          <p className="text-xs text-gray-500">{profile.education.year}</p>
-        </div>
-
-        {/* Status */}
-        <div className="mt-3 flex items-center gap-1.5">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-          </span>
-          <span className="text-[11px] text-gray-500">Open to opportunities</span>
-        </div>
+      <div className="mb-10">
+        <h1 className="text-[15px] font-semibold text-gray-900 tracking-tight">{profile.name.split('(')[0].trim()}</h1>
+        <p className="text-[13px] text-gray-400 mt-0.5">{profile.title}</p>
       </div>
 
-      {/* Social links */}
-      <div className="flex items-center gap-1 mb-8">
+      {/* Education — compact */}
+      <div className="mb-8 text-[12px] text-gray-400 leading-[1.6]">
+        <p className="text-gray-600 font-medium">Cornell Tech</p>
+        <p>M.S. Computer Science</p>
+        <p>Expected May 2026</p>
+      </div>
+
+      {/* Social icons */}
+      <div className="flex items-center gap-0.5 mb-10">
         {[
           { href: profile.links.github, icon: Github, label: 'GitHub' },
           { href: profile.links.linkedin, icon: Linkedin, label: 'LinkedIn' },
@@ -81,19 +64,16 @@ export default function Sidebar() {
             href={href}
             target={label !== 'Email' ? '_blank' : undefined}
             rel={label !== 'Email' ? 'noopener noreferrer' : undefined}
-            className="p-2 rounded-lg text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-all"
+            className="p-2 rounded-md text-gray-400 hover:text-gray-800 hover:bg-gray-100 transition-all"
             aria-label={label}
           >
-            <Icon className="w-[18px] h-[18px]" />
+            <Icon className="w-4 h-4" strokeWidth={1.5} />
           </a>
         ))}
       </div>
 
       {/* Navigation */}
       <nav className="mb-auto">
-        <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest mb-3 px-3">
-          Navigation
-        </p>
         <ul className="space-y-0.5">
           {navItems.map((item) => {
             const isActive = activeSection === item.href.slice(1);
@@ -102,17 +82,12 @@ export default function Sidebar() {
                 <a
                   href={item.href}
                   onClick={() => handleNavClick(item.href)}
-                  className={`group flex items-center gap-3 px-3 py-2 text-[13px] rounded-lg transition-all ${
+                  className={`block py-1.5 text-[13px] transition-colors border-l-2 pl-3 ${
                     isActive
-                      ? 'bg-blue-50 text-blue-700 font-medium'
-                      : 'text-gray-500 hover:text-gray-900 hover:bg-gray-50'
+                      ? 'border-indigo-500 text-gray-900 font-medium'
+                      : 'border-transparent text-gray-400 hover:text-gray-700 hover:border-gray-300'
                   }`}
                 >
-                  <span
-                    className={`w-1 h-4 rounded-full transition-all ${
-                      isActive ? 'bg-blue-600' : 'bg-transparent group-hover:bg-gray-300'
-                    }`}
-                  />
                   {item.label}
                 </a>
               </li>
@@ -121,15 +96,15 @@ export default function Sidebar() {
         </ul>
       </nav>
 
-      {/* Resume button */}
+      {/* Resume */}
       <a
         href="/Ryan_Resume.pdf"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center gap-2 w-full px-4 py-2.5 text-[13px] font-medium text-white bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors shadow-sm"
+        className="flex items-center gap-2 text-[12px] font-medium text-gray-500 hover:text-gray-900 transition-colors mt-8"
       >
         <Download className="w-3.5 h-3.5" />
-        Resume
+        Download Resume
       </a>
     </div>
   );
@@ -137,30 +112,24 @@ export default function Sidebar() {
   return (
     <>
       {/* Desktop sidebar */}
-      <aside className="hidden lg:flex flex-col fixed top-0 left-0 w-[240px] h-screen bg-white border-r border-gray-200/80 px-5 py-6 overflow-y-auto">
+      <aside className="hidden lg:flex flex-col fixed top-0 left-0 w-[200px] h-screen border-r border-gray-100 bg-white px-6 py-10 overflow-y-auto">
         {sidebarContent}
       </aside>
 
       {/* Mobile header */}
-      <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200/80 px-4 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-2.5">
-          <div className="w-7 h-7 rounded-md bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-[10px]">
-            YJ
-          </div>
-          <span className="text-sm font-semibold text-gray-900">Yuxiang Jiang</span>
-        </div>
+      <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 px-5 py-3 flex items-center justify-between">
+        <span className="text-[13px] font-semibold text-gray-900">Yuxiang Jiang</span>
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="p-1.5 rounded-lg text-gray-500 hover:text-gray-900 hover:bg-gray-100"
+          className="p-1.5 rounded-md text-gray-500 hover:text-gray-900 hover:bg-gray-100"
           aria-label="Toggle menu"
         >
           {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </header>
 
-      {/* Mobile menu overlay */}
       {mobileOpen && (
-        <div className="lg:hidden fixed inset-0 z-40 bg-white pt-16 px-5 py-6 overflow-y-auto">
+        <div className="lg:hidden fixed inset-0 z-40 bg-white pt-16 px-6 py-8 overflow-y-auto">
           {sidebarContent}
         </div>
       )}

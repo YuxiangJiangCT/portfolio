@@ -4,7 +4,7 @@ interface TechTagProps {
 
 export default function TechTag({ name }: TechTagProps) {
   return (
-    <span className="inline-block px-2.5 py-1 text-[11px] font-medium text-gray-600 bg-gray-100 border border-gray-200/60 rounded-md">
+    <span className="inline-block px-2 py-0.5 text-[11px] font-medium text-gray-500 bg-gray-50 border border-gray-150 rounded">
       {name}
     </span>
   );
