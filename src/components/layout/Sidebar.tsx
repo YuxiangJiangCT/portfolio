@@ -41,14 +41,14 @@ export default function Sidebar() {
     <div className="flex flex-col h-full">
       {/* Identity */}
       <div className="mb-10">
-        <h1 className="font-heading text-[15px] font-bold text-primary tracking-tight">
+        <h1 className="font-heading text-[16px] font-bold text-primary tracking-tight">
           {profile.name.split('(')[0].trim()}
         </h1>
-        <p className="text-[13px] text-muted mt-1">{profile.title}</p>
+        <p className="text-[14px] text-muted mt-1">{profile.title}</p>
       </div>
 
       {/* Education */}
-      <div className="mb-8 text-[12px] text-muted leading-[1.6]">
+      <div className="mb-8 text-[13px] text-muted leading-[1.6]">
         <p className="text-primary font-medium">Cornell Tech</p>
         <p>M.S. Computer Science</p>
         <p>Expected May 2026</p>
@@ -84,7 +84,7 @@ export default function Sidebar() {
                 <a
                   href={item.href}
                   onClick={() => handleNavClick(item.href)}
-                  className={`block py-1.5 text-[13px] font-medium transition-colors border-l-2 pl-3 cursor-pointer ${
+                  className={`block py-1.5 text-[14px] font-medium transition-colors border-l-2 pl-3 cursor-pointer ${
                     isActive
                       ? 'border-accent text-primary'
                       : 'border-transparent text-muted hover:text-primary hover:border-border'
@@ -103,7 +103,7 @@ export default function Sidebar() {
         href="/Ryan_Resume.pdf"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-2 text-[12px] font-medium text-muted hover:text-primary transition-colors mt-8 cursor-pointer"
+        className="flex items-center gap-2 text-[13px] font-medium text-muted hover:text-primary transition-colors mt-8 cursor-pointer"
       >
         <Download className="w-3.5 h-3.5" />
         Download Resume
@@ -118,7 +118,7 @@ export default function Sidebar() {
       </aside>
 
       <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border px-5 py-3 flex items-center justify-between">
-        <span className="font-heading text-[13px] font-bold text-primary">Yuxiang Jiang</span>
+        <span className="font-heading text-[14px] font-bold text-primary">Yuxiang Jiang</span>
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="p-1.5 rounded-md text-muted hover:text-primary hover:bg-tag-bg cursor-pointer"
