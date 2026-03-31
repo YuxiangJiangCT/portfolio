@@ -1,6 +1,8 @@
 import Hero from '../components/sections/Hero';
 import SelectedWork from '../components/sections/SelectedWork';
 import Experience from '../components/sections/Experience';
+import Education from '../components/sections/Education';
+import Awards from '../components/sections/Awards';
 import Skills from '../components/sections/Skills';
 import About from '../components/sections/About';
 import Contact from '../components/sections/Contact';
@@ -24,6 +26,12 @@ export default function Home() {
       </FadeSection>
       <FadeSection>
         <Experience />
+      </FadeSection>
+      <FadeSection>
+        <Education />
+      </FadeSection>
+      <FadeSection>
+        <Awards />
       </FadeSection>
       <FadeSection>
         <Skills />

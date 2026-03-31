@@ -13,9 +13,20 @@ export default function About() {
         </p>
         <p>
           Before Cornell, I studied Internet of Things Engineering at Jinan University in China,
-          where I won two Gold Awards at the Huawei Ascend AI National Finals (Top 30 out of 1,500+
-          teams). At Cornell Tech, I serve as Director of Research for the Blockchain Club and won
-          the Worldcoin Prize at ETHGlobal NYC 2025.
+          where I developed a strong foundation in embedded systems, sensor networks, and low-level
+          optimization. Winning two Gold Awards at the Huawei Ascend AI National Finals taught me how
+          to deliver under pressure and optimize for real hardware constraints.
+        </p>
+        <p>
+          At Cornell Tech, I serve as Director of Research for the Blockchain Club, where I lead
+          technical research initiatives and mentor members on smart contract development. I won the
+          Worldcoin Prize at ETHGlobal NYC 2025, building a full-stack prediction market with AI
+          routing and on-chain settlement in under 36 hours.
+        </p>
+        <p>
+          I gravitate toward problems where system design choices directly impact user experience —
+          reducing latency, scaling throughput, designing clean APIs. I'm looking for backend or
+          full-stack roles where I can build infrastructure that real users depend on.
         </p>
       </div>
     </section>
