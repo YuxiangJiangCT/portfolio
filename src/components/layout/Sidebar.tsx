@@ -109,7 +109,7 @@ export default function Sidebar() {
   return (
     <>
       {/* Desktop sidebar */}
-      <aside className="hidden lg:flex flex-col fixed top-0 left-0 w-64 h-screen bg-white shadow-lg px-6 py-10 overflow-y-auto">
+      <aside className="hidden lg:flex flex-col fixed top-0 left-0 w-64 h-screen bg-white shadow-lg px-6 py-8 overflow-y-auto">
         {sidebarContent}
       </aside>
 

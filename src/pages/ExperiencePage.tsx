@@ -7,7 +7,7 @@ export default function ExperiencePage() {
       <h1 className="font-heading text-3xl font-bold text-primary mb-8">
         Experience
       </h1>
-      <div className="space-y-10">
+      <div className="space-y-6">
         {experiences.map((exp) => (
           <ExperienceBlock key={exp.id} experience={exp} />
         ))}

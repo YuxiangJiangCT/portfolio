@@ -78,13 +78,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           {isExpanded && (
             <>
               {/* What I Built */}
-              <div className="mb-8">
-                <h4 className="text-base font-semibold text-gray-400 uppercase tracking-wider mb-3">
+              <div className="mb-6">
+                <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-2">
                   What I Built
                 </h4>
-                <ul className="space-y-2.5">
+                <ul className="space-y-2">
                   {project.whatIBuilt.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2.5 text-base text-gray-600 leading-relaxed">
+                    <li key={i} className="flex items-start gap-2 text-sm text-gray-600 leading-relaxed">
                       <span className="text-blue-500 mt-0.5 shrink-0 text-xs">▸</span>
                       <span>{item}</span>
                     </li>
@@ -93,21 +93,21 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               </div>
 
               {/* Architecture */}
-              <div className="mb-8">
-                <h4 className="text-base font-semibold text-gray-400 uppercase tracking-wider mb-3">
+              <div className="mb-6">
+                <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-2">
                   Architecture
                 </h4>
                 <ArchitectureDiagram projectId={project.id} />
               </div>
 
               {/* Key Decisions */}
-              <div className="mb-8">
-                <h4 className="text-base font-semibold text-gray-400 uppercase tracking-wider mb-3">
+              <div className="mb-6">
+                <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-2">
                   Key Decisions
                 </h4>
-                <ul className="space-y-3">
+                <ul className="space-y-2">
                   {project.keyDecisions.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2.5 text-base text-gray-600 leading-relaxed">
+                    <li key={i} className="flex items-start gap-2 text-sm text-gray-600 leading-relaxed">
                       <span className="text-amber-500 mt-px shrink-0 font-mono text-xs font-bold">→</span>
                       <span>{item}</span>
                     </li>
@@ -116,14 +116,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               </div>
 
               {/* Results */}
-              <div className="mb-8">
-                <h4 className="text-base font-semibold text-gray-400 uppercase tracking-wider mb-3">
+              <div className="mb-6">
+                <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-2">
                   Results
                 </h4>
-                <div className="bg-emerald-50 border border-emerald-200/60 rounded-xl p-5">
-                  <ul className="space-y-2">
+                <div className="bg-emerald-50 border border-emerald-200/60 rounded-lg p-4">
+                  <ul className="space-y-1.5">
                     {project.results.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-emerald-800 text-base leading-relaxed">
+                      <li key={i} className="flex items-start gap-2 text-emerald-800 text-sm leading-relaxed">
                         <span className="text-emerald-500 mt-px shrink-0 text-xs">✓</span>
                         <span>{item}</span>
                       </li>
@@ -135,7 +135,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               {/* Links */}
               {(project.links.github || project.links.demo || project.links.showcase) && (
                 <div className="mb-4">
-                  <h4 className="text-base font-semibold text-gray-400 uppercase tracking-wider mb-3">
+                  <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-2">
                     Links
                   </h4>
                   <div className="flex flex-wrap gap-3">

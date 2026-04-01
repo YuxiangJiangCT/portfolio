@@ -14,7 +14,7 @@ interface StatusBadgeProps {
 export default function StatusBadge({ label }: StatusBadgeProps) {
   const style = styleMap[label] ?? 'text-gray-600 bg-gray-50';
   return (
-    <span className={`inline-block px-2.5 py-1 text-sm font-semibold rounded-full ${style}`}>
+    <span className={`inline-block px-2 py-0.5 text-xs font-medium rounded-full ${style}`}>
       {label}
     </span>
   );

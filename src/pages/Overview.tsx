@@ -13,7 +13,7 @@ const metricColors: Record<string, string> = {
 
 export default function Overview() {
   return (
-    <div>
+    <div className="bg-white rounded-lg shadow-sm p-6">
       {/* Availability tag */}
       <div className="mb-6">
         <span className="inline-flex items-center gap-2 text-sm font-medium text-emerald-700 bg-emerald-50 border border-emerald-200/60 rounded-full px-3 py-1.5">
@@ -103,3 +103,4 @@ export default function Overview() {
     </div>
   );
 }
+
