@@ -29,12 +29,12 @@ const awards = [
   },
 ];
 
-export default function Awards() {
+export default function AwardsPage() {
   return (
-    <section id="awards" className="py-14">
-      <h2 className="font-heading text-3xl font-bold text-primary mb-8">
+    <div>
+      <h1 className="font-heading text-3xl font-bold text-primary mb-8">
         Awards
-      </h2>
+      </h1>
       <div className="space-y-6">
         {awards.map((award) => (
           <div key={award.event} className="bg-white rounded-lg border border-border shadow-sm p-6">
@@ -75,6 +75,6 @@ export default function Awards() {
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 }

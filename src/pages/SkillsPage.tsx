@@ -1,12 +1,12 @@
-import TechTag from '../ui/TechTag';
-import { skillGroups } from '../../data/skills';
+import TechTag from '../components/ui/TechTag';
+import { skillGroups } from '../data/skills';
 
-export default function Skills() {
+export default function SkillsPage() {
   return (
-    <section id="skills" className="py-14">
-      <h2 className="font-heading text-3xl font-bold text-primary mb-8">
+    <div>
+      <h1 className="font-heading text-3xl font-bold text-primary mb-8">
         Skills
-      </h2>
+      </h1>
       <div className="space-y-8">
         {skillGroups.map((group) => (
           <div key={group.category}>
@@ -21,6 +21,6 @@ export default function Skills() {
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 }

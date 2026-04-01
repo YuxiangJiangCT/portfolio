@@ -1,47 +1,24 @@
-import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { Github, Linkedin, Mail, Menu, X, Download, MapPin } from 'lucide-react';
 import { profile } from '../../data/profile';
 
 const navItems = [
-  { label: 'Work', href: '#work' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Education', href: '#education' },
-  { label: 'Awards', href: '#awards' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Overview', path: '/' },
+  { label: 'Projects', path: '/projects' },
+  { label: 'Experience', path: '/experience' },
+  { label: 'Education', path: '/education' },
+  { label: 'Awards', path: '/awards' },
+  { label: 'Skills', path: '/skills' },
+  { label: 'Resume', path: '/resume' },
 ];
 
 export default function Sidebar() {
-  const [activeSection, setActiveSection] = useState('');
   const [mobileOpen, setMobileOpen] = useState(false);
-  const location = useLocation();
-  const isHome = location.pathname === '/';
-
-  useEffect(() => {
-    if (!isHome) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) setActiveSection(entry.target.id);
-        }
-      },
-      { rootMargin: '-20% 0px -60% 0px' }
-    );
-    const sections = document.querySelectorAll('section[id]');
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
-  }, [isHome]);
-
-  const handleNavClick = (href: string) => {
-    setMobileOpen(false);
-    if (!isHome) window.location.href = '/' + href;
-  };
 
   const sidebarContent = (
     <div className="flex flex-col h-full">
-      {/* Avatar + Identity — centered like a business card */}
+      {/* Avatar + Identity */}
       <div className="text-center mb-8">
         <img
           src="/images/avatar.jpg"
@@ -61,7 +38,7 @@ export default function Sidebar() {
         <p>Expected May 2026</p>
       </div>
 
-      {/* Social icons — clean, centered */}
+      {/* Social icons */}
       <div className="flex justify-center gap-3 mb-6">
         {[
           { href: profile.links.github, icon: Github, label: 'GitHub' },
@@ -95,28 +72,28 @@ export default function Sidebar() {
       {/* Navigation */}
       <nav className="mb-auto">
         <ul className="space-y-1">
-          {navItems.map((item) => {
-            const isActive = activeSection === item.href.slice(1);
-            return (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  onClick={() => handleNavClick(item.href)}
-                  className={`block px-3 py-2 text-sm font-medium rounded-lg transition-colors cursor-pointer ${
+          {navItems.map((item) => (
+            <li key={item.path}>
+              <NavLink
+                to={item.path}
+                end={item.path === '/'}
+                onClick={() => setMobileOpen(false)}
+                className={({ isActive }) =>
+                  `block px-3 py-2 text-sm font-medium rounded-lg transition-colors cursor-pointer ${
                     isActive
                       ? 'bg-accent text-white shadow-sm'
                       : 'text-muted hover:bg-gray-50 hover:text-primary'
-                  }`}
-                >
-                  {item.label}
-                </a>
-              </li>
-            );
-          })}
+                  }`
+                }
+              >
+                {item.label}
+              </NavLink>
+            </li>
+          ))}
         </ul>
       </nav>
 
-      {/* Resume */}
+      {/* Resume download */}
       <a
         href="/Ryan_Resume.pdf"
         target="_blank"
@@ -131,10 +108,12 @@ export default function Sidebar() {
 
   return (
     <>
+      {/* Desktop sidebar */}
       <aside className="hidden lg:flex flex-col fixed top-0 left-0 w-64 h-screen bg-white shadow-lg px-6 py-10 overflow-y-auto">
         {sidebarContent}
       </aside>
 
+      {/* Mobile header */}
       <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border px-5 py-3 flex items-center justify-between">
         <span className="font-heading text-base font-bold text-primary">Yuxiang Jiang</span>
         <button
@@ -146,6 +125,7 @@ export default function Sidebar() {
         </button>
       </header>
 
+      {/* Mobile overlay */}
       {mobileOpen && (
         <div className="lg:hidden fixed inset-0 z-40 bg-white pt-16 px-6 py-8 overflow-y-auto">
           {sidebarContent}
