@@ -13,7 +13,7 @@ import ProjectDetail from './pages/ProjectDetail';
 
 export default function App() {
   return (
-    <div className="flex">
+    <div className="flex h-screen bg-surface overflow-hidden">
       <Sidebar />
       <PageContainer>
         <ScrollToTop />
