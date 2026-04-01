@@ -2,6 +2,7 @@ export interface Project {
   id: string;
   title: string;
   status: string[];
+  image?: string;
   oneLiner: string;
   highlights: string[];
   techStack: string[];
@@ -68,6 +69,7 @@ export const projects: Project[] = [
     id: "polypoll",
     title: "PolyPoll — AI-Integrated Backend Platform",
     status: ["Production", "Co-founder CTO"],
+    image: "/images/favicon.jpeg",
     oneLiner:
       "Built the backend and AI routing layer for a full-stack platform from scratch — API orchestration, multi-provider inference, Chrome extension, and smart contract integration.",
     highlights: [

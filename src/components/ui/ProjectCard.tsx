@@ -14,6 +14,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       to={`/project/${project.id}`}
       className="group block card-lift rounded-lg border border-border bg-white p-6 shadow-sm hover:shadow-lg cursor-pointer"
     >
+      {/* Preview image */}
+      {project.image && (
+        <div className="h-40 -mx-6 -mt-6 mb-4 overflow-hidden rounded-t-lg bg-gray-50 flex items-center justify-center">
+          <img src={project.image} alt={project.title} className="max-h-full max-w-full object-contain p-4" />
+        </div>
+      )}
+
       {/* Status */}
       <div className="flex flex-wrap gap-1.5 mb-3">
         {project.status.map((s) => (
