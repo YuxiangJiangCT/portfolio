@@ -10,13 +10,13 @@
   }
 
   body {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     background-color: #FAFAFA;
     color: #09090B;
   }
 
   h1, h2, h3, h4 {
-    font-family: 'Archivo', system-ui, sans-serif;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   }
 
   ::selection {

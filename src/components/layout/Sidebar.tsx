@@ -23,7 +23,7 @@ export default function Sidebar() {
         <img
           src="/images/avatar.jpg"
           alt={profile.name}
-          className="w-28 h-28 rounded-full mx-auto mb-4 border-2 border-gray-200 shadow-lg object-cover"
+          className="w-32 h-32 rounded-full mx-auto mb-4 border-2 border-gray-200 shadow-lg object-cover"
         />
         <h1 className="font-heading text-xl font-bold text-primary tracking-tight">
           {profile.name.split('(')[0].trim()}
@@ -79,7 +79,7 @@ export default function Sidebar() {
                 end={item.path === '/'}
                 onClick={() => setMobileOpen(false)}
                 className={({ isActive }) =>
-                  `block px-3 py-2 text-sm font-medium rounded-lg transition-colors cursor-pointer ${
+                  `block px-4 py-2 text-sm font-medium rounded-lg transition-colors cursor-pointer ${
                     isActive
                       ? 'bg-accent text-white shadow-sm'
                       : 'text-muted hover:bg-gray-50 hover:text-primary'
