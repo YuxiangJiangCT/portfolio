@@ -7,7 +7,7 @@ const awards = [
     date: 'Nov 2025',
     location: 'Buenos Aires, Argentina',
     prize: 'World Pool Prize Winner',
-    project: 'Bounty Hunters',
+    project: 'bounties.fun',
     logo: '/images/ethglobal-logo.png',
     bullets: [
       'Built a Social-Fi MiniApp on World Chain where verified humans earn WLD/USDC for amplifying brand campaigns',

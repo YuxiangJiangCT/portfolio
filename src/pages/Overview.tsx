@@ -4,13 +4,6 @@ import { profile } from '../data/profile';
 import { skillGroups } from '../data/skills';
 import TechTag from '../components/ui/TechTag';
 
-const metricColors: Record<string, string> = {
-  green: 'text-emerald-600',
-  blue: 'text-accent',
-  amber: 'text-amber-600',
-  rose: 'text-rose-600',
-};
-
 export default function Overview() {
   return (
     <div className="bg-white rounded-lg shadow-sm p-6">
@@ -39,7 +32,7 @@ export default function Overview() {
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-8 pb-8 border-b border-border">
         {profile.metrics.map((m) => (
           <div key={m.label}>
-            <div className={`text-3xl font-heading font-bold tracking-tight ${metricColors[m.color] ?? 'text-primary'}`}>
+            <div className="text-3xl font-heading font-bold tracking-tight text-primary">
               {m.value}
             </div>
             <div className="text-sm text-muted mt-0.5">{m.label}</div>
@@ -65,7 +58,7 @@ export default function Overview() {
         <p>
           At Cornell Tech, I serve as Director of Research for the Blockchain Club, leading technical
           research and mentoring members on smart contract development. At ETHGlobal Buenos Aires
-          2025, I won the World Pool Prize from World (formerly Worldcoin) for Bounty Hunters — a
+          2025, I won the World Pool Prize from World (formerly Worldcoin) for bounties.fun — a
           Social-Fi MiniApp on World Chain shipped end-to-end in under 36 hours, with a Solidity
           contract using Permit2 SignatureTransfer for gasless token flows.
         </p>

@@ -23,7 +23,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "bounty-hunters",
-    title: "Bounty Hunters — Social-Fi on World Chain",
+    title: "bounties.fun — Social-Fi on World Chain",
     status: ["ETHGlobal Buenos Aires 2025", "🏆 World Pool Prize Winner"],
     image: "/images/bounties-fun-app.png",
     oneLiner:
@@ -129,7 +129,6 @@ export const projects: Project[] = [
     id: "polypoll",
     title: "PolyPoll — AI-Integrated Backend Platform",
     status: ["Production", "Founding Engineer"],
-    image: "/images/favicon.jpeg",
     oneLiner:
       "Backend and AI orchestration layer for an AI-integrated prediction market platform — FastAPI services, multi-provider LLM routing, and a 10-stage market generation pipeline. Two SDKs published to PyPI.",
     highlights: [
