@@ -6,19 +6,23 @@ export interface SkillGroup {
 export const skillGroups: SkillGroup[] = [
   {
     category: "Languages",
-    items: ["Python", "Java", "TypeScript", "JavaScript", "C++", "SQL", "Solidity (reading)"],
+    items: ["Python", "Java", "TypeScript", "JavaScript", "Go", "C++", "SQL", "HTML/CSS", "Solidity (reading)"],
   },
   {
     category: "Backend",
-    items: ["FastAPI", "Spring Boot", "Node.js", "Express", "Django"],
+    items: ["FastAPI", "Spring Boot", "Node.js", "Express", "REST", "gRPC", "Microservices", "Django"],
   },
   {
     category: "Frontend",
     items: ["React", "TypeScript", "Tailwind CSS", "Chrome Extension API"],
   },
   {
+    category: "Systems",
+    items: ["Distributed Systems", "Concurrency", "Data Structures", "Linux/Unix", "TCP/IP", "HTTP"],
+  },
+  {
     category: "Data & Storage",
-    items: ["PostgreSQL", "Redis", "MySQL", "MongoDB", "Supabase"],
+    items: ["PostgreSQL", "Redis", "MySQL", "MongoDB", "Supabase", "Schema Design", "Indexing & Query Optimization"],
   },
   {
     category: "AI / LLM Infrastructure",
@@ -26,11 +30,11 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     category: "Infrastructure & DevOps",
-    items: ["Docker", "AWS (EC2, CodePipeline)", "Nginx", "GitHub Actions", "CI/CD"],
+    items: ["Docker", "AWS (EC2, RDS, S3, CodePipeline)", "Nginx", "GitHub Actions", "CI/CD"],
   },
   {
-    category: "Observability & Testing",
-    items: ["Structured logging", "p95/p99 dashboards", "SLO-based alerting", "k6 load testing"],
+    category: "Testing & Observability",
+    items: ["JUnit", "PyTest", "k6 load testing", "Structured logging", "p95/p99 dashboards", "SLO-based alerting"],
   },
   {
     category: "Web3",
@@ -38,6 +42,6 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     category: "Tools",
-    items: ["Git", "Linux", "Postman", "Streamlit"],
+    items: ["Git", "Postman", "Streamlit"],
   },
 ];

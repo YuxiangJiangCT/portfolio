@@ -28,6 +28,17 @@ const awards = [
     ],
   },
   {
+    event: 'Cornell Tech Merit Scholarship',
+    date: '2024',
+    location: 'New York, NY',
+    prize: 'Merit Scholarship Recipient',
+    project: 'M.S. Computer & Information Sciences',
+    logo: '/images/cornell-logo.png',
+    bullets: [
+      'Awarded merit-based scholarship for the M.S. Computer & Information Sciences program at Cornell Tech',
+    ],
+  },
+  {
     event: 'Huawei Ascend AI National Finals',
     date: '2022 & 2023',
     location: 'China',

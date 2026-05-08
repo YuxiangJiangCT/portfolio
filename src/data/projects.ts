@@ -3,6 +3,7 @@ export interface Project {
   title: string;
   status: string[];
   image?: string;
+  category?: "main" | "hackathon";
   oneLiner: string;
   highlights: string[];
   techStack: string[];
@@ -83,10 +84,11 @@ export const projects: Project[] = [
   },
   {
     id: "dataman",
-    title: "Dataman Analytics — Platform Optimization",
-    status: ["Internship", "Production"],
+    title: "Dataman Analytics — QDF Platform Optimization",
+    status: ["Internship · Jun–Aug 2025", "Production"],
+    image: "/images/dataman-app.png",
     oneLiner:
-      "Re-architected and optimized a production backend platform using FastAPI, Redis, and PostgreSQL, improving latency, throughput, and reliability.",
+      "Re-architected and optimized QDF (The Quant's DeFi, quantdefi.ai) — Dataman Analytics' production backend — using FastAPI, Redis, and PostgreSQL, improving latency, throughput, and reliability.",
     highlights: [
       "Reduced p99 latency from 800ms to 240ms (-70%)",
       "Increased peak throughput from 250 to 500+ RPS",
@@ -95,9 +97,9 @@ export const projects: Project[] = [
     ],
     techStack: ["Python", "FastAPI", "Redis", "PostgreSQL", "Docker", "ARIMA", "Streamlit"],
     overview:
-      "Re-architected and optimized a production backend platform for a DeFi analytics company, improving latency, throughput, and reliability across 26 API endpoints.",
+      "Re-architected and optimized QDF (The Quant's DeFi, quantdefi.ai) — the production backend of Dataman Analytics — improving latency, throughput, and reliability across 26 API endpoints serving 19,000+ DeFi pools.",
     context:
-      "Dataman Analytics runs a real-time DeFi analytics platform that monitors 19,000+ liquidity pools. The existing backend had performance bottlenecks — high latency, limited throughput, and no structured observability. I was brought on to re-architect the core platform.",
+      "Dataman Analytics runs QDF (The Quant's DeFi) at quantdefi.ai — a real-time DeFi analytics platform monitoring 19,000+ liquidity pools. The existing backend had performance bottlenecks — high latency, limited throughput, and no structured observability. I was brought on to re-architect the core platform during a summer internship (Jun–Aug 2025).",
     whatIBuilt: [
       "Re-architected the FastAPI microservices platform with Redis cache-aside pattern and async connection pooling, cutting p99 latency by ~70%",
       "Standardized the DeFiLlama pool scanner into a production FastAPI service with Streamlit dashboard and Slack alert integration",
@@ -123,18 +125,21 @@ export const projects: Project[] = [
       "Zero security incidents during internship tenure",
       "99.9% uptime maintained",
     ],
-    links: {},
+    links: {
+      demo: "https://www.quantdefi.ai/",
+    },
   },
   {
     id: "polypoll",
     title: "PolyPoll — AI-Integrated Backend Platform",
     status: ["Production", "Founding Engineer"],
+    image: "/images/polypoll-app.png",
     oneLiner:
       "Backend and AI orchestration layer for an AI-integrated prediction market platform — FastAPI services, multi-provider LLM routing, and a 10-stage market generation pipeline. Two SDKs published to PyPI.",
     highlights: [
+      "Cut LLM inference costs ~50% via multi-provider routing across 6 model endpoints (Groq / OpenRouter) with automatic failover and rate-limit handling",
+      "10-stage market generation pipeline with dual-layer semantic de-duplication (0.75 threshold + 48h window) — filters ~35% near-duplicate content over 1,700+ public figures",
       "Founding engineer responsible for backend and AI orchestration layer (Chrome extension and on-chain settlement contracts owned by other team members)",
-      "Multi-provider LLM routing across 6 model endpoints (Groq/OpenRouter) with automatic failover and rate-limit handling",
-      "10-stage market generation pipeline with dual-layer semantic de-duplication (0.75 threshold, 48h window) over 1,700+ public figures",
       "Two open-source Python SDKs published to PyPI (polypoll-sdk, qdf-sdk); load-tested with k6 (~500 VUs, 28K+ requests, <0.5% error rate)",
     ],
     techStack: ["Python", "FastAPI", "Redis", "PostgreSQL", "Groq", "OpenRouter", "k6", "PyPI"],
@@ -144,9 +149,10 @@ export const projects: Project[] = [
       "Founding engineer on the backend and AI layer. Scope: FastAPI services, multi-provider LLM routing, market generation, and the SDKs that wrap the inference pipeline. Frontend (Chrome extension) and on-chain settlement (Base L2 + USDC contracts) are owned by other team members.",
     whatIBuilt: [
       "FastAPI backend with 30+ endpoints, Redis cache-aside, async connection pooling, and structured error handling",
-      "Multi-provider LLM inference routing across 6 model endpoints (Groq / OpenRouter) with automatic failover and rate-limit handling",
-      "10-stage market generation pipeline with dual-layer semantic de-duplication (0.75 similarity threshold, 48h window)",
-      "Integrated 5+ external APIs (Exa, Perplexity, Replicate, Cloudinary, Slack) with entity resolution across 1,700+ public figures",
+      "Multi-provider LLM inference routing across 6 model endpoints (Groq / OpenRouter) with automatic failover and rate-limit handling — cut inference costs ~50%",
+      "10-stage market generation pipeline with dual-layer semantic de-duplication (0.75 similarity threshold, 48h window) filtering ~35% near-duplicate content",
+      "PostgreSQL schema with auto-categorization triggers, RLS policies, and JSONB embeddings for efficient market discovery and similarity matching",
+      "Integrated 5+ external APIs (Exa, Perplexity, Replicate, Cloudinary, Slack) with entity resolution across 1,700+ public figures and unified cost monitoring",
       "Designed and exposed APIs consumed by the team-built Chrome extension across 120+ websites",
       "Backend integration with on-chain settlement layer (Base L2 / USDC contracts owned by team)",
       "Published two open-source Python SDKs to PyPI (polypoll-sdk, qdf-sdk)",
@@ -161,9 +167,10 @@ export const projects: Project[] = [
       "Handling rate limits across 6 LLM providers with different quota structures and error formats",
     ],
     results: [
+      "~50% reduction in LLM inference costs via multi-provider routing",
+      "~35% near-duplicate content filtered by dual-layer semantic de-duplication",
       "Sub-200ms end-to-end latency on core API paths",
-      "~500 virtual users sustained in k6 soak tests",
-      "28K+ requests handled with <0.5% error rate",
+      "~500 virtual users sustained in k6 soak tests; 28K+ requests with <0.5% error rate",
       "1,700+ public figures in entity database",
       "Two SDKs (polypoll-sdk, qdf-sdk) shipped to PyPI",
     ],
@@ -254,6 +261,114 @@ export const projects: Project[] = [
       "Zero-downtime deploys via AWS CodePipeline",
     ],
     links: {},
+  },
+  {
+    id: "oracle-settler",
+    title: "oracle-settler — Dual-Source Oracle Settlement",
+    status: ["Hackathon", "Live Demo"],
+    category: "hackathon",
+    oneLiner:
+      "Decentralized prediction market with dual-source oracle verification and AI-driven arbitration; 84 test cases.",
+    highlights: [
+      "Dual-source oracle verification with AI arbitration for ambiguous outcomes",
+      "84 Hardhat test cases covering settlement edge cases",
+      "Live demo deployed on Vercel",
+    ],
+    techStack: ["Solidity", "Chainlink", "React", "TypeScript", "Hardhat"],
+    overview:
+      "Hackathon project — a decentralized prediction market that settles outcomes using dual-source oracle verification, falling back to AI-driven arbitration for ambiguous resolution cases.",
+    context:
+      "Built as a hackathon submission to explore robust settlement mechanisms for prediction markets — combining Chainlink oracle data with AI arbitration to handle edge cases that traditional binary oracles cannot resolve cleanly.",
+    whatIBuilt: [
+      "Solidity contracts implementing dual-source oracle verification logic",
+      "AI arbitration fallback for outcomes with conflicting or unclear oracle data",
+      "Comprehensive Hardhat test suite (84 test cases) covering settlement edge cases",
+      "React frontend deployed on Vercel for live demo",
+    ],
+    keyDecisions: [
+      "Dual-source oracle over single oracle — single-point-of-failure was the main risk for prediction market settlement",
+      "AI arbitration as fallback rather than primary — keeps deterministic settlement when oracles agree",
+    ],
+    challenges: [
+      "Designing a settlement flow that gracefully degrades when oracle sources disagree",
+    ],
+    results: [
+      "84 test cases passing",
+      "Live demo deployed on Vercel",
+    ],
+    links: {
+      github: "https://github.com/YuxiangJiangCT/oracle-settler",
+      demo: "https://oracle-settler.vercel.app/",
+    },
+  },
+  {
+    id: "shadow-bet",
+    title: "shadow-bet — Private Prediction Markets with ZK",
+    status: ["Hackathon", "Live Demo"],
+    category: "hackathon",
+    oneLiner:
+      "Private prediction markets where participant identities are concealed via zero-knowledge proofs.",
+    highlights: [
+      "ZK-proof identity concealment lets participants place bets without revealing their identity on-chain",
+      "Live demo deployed on Vercel",
+    ],
+    techStack: ["Solidity", "ZK-Proofs", "React", "TypeScript"],
+    overview:
+      "Hackathon project — private prediction markets where participants place bets without revealing their identity, using zero-knowledge proofs to verify eligibility while keeping identities concealed on-chain.",
+    context:
+      "Built as a hackathon submission to explore privacy-preserving prediction markets. Most on-chain markets leak participant addresses, which exposes betting strategy over time. ZK-proof identity concealment enables private participation while maintaining verifiability.",
+    whatIBuilt: [
+      "Solidity contracts with ZK-proof verification for participant eligibility",
+      "Frontend integration generating proofs without revealing identity",
+      "Live demo deployed on Vercel",
+    ],
+    keyDecisions: [
+      "ZK-proof identity over pseudonymous addresses — pseudonymous addresses still leak betting patterns over time",
+    ],
+    challenges: [
+      "Balancing on-chain verifiability with off-chain proof generation costs",
+    ],
+    results: [
+      "Functional ZK-proof verification flow",
+      "Live demo deployed on Vercel",
+    ],
+    links: {
+      github: "https://github.com/YuxiangJiangCT/shadow-bet",
+      demo: "https://shadow-bet.vercel.app/",
+    },
+  },
+  {
+    id: "darkrfq",
+    title: "DarkRFQ — Encrypted On-Chain RFQ Execution",
+    status: ["Hackathon"],
+    category: "hackathon",
+    oneLiner:
+      "RFQ execution with Fully Homomorphic Encryption — bids stay encrypted on-chain throughout the matching process.",
+    highlights: [
+      "FHE-based bid encryption: bids remain encrypted on-chain throughout matching",
+      "Solidity contracts integrating FHE primitives for trustless execution",
+    ],
+    techStack: ["Solidity", "FHE", "React", "TypeScript"],
+    overview:
+      "Hackathon project — Request-for-Quote (RFQ) execution where bids stay encrypted on-chain throughout matching, using Fully Homomorphic Encryption to prevent front-running and bid leakage.",
+    context:
+      "Built as a hackathon submission to explore FHE in DeFi. Traditional RFQ markets leak bid information, exposing participants to front-running. FHE allows matching without ever decrypting bids on-chain.",
+    whatIBuilt: [
+      "Solidity contracts using FHE primitives for encrypted bid handling",
+      "Frontend for submitting encrypted RFQ bids",
+    ],
+    keyDecisions: [
+      "FHE over commit-reveal schemes — eliminates the reveal phase where front-running typically occurs",
+    ],
+    challenges: [
+      "FHE on-chain has a limited operation set; designing matching logic within those constraints",
+    ],
+    results: [
+      "Working FHE-based RFQ flow on testnet",
+    ],
+    links: {
+      github: "https://github.com/YuxiangJiangCT/DarkRFQ",
+    },
   },
 ];
 
