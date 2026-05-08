@@ -1,8 +1,8 @@
 export const profile = {
   name: "Yuxiang (Ryan) Jiang",
-  title: "Software Engineer",
-  subtitle: "Backend-leaning Software Engineer building reliable, production-ready systems.",
-  bio: "Cornell Tech M.S. in Computer Science, graduating May 2026. I build backend systems and full-stack products with a focus on performance, reliability, and real-world deployment.",
+  title: "Backend Engineer",
+  subtitle: "Backend engineer focused on high-performance APIs, distributed systems, and AI infrastructure.",
+  bio: "Cornell Tech M.S. CS '26 · Backend engineer focused on high-performance APIs, distributed systems, and AI infrastructure. I cut p99 latency by 70% on a production DeFi platform serving 19,000+ pools, and shipped a hackathon-winning World Chain MiniApp end-to-end in under 36 hours.",
   education: {
     school: "Cornell Tech, Cornell University",
     degree: "M.S. Computer & Information Sciences",
@@ -13,11 +13,11 @@ export const profile = {
     linkedin: "https://www.linkedin.com/in/yuxiang-ryan-jiang/",
     email: "yj548@cornell.edu",
   },
-  location: "New York, NY",
+  location: "New York, NY · Open to relocation",
   metrics: [
-    { label: "p99 latency", value: "-70%", color: "green" as const },
-    { label: "Peak RPS", value: "500+", color: "blue" as const },
-    { label: "DeFi pools", value: "19,000+", color: "amber" as const },
-    { label: "AI competition", value: "2x Gold", color: "rose" as const },
+    { label: "p99 latency reduction", value: "-70%", color: "green" as const },
+    { label: "peak RPS sustained", value: "500+", color: "blue" as const },
+    { label: "DeFi pools monitored", value: "19,000+", color: "amber" as const },
+    { label: "Huawei AI National Finals", value: "2x Gold", color: "rose" as const },
   ],
 };

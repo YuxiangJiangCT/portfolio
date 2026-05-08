@@ -17,18 +17,15 @@ const awards = [
     link: 'https://ethglobal.com/showcase/bounty-hunters-276vw',
   },
   {
-    event: 'ETHGlobal NYC 2025',
-    date: 'Aug 2025',
+    event: 'Columbia AI Startup Challenge',
+    date: 'Mar 2026',
     location: 'New York, NY',
-    prize: 'Worldcoin Prize Winner',
+    prize: 'Semifinalist',
     project: 'PolyPoll',
-    logo: '/images/ethglobal-logo.png',
     bullets: [
-      'Built a full-stack prediction market platform with AI-integrated backend',
-      'Multi-provider AI routing, Chrome extension, and smart contract integration',
-      'Competed against 1,000+ participants',
+      'Selected as semifinalist among AI startup applicants for the AI-integrated prediction market platform PolyPoll',
+      'Pitched product, technical architecture, and market thesis to a panel of industry judges',
     ],
-    link: 'https://ethglobal.com/showcase/polypoll-cewmr',
   },
   {
     event: 'Huawei Ascend AI National Finals',

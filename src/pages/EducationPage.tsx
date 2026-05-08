@@ -26,7 +26,7 @@ export default function EducationPage() {
             </li>
             <li className="text-base text-secondary flex items-start gap-2 leading-relaxed">
               <span className="text-border mt-px shrink-0">–</span>
-              <span>Coursework: Distributed Systems, Machine Learning, Applied Database Systems</span>
+              <span>Coursework: Distributed Systems · Machine Learning · Applied Database Systems · Cybersecurity (taught by Ari Juels, Chainlink Chief Scientist) · ML Applications in Business</span>
             </li>
           </ul>
         </div>

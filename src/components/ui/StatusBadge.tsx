@@ -4,7 +4,7 @@ const styleMap: Record<string, string> = {
   'System Design': 'text-violet-700 bg-violet-50',
   Research: 'text-amber-700 bg-amber-50',
   'Cornell Tech': 'text-red-700 bg-red-50',
-  'Co-founder CTO': 'text-indigo-700 bg-indigo-50',
+  'Founding Engineer': 'text-indigo-700 bg-indigo-50',
 };
 
 interface StatusBadgeProps {

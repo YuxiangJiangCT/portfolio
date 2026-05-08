@@ -21,13 +21,13 @@ export default function Overview() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
           </span>
-          Available for 2026 New Grad roles
+          Available for 2026 New Grad roles · Open to relocation
         </span>
       </div>
 
       {/* Title */}
       <h1 className="font-heading text-4xl sm:text-5xl font-bold text-primary leading-tight tracking-tight mb-5">
-        I build backend systems, APIs, and scalable infrastructure.
+        I build backend systems that hold up under load.
       </h1>
 
       {/* Bio */}
@@ -50,27 +50,30 @@ export default function Overview() {
       {/* About */}
       <div className="space-y-4 text-base text-secondary leading-relaxed mb-10">
         <p>
-          I'm a Software Engineer and Cornell Tech CS graduate (May 2026) who cares about building
-          systems that are reliable, fast, and production-ready. Most of my work has been in backend
-          architecture, API design, performance optimization, and integrating AI services into real
-          products.
+          I'm a backend engineer and Cornell Tech CS graduate (May 2026) who cares about building
+          systems that are fast, reliable, and ready for production. Most of my work has been in
+          backend architecture, API performance, and integrating AI services into real products that
+          ship — not demos.
         </p>
         <p>
           Before Cornell, I studied Internet of Things Engineering at Jinan University in China,
-          where I developed a strong foundation in embedded systems, sensor networks, and low-level
-          optimization. Winning two Gold Awards at the Huawei Ascend AI National Finals taught me how
-          to deliver under pressure and optimize for real hardware constraints.
+          where I built a foundation in embedded systems, sensor networks, and low-level
+          optimization. Two consecutive Gold Awards at the Huawei Ascend AI National Finals (top 30
+          of 1,500+ teams) taught me how to deliver under pressure and squeeze performance out of
+          constrained hardware.
         </p>
         <p>
-          At Cornell Tech, I serve as Director of Research for the Blockchain Club, where I lead
-          technical research initiatives and mentor members on smart contract development. I won the
-          Worldcoin Prize at ETHGlobal NYC 2025, building a full-stack prediction market with AI
-          routing and on-chain settlement in under 36 hours.
+          At Cornell Tech, I serve as Director of Research for the Blockchain Club, leading technical
+          research and mentoring members on smart contract development. At ETHGlobal Buenos Aires
+          2025, I won the World Pool Prize from World (formerly Worldcoin) for Bounty Hunters — a
+          Social-Fi MiniApp on World Chain shipped end-to-end in under 36 hours, with a Solidity
+          contract using Permit2 SignatureTransfer for gasless token flows.
         </p>
         <p>
-          I gravitate toward problems where system design choices directly impact user experience —
-          reducing latency, scaling throughput, designing clean APIs. I'm looking for backend or
-          full-stack roles where I can build infrastructure that real users depend on.
+          I gravitate toward problems where system design choices directly shape user experience:
+          cutting p99 latency, scaling throughput, designing APIs that don't surprise the people who
+          consume them. I'm looking for backend or infrastructure roles where the work compounds —
+          where what I build today actually runs in production tomorrow.
         </p>
       </div>
 

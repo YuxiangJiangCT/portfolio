@@ -6,7 +6,7 @@ export interface SkillGroup {
 export const skillGroups: SkillGroup[] = [
   {
     category: "Languages",
-    items: ["Python", "Java", "TypeScript", "JavaScript", "C++", "SQL", "Solidity"],
+    items: ["Python", "Java", "TypeScript", "JavaScript", "C++", "SQL", "Solidity (reading)"],
   },
   {
     category: "Backend",
@@ -14,18 +14,30 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     category: "Frontend",
-    items: ["React", "Vue.js", "Tailwind CSS", "Chrome Extension API"],
+    items: ["React", "TypeScript", "Tailwind CSS", "Chrome Extension API"],
   },
   {
     category: "Data & Storage",
     items: ["PostgreSQL", "Redis", "MySQL", "MongoDB", "Supabase"],
   },
   {
-    category: "Infrastructure",
+    category: "AI / LLM Infrastructure",
+    items: ["Groq", "OpenRouter", "Multi-provider routing", "Prompt engineering", "Exa", "Perplexity"],
+  },
+  {
+    category: "Infrastructure & DevOps",
     items: ["Docker", "AWS (EC2, CodePipeline)", "Nginx", "GitHub Actions", "CI/CD"],
   },
   {
+    category: "Observability & Testing",
+    items: ["Structured logging", "p95/p99 dashboards", "SLO-based alerting", "k6 load testing"],
+  },
+  {
+    category: "Web3",
+    items: ["viem", "Hardhat", "Base L2", "World Chain", "Permit2"],
+  },
+  {
     category: "Tools",
-    items: ["Git", "Linux", "k6", "Postman", "Streamlit", "Hardhat"],
+    items: ["Git", "Linux", "Postman", "Streamlit"],
   },
 ];
