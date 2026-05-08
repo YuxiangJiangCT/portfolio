@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1440" />
+    <title>linkr/ — analytics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0a0a0a;
+        --bg-2: #111110;
+        --ink: #f5efe7;
+        --ink-2: #c8c2b6;
+        --ink-3: #6f6a60;
+        --rule: #25241f;
+        --lime: #d9f36a;
+        --amber: #ff6b35;
+      }
+      * { box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: 'IBM Plex Mono', ui-monospace, monospace;
+        font-feature-settings: 'tnum' 1, 'ss01' 1;
+        -webkit-font-smoothing: antialiased;
+      }
+      .frame {
+        width: 1440px;
+        min-height: 900px;
+        padding: 36px 56px 48px;
+        position: relative;
+      }
+      /* faint film-grain */
+      .frame::before {
+        content: '';
+        position: absolute; inset: 0;
+        pointer-events: none;
+        background-image: radial-gradient(rgba(245,239,231,.025) 1px, transparent 1px);
+        background-size: 3px 3px;
+        opacity: .6;
+      }
+
+      /* TOP BAR */
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 13px;
+        letter-spacing: .02em;
+      }
+      .wordmark {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 0;
+        font-weight: 500;
+        font-size: 18px;
+        letter-spacing: -.01em;
+      }
+      .wordmark .slash { color: var(--lime); }
+      .nav {
+        color: var(--ink-2);
+        display: flex;
+        gap: 22px;
+      }
+      .nav .active { color: var(--ink); position: relative; }
+      .nav .active::after {
+        content: '';
+        position: absolute; left: 0; right: 0; bottom: -8px;
+        height: 1px; background: var(--lime);
+      }
+      .live {
+        display: inline-flex; align-items: center; gap: 8px;
+        color: var(--ink-2);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: .14em;
+      }
+      .live .dot {
+        width: 7px; height: 7px; border-radius: 50%;
+        background: var(--lime);
+        box-shadow: 0 0 0 0 rgba(217,243,106,.7);
+        animation: pulse 1.6s ease-out infinite;
+      }
+      @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(217,243,106,.55); }
+        100% { box-shadow: 0 0 0 10px rgba(217,243,106,0); }
+      }
+
+      .meta-strip {
+        margin-top: 28px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: var(--ink-3);
+        text-transform: uppercase;
+        letter-spacing: .22em;
+        padding-bottom: 14px;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      /* HERO GRID */
+      .hero {
+        margin-top: 36px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+        gap: 64px;
+      }
+      .hero-label {
+        font-size: 11px;
+        color: var(--ink-3);
+        text-transform: uppercase;
+        letter-spacing: .26em;
+        margin-bottom: 18px;
+      }
+
+      /* TERMINAL BLOCK */
+      .term {
+        background: var(--bg-2);
+        border: 1px solid var(--rule);
+        padding: 22px 24px 24px;
+      }
+      .term-row {
+        display: flex; align-items: baseline; gap: 12px;
+        font-size: 14px; line-height: 1.55;
+      }
+      .term-row .prompt { color: var(--lime); }
+      .term-row .cmd { color: var(--ink-2); }
+      .term-row .url { color: var(--ink); }
+      .caret {
+        display: inline-block;
+        width: 8px; height: 16px;
+        background: var(--ink);
+        margin-left: 2px; transform: translateY(2px);
+        animation: blink 1.05s steps(1) infinite;
+      }
+      @keyframes blink { 50% { opacity: 0; } }
+
+      .term-rule {
+        height: 1px; background: var(--rule);
+        margin: 18px -24px;
+      }
+
+      .live-link {
+        display: flex; align-items: baseline; justify-content: space-between;
+        gap: 24px;
+        font-size: 18px;
+        line-height: 1.3;
+      }
+      .live-link .short {
+        color: var(--ink);
+        text-decoration: underline;
+        text-decoration-color: var(--lime);
+        text-decoration-thickness: 2px;
+        text-underline-offset: 6px;
+      }
+      .live-link .arrow { color: var(--ink-3); }
+      .live-link .meta {
+        color: var(--ink-2);
+        font-size: 13px;
+      }
+      .live-link .meta b { color: var(--ink); font-weight: 500; }
+
+      .term-foot {
+        margin-top: 14px;
+        display: flex; justify-content: space-between;
+        font-size: 11px;
+        color: var(--ink-3);
+        text-transform: uppercase;
+        letter-spacing: .22em;
+      }
+
+      /* STAT BOARD */
+      .stat-board {}
+      .stat-headline {
+        font-family: 'Instrument Serif', serif;
+        font-weight: 400;
+        line-height: .95;
+        font-size: 168px;
+        letter-spacing: -.04em;
+        color: var(--ink);
+        margin: -6px 0 0;
+      }
+      .stat-headline em {
+        font-style: italic;
+        color: var(--ink-2);
+      }
+      .stat-headline .unit {
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 26px;
+        font-weight: 400;
+        letter-spacing: 0;
+        color: var(--ink-3);
+        vertical-align: top;
+        margin-left: 6px;
+        line-height: 1;
+      }
+      .stat-sub {
+        margin-top: 8px;
+        font-size: 12px;
+        color: var(--ink-3);
+        letter-spacing: .14em;
+        text-transform: uppercase;
+      }
+
+      .small-stats {
+        margin-top: 30px;
+        border-top: 1px solid var(--rule);
+        padding-top: 20px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4px;
+      }
+      .small-stats .cell {
+        padding-right: 18px;
+      }
+      .small-stats .label {
+        font-size: 11px;
+        color: var(--ink-3);
+        letter-spacing: .2em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+      .small-stats .v {
+        font-size: 28px;
+        color: var(--ink);
+        font-weight: 400;
+        letter-spacing: -.01em;
+      }
+      .small-stats .v .u { color: var(--ink-3); font-size: 14px; margin-left: 2px; }
+
+      /* BAR CHART */
+      .chart {
+        margin-top: 44px;
+        border-top: 1px solid var(--rule);
+        padding-top: 26px;
+      }
+      .chart-head {
+        display: flex; justify-content: space-between; align-items: baseline;
+        margin-bottom: 22px;
+      }
+      .chart-title {
+        font-size: 11px;
+        color: var(--ink-3);
+        text-transform: uppercase;
+        letter-spacing: .26em;
+      }
+      .chart-meta {
+        font-size: 12px;
+        color: var(--ink-2);
+      }
+      .chart-meta b { color: var(--ink); }
+      .bars {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 14px;
+        align-items: end;
+        height: 92px;
+      }
+      .bar {
+        background: var(--ink);
+        position: relative;
+      }
+      .bar.dim { background: var(--ink-3); }
+      .bar.hot { background: var(--lime); }
+      .bar-labels {
+        margin-top: 12px;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 14px;
+        font-size: 10px;
+        color: var(--ink-3);
+        letter-spacing: .3em;
+        text-transform: uppercase;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <!-- TOP BAR -->
+      <div class="topbar">
+        <div class="wordmark">linkr<span class="slash">/</span></div>
+        <div class="nav">
+          <span class="active">Dashboard</span>
+          <span>Links</span>
+          <span>Analytics</span>
+          <span>Settings</span>
+        </div>
+        <div class="live"><span class="dot"></span> live · region us-east-1</div>
+      </div>
+
+      <div class="meta-strip">
+        <span>v0.4.2 · build 9F2x</span>
+        <span>load 0.18 · uptime 99.97%</span>
+        <span>account · ryan@linkr.dev</span>
+      </div>
+
+      <!-- HERO -->
+      <div class="hero">
+        <!-- LEFT: TERMINAL -->
+        <div>
+          <div class="hero-label">// shortener</div>
+          <div class="term">
+            <div class="term-row">
+              <span class="prompt">$</span>
+              <span class="cmd">shorten</span>
+              <span class="url">https://stripe.com/blog/payment-method-rules-engine?ref=hn<span class="caret"></span></span>
+            </div>
+            <div class="term-rule"></div>
+            <div class="live-link">
+              <div>
+                <span class="short">linkr.dev/9F2x</span>
+                <span class="arrow"> → </span>
+                <span class="meta"><b>24,891</b> clicks · p95 <b>38ms</b></span>
+              </div>
+              <div class="meta">copy ⌘C</div>
+            </div>
+            <div class="term-foot">
+              <span>created 14:02:11 utc · cache HIT</span>
+              <span>nanoid · 8-char</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: STAT BOARD -->
+        <div class="stat-board">
+          <div class="hero-label">// throughput, sustained</div>
+          <div class="stat-headline">500<em>+</em><span class="unit">RPS</span></div>
+          <div class="stat-sub">10-min wrk soak · t3.medium · single node</div>
+
+          <div class="small-stats">
+            <div class="cell">
+              <div class="label">p95 latency</div>
+              <div class="v">38<span class="u">ms</span></div>
+            </div>
+            <div class="cell">
+              <div class="label">write i/o cut</div>
+              <div class="v">90<span class="u">%</span></div>
+            </div>
+            <div class="cell">
+              <div class="label">cache hit</div>
+              <div class="v">87<span class="u">%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BAR CHART -->
+      <div class="chart">
+        <div class="chart-head">
+          <div class="chart-title">// click activity · last 7 days</div>
+          <div class="chart-meta">total <b>168,402</b> · peak fri 14:00 utc</div>
+        </div>
+        <div class="bars">
+          <div class="bar dim" style="height: 38%"></div>
+          <div class="bar dim" style="height: 52%"></div>
+          <div class="bar" style="height: 64%"></div>
+          <div class="bar" style="height: 71%"></div>
+          <div class="bar hot" style="height: 100%"></div>
+          <div class="bar" style="height: 78%"></div>
+          <div class="bar dim" style="height: 46%"></div>
+        </div>
+        <div class="bar-labels">
+          <span>mon</span>
+          <span>tue</span>
+          <span>wed</span>
+          <span>thu</span>
+          <span>fri</span>
+          <span>sat</span>
+          <span>sun</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

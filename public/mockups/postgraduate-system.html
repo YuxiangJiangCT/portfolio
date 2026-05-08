@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1440" />
+    <title>暨南大学 · Postgraduate Recommendation System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #f7f2e7;
+        --paper-2: #efe8d6;
+        --ink: #1c1814;
+        --ink-2: #4a4239;
+        --ink-3: #8a8071;
+        --rule: #2b2520;
+        --rule-soft: #c8bfa8;
+        --burgundy: #7c1d1d;
+        --gold: #b08d2e;
+      }
+      * { box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: 'Manrope', system-ui, sans-serif;
+        font-feature-settings: 'tnum' 1, 'ss01' 1;
+        -webkit-font-smoothing: antialiased;
+      }
+      .frame {
+        width: 1440px;
+        min-height: 900px;
+        padding: 30px 64px 48px;
+        position: relative;
+      }
+      /* subtle paper grain */
+      .frame::before {
+        content: '';
+        position: absolute; inset: 0;
+        pointer-events: none;
+        background-image:
+          radial-gradient(rgba(28,24,20,.025) 1px, transparent 1px);
+        background-size: 4px 4px;
+        opacity: .8;
+      }
+
+      /* CREST BAND */
+      .crest {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        padding-bottom: 12px;
+      }
+      .wordmark {
+        display: flex; align-items: baseline; gap: 14px;
+      }
+      .wordmark .cn {
+        font-family: 'Fraunces', serif;
+        font-weight: 500;
+        font-size: 26px;
+        letter-spacing: .04em;
+        color: var(--burgundy);
+      }
+      .wordmark .sep {
+        color: var(--rule-soft);
+        font-size: 22px;
+        font-weight: 300;
+      }
+      .wordmark .en {
+        font-family: 'Fraunces', serif;
+        font-style: italic;
+        font-weight: 400;
+        font-size: 22px;
+        color: var(--ink);
+      }
+      .system-label {
+        font-family: 'Manrope', sans-serif;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: .32em;
+        color: var(--ink-3);
+      }
+      .gold-rule {
+        height: 1px;
+        background: var(--gold);
+        margin-top: 14px;
+      }
+      .gold-rule.thin {
+        opacity: .6;
+      }
+      .meta-strip {
+        margin-top: 14px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: var(--ink-3);
+        text-transform: uppercase;
+        letter-spacing: .26em;
+      }
+
+      /* MAIN GRID */
+      .main {
+        margin-top: 38px;
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 64px;
+      }
+
+      /* LEFT NAV */
+      .rail {
+        font-size: 12px;
+      }
+      .rail .term-label {
+        font-size: 10px;
+        letter-spacing: .3em;
+        text-transform: uppercase;
+        color: var(--ink-3);
+        margin-bottom: 10px;
+      }
+      .rail .term-value {
+        font-family: 'Fraunces', serif;
+        font-weight: 400;
+        font-size: 17px;
+        color: var(--ink);
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--rule-soft);
+      }
+      .rail .term-value em {
+        font-style: italic;
+        color: var(--burgundy);
+      }
+      .rail nav {
+        margin-top: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .rail nav a {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 6px 0;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: .26em;
+        color: var(--ink-2);
+        text-decoration: none;
+      }
+      .rail nav a .count {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--ink-3);
+        letter-spacing: 0;
+      }
+      .rail nav a.active {
+        color: var(--burgundy);
+        position: relative;
+      }
+      .rail nav a.active::before {
+        content: '';
+        position: absolute; left: -16px; top: 50%;
+        width: 8px; height: 1px; background: var(--burgundy);
+      }
+      .rail nav a.active .count { color: var(--burgundy); }
+
+      .rail .footnote {
+        margin-top: 36px;
+        padding-top: 20px;
+        border-top: 1px solid var(--rule-soft);
+        font-family: 'Fraunces', serif;
+        font-style: italic;
+        font-size: 12px;
+        line-height: 1.55;
+        color: var(--ink-3);
+      }
+
+      /* MAIN COLUMN */
+      .col h1 {
+        font-family: 'Fraunces', serif;
+        font-weight: 400;
+        font-size: 56px;
+        line-height: 1.02;
+        letter-spacing: -.015em;
+        margin: -8px 0 14px;
+        color: var(--ink);
+      }
+      .col h1 em {
+        font-style: italic;
+        color: var(--burgundy);
+        font-weight: 400;
+      }
+      .subline {
+        font-size: 13px;
+        color: var(--ink-3);
+        letter-spacing: .04em;
+      }
+      .subline b {
+        color: var(--ink-2);
+        font-weight: 500;
+      }
+
+      /* KPI strip */
+      .kpis {
+        margin-top: 28px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border-top: 1px solid var(--rule-soft);
+        border-bottom: 1px solid var(--rule-soft);
+      }
+      .kpis .cell {
+        padding: 18px 22px 18px 0;
+        border-right: 1px solid var(--rule-soft);
+      }
+      .kpis .cell:last-child { border-right: 0; padding-right: 0; }
+      .kpis .label {
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: .28em;
+        color: var(--ink-3);
+        margin-bottom: 10px;
+      }
+      .kpis .v {
+        font-family: 'Fraunces', serif;
+        font-size: 36px;
+        font-weight: 400;
+        line-height: 1;
+        color: var(--ink);
+        letter-spacing: -.01em;
+      }
+      .kpis .v em {
+        font-style: italic;
+        color: var(--burgundy);
+      }
+      .kpis .v .u {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 14px;
+        color: var(--ink-3);
+        margin-left: 4px;
+      }
+
+      /* TABLE */
+      .table-head {
+        margin-top: 36px;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+      }
+      .table-title {
+        font-family: 'Fraunces', serif;
+        font-style: italic;
+        font-size: 20px;
+        color: var(--ink);
+      }
+      .table-meta {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: .26em;
+        color: var(--ink-3);
+      }
+      table.register {
+        width: 100%;
+        margin-top: 14px;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+      table.register thead th {
+        text-align: left;
+        font-family: 'Manrope', sans-serif;
+        font-weight: 500;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: .28em;
+        color: var(--ink-3);
+        padding: 14px 10px 10px 0;
+        border-bottom: 1px solid var(--rule);
+      }
+      table.register thead th.num,
+      table.register tbody td.num {
+        text-align: right;
+        padding-right: 22px;
+      }
+      table.register tbody td {
+        padding: 16px 10px 16px 0;
+        border-bottom: 1px solid var(--rule-soft);
+        vertical-align: baseline;
+      }
+      table.register tbody tr:last-child td { border-bottom: 1px solid var(--rule); }
+      .student-name {
+        font-family: 'Fraunces', serif;
+        font-size: 17px;
+        font-weight: 400;
+        color: var(--ink);
+        letter-spacing: -.005em;
+      }
+      .student-id {
+        display: block;
+        margin-top: 2px;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 11px;
+        color: var(--ink-3);
+        letter-spacing: .04em;
+      }
+      td.gpa, td.date {
+        font-family: 'JetBrains Mono', monospace;
+        font-variant-numeric: tabular-nums;
+        font-size: 14px;
+        color: var(--ink);
+      }
+      td.major {
+        color: var(--ink-2);
+      }
+      .status {
+        font-family: 'Fraunces', serif;
+        font-style: italic;
+        font-size: 14px;
+      }
+      .status.pending { color: var(--ink-2); }
+      .status.review { color: var(--burgundy); }
+      .status.submitted { color: var(--ink-3); }
+      .review-link {
+        font-family: 'Manrope', sans-serif;
+        font-size: 11px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: .26em;
+        color: var(--burgundy);
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        text-decoration-thickness: 1px;
+      }
+
+      .audit {
+        margin-top: 28px;
+        padding-top: 16px;
+        border-top: 1px dashed var(--rule-soft);
+        display: flex;
+        justify-content: space-between;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: .3em;
+        color: var(--ink-3);
+      }
+      .audit em {
+        font-family: 'Fraunces', serif;
+        font-style: italic;
+        text-transform: none;
+        letter-spacing: 0;
+        font-size: 12px;
+        color: var(--ink-2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <!-- CREST BAND -->
+      <div class="crest">
+        <div class="wordmark">
+          <span class="cn">暨南大学</span>
+          <span class="sep">·</span>
+          <span class="en">Jinan University</span>
+        </div>
+        <div class="system-label">Postgraduate · Recommendation System</div>
+      </div>
+      <div class="gold-rule"></div>
+      <div class="meta-strip">
+        <span>signed in · prof. wang, school of information science</span>
+        <span>session 24a · last sync 09:42 cst</span>
+        <span>est. 1906</span>
+      </div>
+
+      <div class="main">
+        <!-- LEFT RAIL -->
+        <aside class="rail">
+          <div class="term-label">term</div>
+          <div class="term-value">2024 <em>Autumn</em></div>
+
+          <nav>
+            <a class="active" href="#"><span>Applications</span><span class="count">12</span></a>
+            <a href="#"><span>Evaluations</span><span class="count">04</span></a>
+            <a href="#"><span>Audit Log</span><span class="count">—</span></a>
+            <a href="#"><span>Reports</span><span class="count">02</span></a>
+            <a href="#"><span>Settings</span><span class="count"></span></a>
+          </nav>
+
+          <div class="footnote">
+            "All evaluations are immutable once submitted. The audit log retains every action by faculty, students, and administrators."
+          </div>
+        </aside>
+
+        <!-- MAIN -->
+        <div class="col">
+          <h1>Pending <em>Applications</em></h1>
+          <div class="subline">
+            <b>12</b> awaiting your evaluation · 500+ faculty &amp; students on platform · ~120ms avg page load
+          </div>
+
+          <!-- KPI STRIP -->
+          <div class="kpis">
+            <div class="cell">
+              <div class="label">awaiting review</div>
+              <div class="v">12</div>
+            </div>
+            <div class="cell">
+              <div class="label">approved · this term</div>
+              <div class="v">38</div>
+            </div>
+            <div class="cell">
+              <div class="label">avg page load</div>
+              <div class="v">120<span class="u">ms</span></div>
+            </div>
+            <div class="cell">
+              <div class="label">submission success</div>
+              <div class="v">99<em>%</em></div>
+            </div>
+          </div>
+
+          <!-- TABLE -->
+          <div class="table-head">
+            <div class="table-title">Register of pending applications</div>
+            <div class="table-meta">register no. 24a-pgr-0412</div>
+          </div>
+          <table class="register">
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th class="num">GPA</th>
+                <th>Major</th>
+                <th class="num">Submitted</th>
+                <th>Status</th>
+                <th class="num">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <span class="student-name">Li Wei</span>
+                  <span class="student-id">2021100214 · undergrad</span>
+                </td>
+                <td class="num gpa">3.86</td>
+                <td class="major">Computer Science</td>
+                <td class="num date">2024-10-08 · 14:21</td>
+                <td><span class="status pending">pending</span></td>
+                <td class="num"><a class="review-link" href="#">review →</a></td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="student-name">Chen Xiaoyu</span>
+                  <span class="student-id">2021100377 · undergrad</span>
+                </td>
+                <td class="num gpa">3.92</td>
+                <td class="major">Software Engineering</td>
+                <td class="num date">2024-10-08 · 16:04</td>
+                <td><span class="status review">in review</span></td>
+                <td class="num"><a class="review-link" href="#">review →</a></td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="student-name">Zhang Hao</span>
+                  <span class="student-id">2021100412 · undergrad</span>
+                </td>
+                <td class="num gpa">3.71</td>
+                <td class="major">Information Management</td>
+                <td class="num date">2024-10-09 · 09:18</td>
+                <td><span class="status pending">pending</span></td>
+                <td class="num"><a class="review-link" href="#">review →</a></td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="student-name">Wang Mengqi</span>
+                  <span class="student-id">2021100501 · undergrad</span>
+                </td>
+                <td class="num gpa">3.84</td>
+                <td class="major">Computer Science</td>
+                <td class="num date">2024-10-09 · 11:02</td>
+                <td><span class="status submitted">submitted</span></td>
+                <td class="num"><a class="review-link" href="#">view →</a></td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="student-name">Liu Yifan</span>
+                  <span class="student-id">2021100629 · undergrad</span>
+                </td>
+                <td class="num gpa">3.65</td>
+                <td class="major">Software Engineering</td>
+                <td class="num date">2024-10-09 · 15:47</td>
+                <td><span class="status pending">pending</span></td>
+                <td class="num"><a class="review-link" href="#">review →</a></td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="student-name">Zhao Tianyi</span>
+                  <span class="student-id">2021100748 · undergrad</span>
+                </td>
+                <td class="num gpa">3.79</td>
+                <td class="major">Information Management</td>
+                <td class="num date">2024-10-10 · 10:33</td>
+                <td><span class="status review">in review</span></td>
+                <td class="num"><a class="review-link" href="#">review →</a></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="audit">
+            <span>audit · all evaluations are timestamped and immutable</span>
+            <em>fictional sample data · no real student PII</em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

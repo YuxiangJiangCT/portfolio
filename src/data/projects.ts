@@ -180,6 +180,7 @@ export const projects: Project[] = [
     id: "url-shortener",
     title: "Scalable URL Shortener & Analytics",
     status: ["System Design"],
+    image: "/images/url-shortener-app.png",
     oneLiner:
       "High-throughput URL shortening service with real-time analytics, designed for 500+ RPS with sub-50ms latency.",
     highlights: [
@@ -225,6 +226,7 @@ export const projects: Project[] = [
     id: "postgraduate-system",
     title: "Postgraduate Recommendation & Evaluation System",
     status: ["Production", "Jinan University"],
+    image: "/images/postgraduate-system-app.png",
     oneLiner:
       "End-to-end web platform that automated the postgraduate recommendation workflow for 500+ faculty and students at Jinan University, eliminating ~90% of paper and email steps.",
     highlights: [
