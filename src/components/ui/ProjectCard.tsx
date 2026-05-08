@@ -13,6 +13,21 @@ interface ProjectCardProps {
 export default function ProjectCard({ project }: ProjectCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
+  const primaryLink =
+    project.links.demo || project.links.showcase || project.links.github;
+
+  const imageContainerClass = `overflow-hidden rounded-t-lg bg-white flex items-center justify-center transition-all duration-300 ${
+    isExpanded ? 'h-72' : 'h-56'
+  }`;
+
+  const imageEl = project.image && (
+    <img
+      src={asset(project.image)}
+      alt={project.title}
+      className="max-h-full max-w-full object-contain"
+    />
+  );
+
   return (
     <div
       className={`rounded-lg border border-border bg-white shadow-sm transition-all duration-300 ease-in-out ${
@@ -22,19 +37,21 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       }`}
       style={{ order: isExpanded ? -1 : 0 }}
     >
-      {/* Preview image */}
+      {/* Preview image — clickable when project has a link */}
       {project.image && (
-        <div
-          className={`overflow-hidden rounded-t-lg bg-white flex items-center justify-center transition-all duration-300 ${
-            isExpanded ? 'h-72' : 'h-56'
-          }`}
-        >
-          <img
-            src={asset(project.image)}
-            alt={project.title}
-            className="max-h-full max-w-full object-contain"
-          />
-        </div>
+        primaryLink ? (
+          <a
+            href={primaryLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${imageContainerClass} block hover:opacity-90 cursor-pointer`}
+            aria-label={`Open ${project.title}`}
+          >
+            {imageEl}
+          </a>
+        ) : (
+          <div className={imageContainerClass}>{imageEl}</div>
+        )
       )}
 
       <div className="p-6">

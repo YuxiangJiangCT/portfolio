@@ -344,6 +344,7 @@ export const projects: Project[] = [
     title: "DarkRFQ — Encrypted On-Chain RFQ Execution",
     status: ["Hackathon"],
     category: "hackathon",
+    image: "/images/darkrfq-app.png",
     oneLiner:
       "RFQ execution with Fully Homomorphic Encryption — bids stay encrypted on-chain throughout the matching process.",
     highlights: [
