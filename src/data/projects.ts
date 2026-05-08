@@ -266,6 +266,7 @@ export const projects: Project[] = [
     id: "oracle-settler",
     title: "oracle-settler — Dual-Source Oracle Settlement",
     status: ["Hackathon", "Live Demo"],
+    image: "/images/oracle-settler-app.png",
     category: "hackathon",
     oneLiner:
       "Decentralized prediction market with dual-source oracle verification and AI-driven arbitration; 84 test cases.",
