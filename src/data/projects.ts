@@ -371,6 +371,7 @@ export const projects: Project[] = [
     ],
     links: {
       github: "https://github.com/YuxiangJiangCT/DarkRFQ",
+      demo: "https://dark-rfq.vercel.app",
     },
   },
 ];
