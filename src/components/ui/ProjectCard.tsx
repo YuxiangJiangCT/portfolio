@@ -25,14 +25,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       {/* Preview image */}
       {project.image && (
         <div
-          className={`overflow-hidden rounded-t-lg bg-gray-50 flex items-center justify-center transition-all duration-300 ${
-            isExpanded ? 'h-64' : 'h-40'
+          className={`overflow-hidden rounded-t-lg bg-white flex items-center justify-center transition-all duration-300 ${
+            isExpanded ? 'h-72' : 'h-56'
           }`}
         >
           <img
             src={asset(project.image)}
             alt={project.title}
-            className="max-h-full max-w-full object-contain p-4"
+            className="max-h-full max-w-full object-contain"
           />
         </div>
       )}
