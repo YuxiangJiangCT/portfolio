@@ -1,3 +1,5 @@
+import { asset } from '../lib/asset';
+
 export default function EducationPage() {
   return (
     <div>
@@ -8,11 +10,11 @@ export default function EducationPage() {
         {/* Cornell Tech */}
         <div className="bg-white rounded-lg border border-border shadow-sm p-6">
           <div className="flex items-start gap-4 mb-4">
-            <img src="/images/cornell-logo.png" alt="Cornell University" className="w-14 h-14 object-contain shrink-0 rounded-lg" />
+            <img src={asset('/images/cornell-logo.png')} alt="Cornell University" className="w-14 h-14 object-contain shrink-0 rounded-lg" />
             <div className="flex-1">
               <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
                 <h3 className="font-heading text-xl font-bold text-primary">Cornell Tech, Cornell University</h3>
-                <span className="text-sm text-muted tabular-nums">Aug 2025 – May 2026</span>
+                <span className="text-sm text-muted tabular-nums">Aug 2024 – May 2026</span>
               </div>
               <p className="text-base text-muted">M.S. Computer & Information Sciences · New York, NY</p>
             </div>
@@ -32,7 +34,7 @@ export default function EducationPage() {
         {/* Jinan University */}
         <div className="bg-white rounded-lg border border-border shadow-sm p-6">
           <div className="flex items-start gap-4 mb-4">
-            <img src="/images/Jinan_University_Emblem.svg.png" alt="Jinan University" className="w-14 h-14 object-contain shrink-0 rounded-lg" />
+            <img src={asset('/images/Jinan_University_Emblem.svg.png')} alt="Jinan University" className="w-14 h-14 object-contain shrink-0 rounded-lg" />
             <div className="flex-1">
               <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
                 <h3 className="font-heading text-xl font-bold text-primary">Jinan University</h3>

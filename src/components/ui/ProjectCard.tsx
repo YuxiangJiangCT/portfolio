@@ -4,6 +4,7 @@ import StatusBadge from './StatusBadge';
 import TechTag from './TechTag';
 import ArchitectureDiagram from './ArchitectureDiagram';
 import type { Project } from '../../data/projects';
+import { asset } from '../../lib/asset';
 
 interface ProjectCardProps {
   project: Project;
@@ -29,7 +30,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           }`}
         >
           <img
-            src={project.image}
+            src={asset(project.image)}
             alt={project.title}
             className="max-h-full max-w-full object-contain p-4"
           />

@@ -22,6 +22,66 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "bounty-hunters",
+    title: "Bounty Hunters — Social-Fi on World Chain",
+    status: ["ETHGlobal Buenos Aires", "🏆 World Pool Prize"],
+    image: "/images/bounties-fun-app.png",
+    oneLiner:
+      "Hackathon-winning social-fi MiniApp where verified humans (via World ID) earn WLD/USDC for amplifying brand campaigns on social media — gasless on-chain payouts via Permit2.",
+    highlights: [
+      "Won the World Pool Prize at ETHGlobal Buenos Aires (sponsor: World, formerly Worldcoin)",
+      "Implemented Permit2 SignatureTransfer to enable gasless, approval-free token transfers — works around World App's blocked approve() calls",
+      "Native World App MiniApp UX via @worldcoin/minikit-js (wallet auth, World ID verification, in-app transaction signing — zero external popups)",
+      "Custom blockchain event listener with viem for source-of-truth earnings dashboard pulling BountyPayout events directly from World Chain",
+    ],
+    techStack: [
+      "Solidity",
+      "Hardhat",
+      "Permit2",
+      "World Chain",
+      "World ID",
+      "MiniKit",
+      "React",
+      "TypeScript",
+      "Vite",
+      "FastAPI",
+      "Supabase",
+      "viem",
+    ],
+    overview:
+      "A full-stack social-fi MiniApp on World Chain that pays verified humans (via World ID) to amplify brand campaigns on social media. Brands fund bounties on-chain in WLD or USDC; participants complete tasks (e.g., posting on X with required hashtags), submit proof, and receive instant crypto payouts.",
+    context:
+      "Built and submitted at ETHGlobal Buenos Aires, where it won the World Pool Prize from sponsor World (the team behind World ID, formerly Worldcoin). The core challenge: build a Web3 UX that feels native inside the World App, where standard ERC20 approve() calls are blocked for security reasons. Required rethinking the entire token-transfer flow.",
+    whatIBuilt: [
+      "Solidity bounty contract on World Chain using Permit2 SignatureTransfer for gasless, approval-free token transfers",
+      "Deep integration with @worldcoin/minikit-js: wallet auth, World ID verification, in-app transaction signing",
+      "FastAPI backend that scrapes and validates submission tweets against bounty requirements (hashtags, mentions, follower-based reward multipliers)",
+      "Supabase real-time database with RLS policies, accessed directly from MiniApp without unnecessary API middleware",
+      "Custom blockchain event listener using viem to query BountyPayout events from World Chain, powering a source-of-truth earnings dashboard",
+      "Comprehensive Hardhat test suite (BountyModulePermit2.t.sol) covering Permit2 signature validation, multi-token support, fee calculations, reentrancy protection",
+    ],
+    keyDecisions: [
+      "Permit2 SignatureTransfer over standard approve+transferFrom — World App blocks approve() calls; Permit2 enables one-click flows without prior approvals",
+      "Dual-deadline split (Permit2 sig: 1h max per World App limits; bounty deadline: up to 7 days) — preserves UX for long campaigns while respecting platform constraints",
+      "UUID ↔ bytes32 encoding bridge — Supabase uses UUIDs, on-chain uses bytes32; custom encoders bridge the systems without losing identity",
+      "Direct Supabase access from MiniApp via RLS — eliminates API middleware layer, reduces latency and infra surface",
+    ],
+    challenges: [
+      "Working around World App's blocked approve() calls without breaking standard ERC20 token flows — solved with Permit2 SignatureTransfer and World App's auto-injected signature pattern",
+      "Bridging off-chain Twitter validation with on-chain payout settlement, including reward multipliers based on follower counts (1x to 3x)",
+      "Synchronizing a 1-hour Permit2 signature window with multi-day bounty durations without compromising security",
+    ],
+    results: [
+      "🏆 World Pool Prize at ETHGlobal Buenos Aires",
+      "Total build: 3000+ lines TypeScript, 500+ lines Solidity, 400+ lines Python",
+      "End-to-end gasless token flow — zero approve() calls, single-transaction bounty creation",
+      "Native World App MiniApp UX with no external wallet popups",
+    ],
+    links: {
+      showcase: "https://ethglobal.com/showcase/bounty-hunters-276vw",
+    },
+  },
+  {
     id: "dataman",
     title: "Dataman Analytics — Platform Optimization",
     status: ["Internship", "Production"],
@@ -164,6 +224,47 @@ export const projects: Project[] = [
     links: {
       github: "https://github.com/YuxiangJiangCT/url-shortener",
     },
+  },
+  {
+    id: "postgraduate-system",
+    title: "Postgraduate Recommendation & Evaluation System",
+    status: ["Production", "Jinan University"],
+    oneLiner:
+      "End-to-end web platform that automated the postgraduate recommendation workflow for 500+ faculty and students at Jinan University, eliminating ~90% of paper and email steps.",
+    highlights: [
+      "Cut average page load from ~400ms to ~120ms (-70%) via Redis cache-aside layer and MyBatis query optimization",
+      "Automated workflow for 500+ faculty and students, eliminating ~90% of paper and email steps",
+      "Achieved 99% form-submission success with zero-downtime CI/CD on AWS EC2 + AWS CodePipeline",
+    ],
+    techStack: ["Spring Boot", "React", "MyBatis", "MySQL", "Redis", "AWS EC2", "CodePipeline"],
+    overview:
+      "Designed and built a production web platform to digitize the postgraduate recommendation workflow at Jinan University, replacing paper forms and email chains with a single auditable system used by 500+ faculty and students.",
+    context:
+      "Jinan University's existing postgraduate recommendation process relied on paper forms, emails, and manual coordination across faculty and students. The workflow was slow, error-prone, and difficult to audit. I built a production system to digitize the entire process end-to-end.",
+    whatIBuilt: [
+      "Spring Boot + MyBatis backend with role-based access control for faculty, students, and admins",
+      "React frontend covering the full recommendation workflow: applications, evaluations, approvals, and audit trails",
+      "Redis cache-aside layer for hot read paths (faculty dashboards, evaluation lookups)",
+      "MyBatis query optimization to eliminate N+1 patterns in evaluation aggregation",
+      "Containerized deployment on AWS EC2 with AWS CodePipeline for zero-downtime releases",
+    ],
+    keyDecisions: [
+      "Cache-aside over write-through Redis — read-heavy workload (faculty browsing applications) tolerates slightly stale data",
+      "MyBatis over JPA — finer SQL control was needed to optimize the evaluation aggregation queries",
+      "AWS CodePipeline over manual deploys — small ops team needed automated zero-downtime releases",
+    ],
+    challenges: [
+      "Optimizing N+1 query patterns in the evaluation aggregation logic without rewriting the whole data model",
+      "Designing role-based access for a multi-stakeholder workflow (students, faculty, admins) while keeping the audit trail simple",
+    ],
+    results: [
+      "Average page load: ~400ms → ~120ms (-70%)",
+      "500+ faculty and students onboarded onto a single system",
+      "~90% reduction in paper and email steps",
+      "99% form-submission success rate",
+      "Zero-downtime deploys via AWS CodePipeline",
+    ],
+    links: {},
   },
 ];
 

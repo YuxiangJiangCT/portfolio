@@ -1,9 +1,24 @@
 import { ExternalLink } from 'lucide-react';
+import { asset } from '../lib/asset';
 
 const awards = [
   {
+    event: 'ETHGlobal Buenos Aires',
+    date: 'Nov 2025',
+    location: 'Buenos Aires, Argentina',
+    prize: 'World Pool Prize Winner',
+    project: 'Bounty Hunters',
+    logo: '/images/ethglobal-logo.png',
+    bullets: [
+      'Built a Social-Fi MiniApp on World Chain where verified humans earn WLD/USDC for amplifying brand campaigns',
+      'Implemented Permit2 SignatureTransfer for gasless, approval-free token transfers (working around World App platform constraints)',
+      'Won the World Pool Prize from sponsor World (formerly Worldcoin)',
+    ],
+    link: 'https://ethglobal.com/showcase/bounty-hunters-276vw',
+  },
+  {
     event: 'ETHGlobal NYC 2025',
-    date: 'Apr 2025',
+    date: 'Aug 2025',
     location: 'New York, NY',
     prize: 'Worldcoin Prize Winner',
     project: 'PolyPoll',
@@ -40,7 +55,7 @@ export default function AwardsPage() {
           <div key={award.event} className="bg-white rounded-lg border border-border shadow-sm p-6">
             <div className="flex items-start gap-4 mb-4">
               {award.logo && (
-                <img src={award.logo} alt={award.event} className="w-14 h-14 object-contain shrink-0 rounded-lg" />
+                <img src={asset(award.logo)} alt={award.event} className="w-14 h-14 object-contain shrink-0 rounded-lg" />
               )}
               <div className="flex-1">
                 <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">

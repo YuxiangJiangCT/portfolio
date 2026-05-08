@@ -20,7 +20,7 @@
   }
 
   ::selection {
-    background-color: rgba(37, 99, 235, 0.12);
+    background-color: rgba(55, 48, 163, 0.12);
   }
 }
 
@@ -44,5 +44,5 @@
 .card-lift:hover {
   transform: translateY(-3px);
   box-shadow: 0 16px 48px -12px rgba(0, 0, 0, 0.1);
-  border-color: #2563EB;
+  border-color: #3730A3;
 }

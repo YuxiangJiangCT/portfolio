@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Github, Linkedin, Mail, Menu, X, Download, MapPin } from 'lucide-react';
 import { profile } from '../../data/profile';
+import { asset } from '../../lib/asset';
 
 const navItems = [
   { label: 'Overview', path: '/' },
@@ -21,7 +22,7 @@ export default function Sidebar() {
       {/* Avatar + Identity */}
       <div className="text-center mb-8">
         <img
-          src="/images/avatar.jpg"
+          src={asset('/images/avatar.jpg')}
           alt={profile.name}
           className="w-32 h-32 rounded-full mx-auto mb-4 border-2 border-gray-200 shadow-lg object-cover"
         />
@@ -35,7 +36,7 @@ export default function Sidebar() {
       <div className="text-center mb-6 text-sm text-muted leading-relaxed">
         <p className="text-primary font-medium">Cornell Tech</p>
         <p>M.S. Computer Science</p>
-        <p>Expected May 2026</p>
+        <p>Aug 2024 – May 2026</p>
       </div>
 
       {/* Social icons */}
@@ -95,7 +96,7 @@ export default function Sidebar() {
 
       {/* Resume download */}
       <a
-        href="/Ryan_Resume.pdf"
+        href={asset('/Ryan_Resume.pdf')}
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center justify-center gap-2 text-sm font-medium text-muted hover:text-primary transition-colors mt-8 cursor-pointer"

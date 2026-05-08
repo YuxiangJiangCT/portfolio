@@ -1,4 +1,5 @@
 import { Download, FileText } from 'lucide-react';
+import { asset } from '../lib/asset';
 
 export default function ResumePage() {
   return (
@@ -18,7 +19,7 @@ export default function ResumePage() {
             </div>
           </div>
           <a
-            href="/Ryan_Resume.pdf"
+            href={asset('/Ryan_Resume.pdf')}
             download
             className="inline-flex items-center gap-2 px-6 py-3 bg-white text-accent font-semibold rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-all"
           >
@@ -35,7 +36,7 @@ export default function ResumePage() {
         </div>
         <div className="p-4">
           <iframe
-            src="/Ryan_Resume.pdf"
+            src={asset('/Ryan_Resume.pdf')}
             title="Resume Preview"
             className="w-full border-0 rounded-lg"
             style={{ height: '800px' }}
@@ -47,7 +48,7 @@ export default function ResumePage() {
       <p className="text-center text-muted text-sm mt-6">
         Can't view the PDF?{' '}
         <a
-          href="/Ryan_Resume.pdf"
+          href={asset('/Ryan_Resume.pdf')}
           download
           className="text-accent underline font-medium hover:text-accent/80 transition-colors"
         >

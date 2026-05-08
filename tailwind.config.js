@@ -11,7 +11,7 @@ export default {
         secondary: '#3F3F46',
         surface: '#FAFAFA',
         card: '#FFFFFF',
-        accent: '#2563EB',
+        accent: '#3730A3',
         'accent-green': '#059669',
         'accent-amber': '#D97706',
         'accent-rose': '#E11D48',
