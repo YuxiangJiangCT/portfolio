@@ -306,6 +306,7 @@ export const projects: Project[] = [
     id: "shadow-bet",
     title: "shadow-bet — Private Prediction Markets with ZK",
     status: ["Hackathon", "Live Demo"],
+    image: "/images/shadow-bet-app.png",
     category: "hackathon",
     oneLiner:
       "Private prediction markets where participant identities are concealed via zero-knowledge proofs.",
